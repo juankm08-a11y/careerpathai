@@ -12,6 +12,8 @@ class CareerController extends GetxController {
   final RxList<CareerEntity> careers = <CareerEntity>[].obs;
   final RxBool loading = false.obs;
 
+  final RxString aiRecommendations = ''.obs;
+
   @override
   void onInit() {
     super.onInit();
@@ -30,5 +32,9 @@ class CareerController extends GetxController {
     final recs = await _repo.recommendForProfile(profile);
     careers.assignAll(recs);
     loading.value = false;
+  }
+
+  void setAIRecommendations(String text) {
+    aiRecommendations.value = text;
   }
 }

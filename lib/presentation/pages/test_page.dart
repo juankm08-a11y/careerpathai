@@ -1,3 +1,4 @@
+import 'package:careerpathai/services/gemini_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../presentation/controllers/career_controller.dart';
@@ -59,7 +60,7 @@ class _TestPageState extends State<TestPage> {
     }
   }
 
-  void _submit() {
+  Future<void> _submit() async {
     final ctrl = Get.find<CareerController>();
     profile['interests'] = interestsCtrl.text
         .split(',')
@@ -76,7 +77,9 @@ class _TestPageState extends State<TestPage> {
     profile['personality'] = personalityCtrl.text.trim();
     profile['favoriteSubjects'] = subjectsCtrl.text.trim();
 
-    ctrl.getRecommendations(profile);
+    final aiResponse = await GeminiService.getCareerRecommendations(profile);
+
+    ctrl.setAIRecommendations(aiResponse);
     Get.toNamed('/career_recommendations');
   }
 

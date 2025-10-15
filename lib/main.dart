@@ -8,9 +8,13 @@ import './core/config/supabase_config.dart';
 import './presentation/pages/login_page.dart';
 import 'package:get/get.dart';
 import './presentation/controllers/career_controller.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  await dotenv.load(fileName: "env");
+
   await SupabaseConfig.initialize();
 
   Get.put(CareerController());

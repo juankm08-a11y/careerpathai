@@ -38,6 +38,7 @@ dependencies:
   supabase_flutter: ^2.10.3
   get: ^4.7.2
   flutter_launcher_icons: ^0.14.4
+  google_generative_ai: ^0.4.7
 
 dev_dependencies:
   flutter_test:
