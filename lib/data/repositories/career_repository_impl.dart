@@ -50,16 +50,46 @@ class CareerRepositoryImpl implements CareerRepository {
       final all = await getAllCareers();
       final interests = (profile['interests'] as List? ?? []).cast<String>();
       final skills = (profile['skills'] as List? ?? []).cast<String>();
-
+      final personality = (profile['personality'] ?? '')
+          .toString()
+          .toLowerCase();
+      final favoriteSubjects = (profile['favoriteSubjects'] ?? '')
+          .toString()
+          .toLowerCase();
       List<CareerEntity> scored = all.map((c) {
-        final matchInterests =
-            c.title.toLowerCase().contains(interests.join(' ').toLowerCase())
+        final title = c.title.toLowerCase();
+        final description = c.description.toLowerCase();
+
+        final matchInterests = interests
+            .where(
+              (i) =>
+                  title.contains(i.toLowerCase()) ||
+                  description.contains(i.toLowerCase()),
+            )
+            .length;
+        final skillMatch = c.skills
+            .where(
+              (s) =>
+                  skills.map((e) => e.toLowerCase()).contains(s.toLowerCase()),
+            )
+            .length
+            .toDouble();
+
+        final personalityMatch =
+            personality.isNotEmpty && description.contains(personality)
             ? 1.0
             : 0.0;
-        final skillMatch = c.skills.where((s) => skills.contains(s)).length;
+        final subjectMatch =
+            favoriteSubjects.isNotEmpty &&
+                description.contains(favoriteSubjects)
+            ? 1.0
+            : 0.0;
         final score =
-            0.6 * matchInterests +
-            0.4 * (skillMatch / (c.skills.isEmpty ? 1 : c.skills.length));
+            (0.4 * matchInterests) +
+            (0.3 * (skillMatch / (c.skills.isEmpty ? 1 : c.skills.length))) +
+            (0.15 * personalityMatch) +
+            (0.15 * subjectMatch);
+
         return CareerModel(
           id: c.id,
           title: c.title,
