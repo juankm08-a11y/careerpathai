@@ -8,4 +8,4 @@
 
 # hacer en su vida a futuro, que carrera estudiar.
 
-# Versión 0.1
+# Versión 0.1.0
