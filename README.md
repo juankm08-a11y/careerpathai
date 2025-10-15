@@ -1,16 +1,11 @@
-# careerpathai
+# MY CAREERPATH IA
 
-A new Flutter project.
+# Hecha por Inge Juan :D
 
-## Getting Started
+# Mi aplicación ayudará a los estudiantes que salen del colegio
 
-This project is a starting point for a Flutter application.
+# a escoger y van a entrar a la universidad y no saben que quieren
 
-A few resources to get you started if this is your first Flutter project:
+# hacer en su vida a futuro, que carrera estudiar.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Versión 0.1
