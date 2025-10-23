@@ -15,21 +15,31 @@ class _LoginPageState extends State<LoginPage> {
   bool loading = false;
 
   Future<void> _signIn() async {
+    if (_email.text.isEmpty || _pass.text.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Por favor, llene todos los campos')),
+      );
+      return;
+    }
+
     setState(() {
       loading = true;
     });
+
     try {
       final res = await Supabase.instance.client.auth.signInWithPassword(
         email: _email.text,
         password: _pass.text,
       );
+
       if (res.session != null) {
-        ScaffoldMessenger.of(
-          context,
-        ).showSnackBar(const SnackBar(content: Text('Sesión iniciada')));
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Sesión iniciada con éxito')),
+        );
+
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => TestPage()),
+          MaterialPageRoute(builder: (_) => const TestPage()),
         );
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -64,26 +74,34 @@ class _LoginPageState extends State<LoginPage> {
           children: [
             TextField(
               controller: _email,
-              decoration: const InputDecoration(labelText: 'Email'),
+              decoration: const InputDecoration(
+                labelText: 'Email',
+                border: OutlineInputBorder(),
+              ),
             ),
             TextField(
               controller: _pass,
-              decoration: const InputDecoration(labelText: 'Contraseña'),
+              decoration: const InputDecoration(
+                labelText: 'Contraseña',
+                border: OutlineInputBorder(),
+              ),
               obscureText: true,
             ),
-            const SizedBox(height: 12),
-            ElevatedButton(
+            const SizedBox(height: 18),
+            ElevatedButton.icon(
               onPressed: loading ? null : _signIn,
-              child: loading
-                  ? const CircularProgressIndicator()
-                  : const Text('Entrar'),
+              icon: const Icon(Icons.login),
+              label: const Text('Entrar'),
+              style: ElevatedButton.styleFrom(
+                minimumSize: const Size(double.infinity, 40),
+              ),
             ),
             const SizedBox(height: 8),
             TextButton(
               onPressed: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => const TestPage()),
+                  MaterialPageRoute(builder: (_) => const TestPage()),
                 );
               },
               child: const Text("Entrar como invitado"),
