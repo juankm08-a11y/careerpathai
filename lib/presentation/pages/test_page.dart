@@ -27,6 +27,17 @@ class _TestPageState extends State<TestPage> {
   final TextEditingController personalityCtrl = TextEditingController();
   final TextEditingController subjectsCtrl = TextEditingController();
 
+  final List<String> preferenceOptions = [
+    'Prefiero trabajar en equipo',
+    'Me gusta resolver problemas lógicos',
+    'Disfruto ayudar a los demás',
+    'Me atraen los retos tecnológicos',
+    'Prefiero trabajos con creatividad',
+    'Me gustariía tener mi propio negocio',
+  ];
+
+  final Set<String> selectedPreferences = {};
+
   @override
   void dispose() {
     interestsCtrl.dispose();
@@ -76,6 +87,7 @@ class _TestPageState extends State<TestPage> {
 
     profile['personality'] = personalityCtrl.text.trim();
     profile['favoriteSubjects'] = subjectsCtrl.text.trim();
+    profile['preferences'] = selectedPreferences.toList();
 
     final aiResponse = await GeminiService.getCareerRecommendations(profile);
 
@@ -100,18 +112,23 @@ class _TestPageState extends State<TestPage> {
                   children: [
                     _buildQuestion(
                       '¿Cuáles son tus principales intereses?',
-                      'ej:programación, diseño,música,salvar personas',
+                      'ej:programación, diseño,música, ayudar a otros',
                       interestsCtrl,
                     ),
                     _buildQuestion(
-                      '¿Qué habilidades o tecnologías conoces?',
-                      'ej:Python,SQL,Flutter',
+                      '¿Qué habilidades o conocimientos consideras que tienes?',
+                      'ej:Python,comunicación, liderazgo',
                       skillsCtrl,
                     ),
                     _buildQuestion(
                       '¿Cómo describirías tu personalidad?',
-                      'ej:¿analítico, creativo,empático?',
+                      'ej:¿analítico, creativo,empático...?',
                       personalityCtrl,
+                    ),
+                    _buildMultipleChoice(
+                      'Que afirmaciones se parecen más a ti',
+                      preferenceOptions,
+                      selectedPreferences,
                     ),
                     _buildQuestion(
                       '¿Cuáles eran tus materias favoritas en el colegio?',
@@ -169,6 +186,42 @@ class _TestPageState extends State<TestPage> {
           decoration: InputDecoration(
             hintText: hint,
             border: const OutlineInputBorder(),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildMultipleChoice(
+    String title,
+    List<String> options,
+    Set<String> selected,
+  ) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          title,
+          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        const SizedBox(height: 10),
+        Expanded(
+          child: ListView(
+            children: options.map((option) {
+              final isSelected = selected.contains(option);
+              return CheckboxListTile(
+                value: isSelected,
+                onChanged: (value) {
+                  setState(() {
+                    if (value == true) {
+                      selected.add(option);
+                    } else {
+                      selected.remove(option);
+                    }
+                  });
+                },
+              );
+            }).toList(),
           ),
         ),
       ],
