@@ -1,3 +1,5 @@
+import 'package:careerpathai/core/constants/app_colors.dart';
+import 'package:careerpathai/presentation/controllers/app_controller.dart';
 import 'package:careerpathai/services/gemini_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -97,8 +99,28 @@ class _TestPageState extends State<TestPage> {
 
   @override
   Widget build(BuildContext context) {
+    final appCtrl = Get.find<AppController>();
+
     return Scaffold(
-      appBar: AppBar(title: const Text('Test vocacional')),
+      appBar: AppBar(
+        title: Text('start_test'.tr),
+        centerTitle: true,
+        backgroundColor: AppColors.primary,
+        actions: [
+          IconButton(
+            tooltip: "Change theme",
+            icon: const Icon(Icons.brightness_6),
+            onPressed: () => appCtrl.toogleTheme(),
+          ),
+          IconButton(
+            tooltip: "Change idiom",
+            icon: const Icon(Icons.language),
+            onPressed: () => appCtrl.changeLanguage(
+              Get.locale!.languageCode == 'es' ? 'en' : 'es',
+            ),
+          ),
+        ],
+      ),
       body: Padding(
         padding: const EdgeInsets.all(14.0),
         child: Form(
