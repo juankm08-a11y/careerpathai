@@ -20,6 +20,12 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () => Get.toNamed('/test'),
+          child: Text('start_test'.tr),
+        ),
+      ),
     );
   }
 }
