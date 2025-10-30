@@ -1,3 +1,4 @@
+import 'package:careerpathai/presentation/controllers/app_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../presentation/controllers/career_controller.dart';
@@ -13,6 +14,7 @@ class ResultsPage extends StatefulWidget {
 
 class _ResultsPageState extends State<ResultsPage> {
   final CareerController _ctrl = Get.find<CareerController>();
+  final appCtrl = Get.find<AppController>();
   bool _sortByScoreDesc = true;
 
   final Set<String> _favorites = {};
@@ -65,19 +67,18 @@ class _ResultsPageState extends State<ResultsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Resultados de Carrera'),
+        title: Text('results'.tr),
         backgroundColor: AppColors.primary,
         actions: [
           IconButton(
-            tooltip: _sortByScoreDesc
-                ? 'Ordenar por puntuación ascendente'
-                : 'Ordenar por puntuación descendente',
-            onPressed: () {
-              setState(() {
-                _sortByScoreDesc = !_sortByScoreDesc;
-              });
-            },
-            icon: Icon(_sortByScoreDesc ? Icons.sort_by_alpha : Icons.sort),
+            icon: const Icon(Icons.brightness_6),
+            onPressed: () => appCtrl.toogleTheme(),
+          ),
+          IconButton(
+            icon: const Icon(Icons.language),
+            onPressed: () => appCtrl.changeLanguage(
+              Get.locale!.languageCode == 'es' ? 'en' : 'es',
+            ),
           ),
         ],
       ),
@@ -143,7 +144,7 @@ class _ResultsPageState extends State<ResultsPage> {
                   Get.offAllNamed('/test');
                 },
                 icon: const Icon(Icons.restart_alt),
-                label: const Text('Retake the test'),
+                label: Text('start_test'.tr),
               ),
             ],
           ),
