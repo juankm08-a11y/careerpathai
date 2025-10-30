@@ -143,7 +143,7 @@ class _ResultsPageState extends State<ResultsPage> {
                   Get.offAllNamed('/test');
                 },
                 icon: const Icon(Icons.restart_alt),
-                label: const Text('Volver a hacer el test'),
+                label: const Text('Retake the test'),
               ),
             ],
           ),
