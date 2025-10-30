@@ -1,3 +1,4 @@
+import 'package:careerpathai/core/constants/app_colors.dart';
 import 'package:careerpathai/presentation/pages/test_page.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -33,9 +34,9 @@ class _LoginPageState extends State<LoginPage> {
       );
 
       if (res.session != null) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Sesión iniciada con éxito')),
-        );
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(const SnackBar(content: Text('Login successfully')));
 
         Navigator.pushReplacement(
           context,
@@ -67,47 +68,82 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Iniciar Sesión')),
-      body: Padding(
-        padding: const EdgeInsets.all(14),
-        child: Column(
-          children: [
-            TextField(
-              controller: _email,
-              decoration: const InputDecoration(
-                labelText: 'Email',
-                border: OutlineInputBorder(),
+      backgroundColor: AppColors.secondary,
+      appBar: AppBar(
+        backgroundColor: AppColors.primary,
+        title: const Text('Login', style: TextStyle(color: Colors.white)),
+      ),
+      body: Stack(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(18),
+            child: Column(
+              children: [
+                TextField(
+                  controller: _email,
+                  decoration: const InputDecoration(
+                    labelText: 'Email',
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: AppColors.primary),
+                    ),
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+                const SizedBox(height: 14),
+                TextField(
+                  controller: _pass,
+                  decoration: const InputDecoration(
+                    labelText: 'Contraseña',
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: AppColors.primary),
+                    ),
+                    border: OutlineInputBorder(),
+                  ),
+                  obscureText: true,
+                ),
+                const SizedBox(height: 14),
+                ElevatedButton.icon(
+                  onPressed: loading ? null : _signIn,
+                  icon: const Icon(Icons.login),
+                  label: const Text('Entrar'),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: AppColors.primary,
+                    minimumSize: const Size(double.infinity, 40),
+                  ),
+                ),
+                const SizedBox(height: 8),
+                ElevatedButton(
+                  onPressed: loading ? null : _signIn,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: AppColors.primary,
+                    minimumSize: const Size(double.infinity, 40),
+                  ),
+                  child: const Text(
+                    "Enter",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+                const SizedBox(height: 8),
+                TextButton(
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (_) => const TestPage()),
+                    );
+                  },
+                  child: const Text("Enter as guest"),
+                ),
+              ],
+            ),
+          ),
+          if (loading)
+            Container(
+              color: Colors.black54,
+              child: const Center(
+                child: CircularProgressIndicator(color: AppColors.primary),
               ),
             ),
-            TextField(
-              controller: _pass,
-              decoration: const InputDecoration(
-                labelText: 'Contraseña',
-                border: OutlineInputBorder(),
-              ),
-              obscureText: true,
-            ),
-            const SizedBox(height: 18),
-            ElevatedButton.icon(
-              onPressed: loading ? null : _signIn,
-              icon: const Icon(Icons.login),
-              label: const Text('Entrar'),
-              style: ElevatedButton.styleFrom(
-                minimumSize: const Size(double.infinity, 40),
-              ),
-            ),
-            const SizedBox(height: 8),
-            TextButton(
-              onPressed: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (_) => const TestPage()),
-                );
-              },
-              child: const Text("Entrar como invitado"),
-            ),
-          ],
-        ),
+        ],
       ),
     );
   }
