@@ -3,8 +3,32 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   static const Color primary = Color(0xFF00723F);
-  static const Color primaryLight = Color(0xFF4CAF50);
-  static const Color background = Color(0xFFF5F5F5);
-  static const Color textDark = Color(0xFF1A1A1A);
-  static const Color textLight = Colors.white;
+  static const Color secondary = Color(0xFF009E60);
+
+  static ThemeData lightTheme = ThemeData(
+    brightness: Brightness.light,
+    primaryColor: primary,
+    scaffoldBackgroundColor: Colors.white,
+    appBarTheme: AppBarTheme(
+      backgroundColor: primary,
+      foregroundColor: Colors.white,
+    ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(backgroundColor: primary),
+    ),
+  );
+
+  static ThemeData darkTheme = ThemeData(
+    brightness: Brightness.dark,
+    primaryColor: primary,
+    scaffoldBackgroundColor: Color(0xFF121212),
+
+    appBarTheme: AppBarTheme(
+      backgroundColor: primary,
+      foregroundColor: Colors.white,
+    ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(backgroundColor: primary),
+    ),
+  );
 }
