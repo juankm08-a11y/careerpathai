@@ -2,9 +2,9 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  static const primary = Color(0xFF6C5CE7);
-  static const accent = Color(0xFF3B82F6);
-  static final cardGlass = Colors.white.withAlpha((0.12 * 255).round());
-  static final borderGlass = Colors.white.withAlpha((0.08 * 255).round());
-  static final shadowGlass = Colors.black.withAlpha((0.18 * 255).round());
+  static const Color primary = Color(0xFF00723F);
+  static const Color primaryLight = Color(0xFF4CAF50);
+  static const Color background = Color(0xFFF5F5F5);
+  static const Color textDark = Color(0xFF1A1A1A);
+  static const Color textLight = Colors.white;
 }
