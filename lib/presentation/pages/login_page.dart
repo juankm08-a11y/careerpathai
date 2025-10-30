@@ -17,7 +17,7 @@ class _LoginPageState extends State<LoginPage> {
   Future<void> _signIn() async {
     if (_email.text.isEmpty || _pass.text.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Por favor, llene todos los campos')),
+        const SnackBar(content: Text('Please, fill in all the fields')),
       );
       return;
     }
