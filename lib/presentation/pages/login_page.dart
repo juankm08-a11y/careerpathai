@@ -1,5 +1,3 @@
-import 'package:careerpathai/core/constants/app_colors.dart';
-import 'package:careerpathai/presentation/pages/test_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
