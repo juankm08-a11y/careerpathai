@@ -21,7 +21,8 @@ class _RegisterPageState extends State<RegisterPage> {
   bool _acceptTerms = false;
   bool _loading = false;
 
-  Future<void> _onRegister(BuildContext context) async {
+  Future<void> _onRegister() async {
+    // Validaciones
     if (_nameCtrl.text.isEmpty ||
         _emailCtrl.text.isEmpty ||
         _passwordCtrl.text.isEmpty ||
@@ -36,7 +37,8 @@ class _RegisterPageState extends State<RegisterPage> {
     setState(() => _loading = true);
 
     try {
-      final res = await Supabase.instance.client.auth.signUp(
+      // ✅ Crear usuario en Supabase
+      await Supabase.instance.client.auth.signUp(
         email: _emailCtrl.text.trim(),
         password: _passwordCtrl.text.trim(),
       );
@@ -46,8 +48,13 @@ class _RegisterPageState extends State<RegisterPage> {
       setState(() => _loading = false);
 
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("Account created! Check your email.")),
+        const SnackBar(
+          content: Text("✅ Account created! Please check your email."),
+        ),
       );
+
+      // ✅ Navegar al login después del registro
+      Get.offAllNamed("/login");
     } catch (e) {
       if (!mounted) return;
 
@@ -92,7 +99,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
                 const SizedBox(height: 25),
                 AppButton(
-                  onPressed: () => _onRegister(context),
+                  onPressed: _onRegister, // ✅ ya no pasamos context
                   text: "Register",
                 ),
               ],

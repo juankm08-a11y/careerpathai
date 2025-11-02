@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
+import '../widgets/input_field.dart';
+import '../widgets/app_button.dart';
+import '../widgets/loading_overlay.dart';
+
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -10,11 +14,17 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final emailCtrl = TextEditingController();
-  final passCtrl = TextEditingController();
+  final TextEditingController emailCtrl = TextEditingController();
+  final TextEditingController passCtrl = TextEditingController();
+
   bool loading = false;
 
   Future<void> login() async {
+    if (emailCtrl.text.isEmpty || passCtrl.text.isEmpty) {
+      Get.snackbar("Error", "Please fill all fields");
+      return;
+    }
+
     setState(() => loading = true);
 
     try {
@@ -26,17 +36,10 @@ class _LoginPageState extends State<LoginPage> {
       if (res.session != null) {
         Get.offAllNamed('/home');
       } else {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('invalid_credentials'.tr),
-            backgroundColor: Colors.red,
-          ),
-        );
+        Get.snackbar("Error", "Invalid credentials");
       }
     } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(e.toString()), backgroundColor: Colors.red),
-      );
+      Get.snackbar("Error", e.toString());
     }
 
     setState(() => loading = false);
@@ -44,36 +47,40 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('login'.tr)),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          children: [
-            TextField(
-              controller: emailCtrl,
-              decoration: InputDecoration(
-                labelText: 'email'.tr,
-                border: const OutlineInputBorder(),
+    return LoadingOverlay(
+      isLoading: loading,
+      child: Scaffold(
+        appBar: AppBar(title: Text("Login")),
+        body: Padding(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              InputField(
+                label: "Email",
+                controller: emailCtrl,
+                keyboardType: TextInputType.emailAddress,
               ),
-            ),
-            const SizedBox(height: 14),
-            TextField(
-              controller: passCtrl,
-              obscureText: true,
-              decoration: InputDecoration(
-                labelText: 'password'.tr,
-                border: const OutlineInputBorder(),
+              const SizedBox(height: 15),
+
+              InputField(
+                label: "Password",
+                controller: passCtrl,
+                obscure: true,
               ),
-            ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: loading ? null : login,
-              child: loading
-                  ? const CircularProgressIndicator(color: Colors.white)
-                  : Text('login'.tr),
-            ),
-          ],
+              const SizedBox(height: 25),
+
+              AppButton(text: "Sign In", onPressed: login, isLoading: loading),
+
+              const SizedBox(height: 10),
+
+              AppButton(
+                text: "Create Account",
+                outlined: true,
+                onPressed: () => Get.toNamed('/register'),
+              ),
+            ],
+          ),
         ),
       ),
     );
