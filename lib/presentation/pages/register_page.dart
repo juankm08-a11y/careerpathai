@@ -21,11 +21,12 @@ class _RegisterPageState extends State<RegisterPage> {
   bool _acceptTerms = false;
   bool _loading = false;
 
-  Future<void> _onRegister() async {
+  Future<void> _onRegister(BuildContext context) async {
     if (_nameCtrl.text.isEmpty ||
         _emailCtrl.text.isEmpty ||
         _passwordCtrl.text.isEmpty ||
         !_acceptTerms) {
+      if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text("Please complete all fields")),
       );
@@ -34,15 +35,28 @@ class _RegisterPageState extends State<RegisterPage> {
 
     setState(() => _loading = true);
 
-    await Future.delayed(const Duration(seconds: 1));
+    try {
+      final res = await Supabase.instance.client.auth.signUp(
+        email: _emailCtrl.text.trim(),
+        password: _passwordCtrl.text.trim(),
+      );
 
-    setState(() => _loading = false);
+      if (!mounted) return;
 
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text("Account created successfully")),
-    );
+      setState(() => _loading = false);
 
-    Navigator.pop(context);
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text("Account created! Check your email.")),
+      );
+    } catch (e) {
+      if (!mounted) return;
+
+      setState(() => _loading = false);
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(e.toString()), backgroundColor: Colors.red),
+      );
+    }
   }
 
   @override
@@ -77,7 +91,10 @@ class _RegisterPageState extends State<RegisterPage> {
                   label: "I accept terms and conditions",
                 ),
                 const SizedBox(height: 25),
-                AppButton(onPressed: _onRegister, text: "Register"),
+                AppButton(
+                  onPressed: () => _onRegister(context),
+                  text: "Register",
+                ),
               ],
             ),
           ),
