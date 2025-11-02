@@ -1,9 +1,10 @@
+import 'package:careerpathai/core/config/gemini_config.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class GeminiService {
   static final model = GenerativeModel(
-    model: 'gemini-2.5-pro',
+    model: GeminiConfig.modelName,
     apiKey: dotenv.env['GEMINI_API_KEY'] ?? '',
   );
 
