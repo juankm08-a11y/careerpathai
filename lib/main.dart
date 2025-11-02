@@ -25,7 +25,7 @@ Future<void> main() async {
   await SupabaseConfig.initialize();
   print("Supabase inicio correctamente");
 
-  Get.put(AppController());
+  Get.put(AppController(), permanent: true);
   Get.put(CareerController());
 
   runApp(const CareerPathAI());
@@ -38,11 +38,11 @@ class CareerPathAI extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        brightness: Brightness.light,
-        primarySwatch: Colors.deepPurple,
-        useMaterial3: true,
-      ),
+      theme: ThemeData.light(),
+      darkTheme: ThemeData(),
+      themeMode: Get.find<AppController>().isDark.value
+          ? ThemeMode.dark
+          : ThemeMode.light,
       initialRoute: "/welcome",
       getPages: [
         GetPage(name: '/home', page: () => const HomePage()),
