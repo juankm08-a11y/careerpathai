@@ -8,15 +8,17 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('CareerPath AI'),
+        title: Text('home'.tr),
         actions: [
           IconButton(
             icon: const Icon(Icons.person),
             onPressed: () => Get.toNamed('/profile'),
+            tooltip: 'profile'.tr,
           ),
           IconButton(
-            icon: const Icon(Icons.info),
+            icon: const Icon(Icons.info_outline),
             onPressed: () => Get.toNamed('/about'),
+            tooltip: 'about'.tr,
           ),
         ],
       ),
