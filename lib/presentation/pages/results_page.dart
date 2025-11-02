@@ -2,7 +2,6 @@ import 'package:careerpathai/presentation/controllers/app_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../presentation/controllers/career_controller.dart';
-import '../../core/constants/app_colors.dart';
 import '../../domain/entities/career_entity.dart';
 
 class ResultsPage extends StatefulWidget {
@@ -38,9 +37,9 @@ class _ResultsPageState extends State<ResultsPage> {
   }
 
   String getLevel(double score) {
-    if (score >= 8) return 'Muy alta afinidad';
-    if (score >= 5) return 'Media afinida';
-    return 'Baja afinidad';
+    if (score >= 8) return 'high_affinity'.tr;
+    if (score >= 5) return 'medium_affinity'.tr;
+    return 'low_affinity'.tr;
   }
 
   void _toggleFavorite(String id) {
@@ -48,15 +47,15 @@ class _ResultsPageState extends State<ResultsPage> {
       if (_favorites.contains(id)) {
         _favorites.remove(id);
         Get.snackbar(
-          'Favorito',
-          'Eliminado de favoritos',
+          'favorite_removed'.tr,
+          '',
           snackPosition: SnackPosition.BOTTOM,
         );
       } else {
         _favorites.add(id);
         Get.snackbar(
-          'Favorito',
-          'Añadido a favoritos',
+          'favorite_added'.tr,
+          '',
           snackPosition: SnackPosition.BOTTOM,
         );
       }
@@ -68,7 +67,6 @@ class _ResultsPageState extends State<ResultsPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('results'.tr),
-        backgroundColor: AppColors.primary,
         actions: [
           IconButton(
             icon: const Icon(Icons.brightness_6),
@@ -89,24 +87,27 @@ class _ResultsPageState extends State<ResultsPage> {
 
         final list = _sortedList;
         if (list.isEmpty) {
-          return const Center(
-            child: Text('No hay recomendaciones disponibles.'),
-          );
+          return Center(child: Text('no_recommendations'.tr));
         }
 
         return RefreshIndicator(
           onRefresh: _ctrl.loadAllCareers,
           child: ListView(
-            padding: const EdgeInsets.all(14),
+            padding: const EdgeInsets.all(16),
             children: [
-              const Text(
-                'Según tus respuestas y afinidades, estas son las carreras que mejor se ajustan a tu perfil:',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+              Text(
+                'results_intro'.tr,
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: 12),
+
+              // List of cards
               for (final c in list)
                 Card(
-                  margin: const EdgeInsets.only(bottom: 10),
+                  margin: const EdgeInsets.only(bottom: 12),
                   child: ListTile(
                     title: Text(c.title),
                     subtitle: Column(
@@ -115,7 +116,7 @@ class _ResultsPageState extends State<ResultsPage> {
                         Text(c.description),
                         const SizedBox(height: 6),
                         Text(
-                          'Nivel de afinidad: ${getLevel(c.score)} (Puntuación)',
+                          '${'affinity_level'.tr}: ${getLevel(c.score)}',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: c.score >= 8
@@ -138,13 +139,15 @@ class _ResultsPageState extends State<ResultsPage> {
                     ),
                   ),
                 ),
+
               const SizedBox(height: 20),
-              ElevatedButton.icon(
-                onPressed: () {
-                  Get.offAllNamed('/test');
-                },
-                icon: const Icon(Icons.restart_alt),
-                label: Text('start_test'.tr),
+
+              Center(
+                child: ElevatedButton.icon(
+                  onPressed: () => Get.offAllNamed('/test'),
+                  icon: const Icon(Icons.restart_alt),
+                  label: Text('start_test'.tr),
+                ),
               ),
             ],
           ),
