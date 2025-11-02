@@ -1,7 +1,11 @@
 import 'dart:math';
 import 'dart:ui';
 
+import 'package:careerpathai/presentation/controllers/app_controller.dart';
+import 'package:careerpathai/presentation/pages/about_page.dart';
 import 'package:careerpathai/presentation/pages/home_page.dart';
+import 'package:careerpathai/presentation/pages/profile_page.dart';
+import 'package:careerpathai/presentation/pages/register_page.dart';
 import 'package:careerpathai/presentation/pages/results_page.dart';
 import 'package:careerpathai/presentation/pages/test_page.dart';
 import 'package:flutter/material.dart';
@@ -21,6 +25,7 @@ Future<void> main() async {
   await SupabaseConfig.initialize();
   print("Supabase inicio correctamente");
 
+  Get.put(AppController());
   Get.put(CareerController());
 
   runApp(const CareerPathAI());
@@ -43,7 +48,10 @@ class CareerPathAI extends StatelessWidget {
         GetPage(name: '/home', page: () => const HomePage()),
         GetPage(name: '/welcome', page: () => const WelcomeScreen()),
         GetPage(name: '/login', page: () => const LoginPage()),
+        GetPage(name: '/register', page: () => const RegisterPage()),
         GetPage(name: '/test', page: () => const TestPage()),
+        GetPage(name: '/about', page: () => const AboutPage()),
+        GetPage(name: '/profile', page: () => const ProfilePage()),
         GetPage(
           name: '/career_recommendations',
           page: () => const ResultsPage(),
