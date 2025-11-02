@@ -6,5 +6,8 @@ const Map<String, String> es = {
   'logout': 'Cerrar sesión',
   'results': 'Resultados',
   'profile': 'Perfil',
-  'about': 'Acerca de la app',
+  'about': 'Acerca de ',
+  'about_title': 'Acerca de la Universidad Cooperativa de Colombia',
+  'about_description':
+      'La UCC es una institución educativa con presencia en toda Colombia, enfocada en formar profesionales competentes, emprendedores y con visión social.',
 };
