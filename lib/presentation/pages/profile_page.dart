@@ -17,13 +17,25 @@ class ProfilePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text('profile'.tr)),
       body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          children: [
-            Text(user?.email ?? '---'),
-            const SizedBox(height: 20),
-            ElevatedButton(onPressed: logout, child: Text('logout'.tr)),
-          ],
+        padding: const EdgeInsets.all(20),
+        child: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              CircleAvatar(radius: 45, child: Icon(Icons.person, size: 45)),
+              const SizedBox(height: 16),
+              Text(
+                user?.email ?? '---',
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              const SizedBox(height: 25),
+              ElevatedButton(onPressed: logout, child: Text('logout'.tr)),
+            ],
+          ),
         ),
       ),
     );
