@@ -19,7 +19,7 @@ class CustomSwitch extends StatelessWidget {
       value: value,
       onChanged: onChanged,
       title: Text(label),
-      activeColor: AppColors.primary,
+      activeThumbColor: AppColors.primary,
     );
   }
 }

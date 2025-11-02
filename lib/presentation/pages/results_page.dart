@@ -15,7 +15,7 @@ class ResultsPage extends StatefulWidget {
 class _ResultsPageState extends State<ResultsPage> {
   final CareerController _ctrl = Get.find<CareerController>();
   final appCtrl = Get.find<AppController>();
-  bool _sortByScoreDesc = true;
+  final bool _sortByScoreDesc = true;
 
   final Set<String> _favorites = {};
 
