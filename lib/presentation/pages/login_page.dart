@@ -26,10 +26,17 @@ class _LoginPageState extends State<LoginPage> {
       if (res.session != null) {
         Get.offAllNamed('/home');
       } else {
-        Get.snackbar('Error', 'Invalid credentials');
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('invalid_credentials'.tr),
+            backgroundColor: Colors.red,
+          ),
+        );
       }
     } catch (e) {
-      Get.snackbar('Error', e.toString());
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(e.toString()), backgroundColor: Colors.red),
+      );
     }
 
     setState(() => loading = false);
