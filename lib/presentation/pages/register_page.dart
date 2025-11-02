@@ -1,4 +1,5 @@
 import 'package:careerpathai/presentation/widgets/app_button.dart';
+import 'package:careerpathai/presentation/widgets/custom_checkbox.dart';
 import 'package:careerpathai/presentation/widgets/input_field.dart';
 import 'package:careerpathai/presentation/widgets/loading_overlay.dart';
 import 'package:flutter/material.dart';
@@ -13,46 +14,72 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-  final emailCtrl = TextEditingController();
-  final passCtrl = TextEditingController();
-  bool loading = false;
+  final TextEditingController _nameCtrl = TextEditingController();
+  final TextEditingController _emailCtrl = TextEditingController();
+  final TextEditingController _passwordCtrl = TextEditingController();
 
-  Future<void> register() async {
-    setState(() => loading = true);
+  bool _acceptTerms = false;
+  bool _loading = false;
 
-    try {
-      final res = await Supabase.instance.client.auth.signUp(
-        email: emailCtrl.text.trim(),
-        password: passCtrl.text.trim(),
+  Future<void> _onRegister() async {
+    if (_nameCtrl.text.isEmpty ||
+        _emailCtrl.text.isEmpty ||
+        _passwordCtrl.text.isEmpty ||
+        !_acceptTerms) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text("Please complete all fields")),
       );
-      if (res.user != null) {
-        print("Account created successfully");
-        Get.offAllNamed("/login");
-      } else {
-        print("Could not create account");
-      }
-    } catch (e) {
-      print(e.toString());
+      return;
     }
-    setState(() => loading = false);
+
+    setState(() => _loading = true);
+
+    await Future.delayed(const Duration(seconds: 1));
+
+    setState(() => _loading = false);
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text("Account created successfully")),
+    );
+
+    Navigator.pop(context);
   }
 
   @override
   Widget build(BuildContext context) {
     return LoadingOverlay(
-      isLoading: loading,
+      isLoading: _loading,
       child: Scaffold(
         appBar: AppBar(title: Text('register'.tr)),
         body: Padding(
           padding: const EdgeInsets.all(16),
-          child: Column(
-            children: [
-              InputField(controller: emailCtrl, label: 'email'.tr),
-              const SizedBox(height: 14),
-              InputField(controller: passCtrl, label: 'password'.tr),
-              const SizedBox(height: 20),
-              AppButton(text: 'register'.tr, onPressed: register),
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                InputField(label: 'Full Name', controller: _nameCtrl),
+                const SizedBox(height: 15),
+                InputField(
+                  label: "Email",
+                  controller: _emailCtrl,
+                  keyboardType: TextInputType.emailAddress,
+                ),
+                const SizedBox(height: 15),
+                InputField(
+                  label: "Password",
+                  controller: _passwordCtrl,
+                  obscure: true,
+                ),
+                const SizedBox(height: 15),
+                CustomCheckbox(
+                  value: _acceptTerms,
+                  onChanged: (v) => setState(() => _acceptTerms = v ?? false),
+                  label: "I accept terms and conditions",
+                ),
+                const SizedBox(height: 25),
+                AppButton(onPressed: _onRegister, text: "Register"),
+              ],
+            ),
           ),
         ),
       ),
