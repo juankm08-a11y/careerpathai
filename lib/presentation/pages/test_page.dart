@@ -1,4 +1,3 @@
-import 'package:careerpathai/core/constants/app_colors.dart';
 import 'package:careerpathai/presentation/controllers/app_controller.dart';
 import 'package:careerpathai/services/gemini_service.dart';
 import 'package:flutter/material.dart';
@@ -30,12 +29,12 @@ class _TestPageState extends State<TestPage> {
   final TextEditingController subjectsCtrl = TextEditingController();
 
   final List<String> preferenceOptions = [
-    'Prefiero trabajar en equipo',
-    'Me gusta resolver problemas lógicos',
-    'Disfruto ayudar a los demás',
-    'Me atraen los retos tecnológicos',
-    'Prefiero trabajos con creatividad',
-    'Me gustariía tener mi propio negocio',
+    'team_work'.tr,
+    'logical_thinking'.tr,
+    'helping_others'.tr,
+    'technology_love'.tr,
+    'creativity'.tr,
+    'entrepreneur'.tr,
   ];
 
   final Set<String> selectedPreferences = {};
@@ -51,9 +50,7 @@ class _TestPageState extends State<TestPage> {
 
   void _nextPage() {
     if (_currentPage < 3) {
-      setState(() {
-        _currentPage++;
-      });
+      setState(() => _currentPage++);
       _pageController.nextPage(
         duration: const Duration(milliseconds: 300),
         curve: Curves.easeInOut,
@@ -63,9 +60,7 @@ class _TestPageState extends State<TestPage> {
 
   void _previousPage() {
     if (_currentPage > 0) {
-      setState(() {
-        _currentPage--;
-      });
+      setState(() => _currentPage--);
       _pageController.previousPage(
         duration: const Duration(milliseconds: 300),
         curve: Curves.easeInOut,
@@ -75,6 +70,7 @@ class _TestPageState extends State<TestPage> {
 
   Future<void> _submit() async {
     final ctrl = Get.find<CareerController>();
+
     profile['interests'] = interestsCtrl.text
         .split(',')
         .map((s) => s.trim())
@@ -92,8 +88,8 @@ class _TestPageState extends State<TestPage> {
     profile['preferences'] = selectedPreferences.toList();
 
     final aiResponse = await GeminiService.getCareerRecommendations(profile);
-
     ctrl.setAIRecommendations(aiResponse);
+
     Get.toNamed('/career_recommendations');
   }
 
@@ -105,15 +101,12 @@ class _TestPageState extends State<TestPage> {
       appBar: AppBar(
         title: Text('start_test'.tr),
         centerTitle: true,
-        backgroundColor: AppColors.primary,
         actions: [
           IconButton(
-            tooltip: "Change theme",
             icon: const Icon(Icons.brightness_6),
             onPressed: () => appCtrl.toogleTheme(),
           ),
           IconButton(
-            tooltip: "Change idiom",
             icon: const Icon(Icons.language),
             onPressed: () => appCtrl.changeLanguage(
               Get.locale!.languageCode == 'es' ? 'en' : 'es',
@@ -122,7 +115,7 @@ class _TestPageState extends State<TestPage> {
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.all(14.0),
+        padding: const EdgeInsets.all(16),
         child: Form(
           key: _formKey,
           child: Column(
@@ -133,54 +126,53 @@ class _TestPageState extends State<TestPage> {
                   physics: const NeverScrollableScrollPhysics(),
                   children: [
                     _buildQuestion(
-                      '¿Cuáles son tus principales intereses?',
-                      'ej:programación, diseño,música, ayudar a otros',
+                      'test_interests'.tr,
+                      'test_interests_hint'.tr,
                       interestsCtrl,
                     ),
                     _buildQuestion(
-                      '¿Qué habilidades o conocimientos consideras que tienes?',
-                      'ej:Python,comunicación, liderazgo',
+                      'test_skills'.tr,
+                      'test_skills_hint'.tr,
                       skillsCtrl,
                     ),
                     _buildQuestion(
-                      '¿Cómo describirías tu personalidad?',
-                      'ej:¿analítico, creativo,empático...?',
+                      'test_personality'.tr,
+                      'test_personality_hint'.tr,
                       personalityCtrl,
                     ),
                     _buildMultipleChoice(
-                      'Que afirmaciones se parecen más a ti',
+                      'test_preferences'.tr,
                       preferenceOptions,
                       selectedPreferences,
                     ),
                     _buildQuestion(
-                      '¿Cuáles eran tus materias favoritas en el colegio?',
-                      'ej:¿matemáticas, arte, biología?',
+                      'test_subjects'.tr,
+                      'test_subjects_hint'.tr,
                       subjectsCtrl,
                     ),
                   ],
                 ),
               ),
+
               const SizedBox(height: 12),
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   if (_currentPage > 0)
-                    IconButton(
+                    ElevatedButton(
                       onPressed: _previousPage,
-                      icon: const Icon(Icons.arrow_back),
+                      child: Text('back'.tr),
                     )
                   else
-                    const SizedBox(width: 40),
+                    const SizedBox(width: 80),
 
                   if (_currentPage < 3)
-                    IconButton(
-                      onPressed: _nextPage,
-                      icon: const Icon(Icons.arrow_forward),
-                    )
+                    ElevatedButton(onPressed: _nextPage, child: Text('next'.tr))
                   else
                     ElevatedButton(
                       onPressed: _submit,
-                      child: const Text('Finalizar'),
+                      child: Text('finish'.tr),
                     ),
                 ],
               ),
@@ -197,6 +189,7 @@ class _TestPageState extends State<TestPage> {
     TextEditingController controller,
   ) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           title,
@@ -232,14 +225,13 @@ class _TestPageState extends State<TestPage> {
             children: options.map((option) {
               final isSelected = selected.contains(option);
               return CheckboxListTile(
+                title: Text(option),
                 value: isSelected,
                 onChanged: (value) {
                   setState(() {
-                    if (value == true) {
-                      selected.add(option);
-                    } else {
-                      selected.remove(option);
-                    }
+                    value == true
+                        ? selected.add(option)
+                        : selected.remove(option);
                   });
                 },
               );
