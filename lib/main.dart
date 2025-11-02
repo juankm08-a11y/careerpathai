@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'dart:ui';
 
+import 'package:careerpathai/presentation/pages/home_page.dart';
 import 'package:careerpathai/presentation/pages/results_page.dart';
 import 'package:careerpathai/presentation/pages/test_page.dart';
 import 'package:flutter/material.dart';
@@ -39,6 +40,7 @@ class CareerPathAI extends StatelessWidget {
       ),
       initialRoute: "/welcome",
       getPages: [
+        GetPage(name: '/home', page: () => const HomePage()),
         GetPage(name: '/welcome', page: () => const WelcomeScreen()),
         GetPage(name: '/login', page: () => const LoginPage()),
         GetPage(name: '/test', page: () => const TestPage()),
