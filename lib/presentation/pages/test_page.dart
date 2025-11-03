@@ -105,6 +105,7 @@ class _TestPageState extends State<TestPage> {
           IconButton(
             icon: const Icon(Icons.brightness_6),
             onPressed: () => appCtrl.toogleTheme(),
+            tooltip: 'toogle_theme'.tr,
           ),
           IconButton(
             icon: const Icon(Icons.language),
