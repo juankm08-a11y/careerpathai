@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'dart:ui';
 
+import 'package:careerpathai/core/translations/app_translations.dart';
 import 'package:careerpathai/presentation/controllers/app_controller.dart';
 import 'package:careerpathai/presentation/pages/about_page.dart';
 import 'package:careerpathai/presentation/pages/home_page.dart';
@@ -41,7 +42,7 @@ class CareerPathAI extends StatelessWidget {
     return Obx(
       () => GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      translations: Translations(),
+      translations: AppTranslations(),
       locale: const Locale('en','US'),
 
       theme: ThemeData.light(),
