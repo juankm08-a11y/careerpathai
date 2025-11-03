@@ -36,13 +36,18 @@ class CareerPathAI extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    final appCtrl = Get.find<AppController>();
+    
+    return Obx(
+      () => GetMaterialApp(
       debugShowCheckedModeBanner: false,
+      translations: Translations(),
+      locale: const Locale('en','US'),
+
       theme: ThemeData.light(),
-      darkTheme: ThemeData(),
-      themeMode: Get.find<AppController>().isDark.value
-          ? ThemeMode.dark
-          : ThemeMode.light,
+      darkTheme: ThemeData.dark(),
+      themeMode: appCtrl.isDark.value ? ThemeMode.dark : ThemeMode.light,
+    
       initialRoute: "/welcome",
       getPages: [
         GetPage(name: '/home', page: () => const HomePage()),
@@ -58,6 +63,7 @@ class CareerPathAI extends StatelessWidget {
         ),
       ],
     );
+    )
   }
 }
 
