@@ -38,33 +38,33 @@ class CareerPathAI extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appCtrl = Get.find<AppController>();
-    
+
     return Obx(
       () => GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      translations: AppTranslations(),
-      locale: const Locale('en','US'),
+        debugShowCheckedModeBanner: false,
+        translations: AppTranslations(),
+        locale: const Locale('en', 'US'),
 
-      theme: ThemeData.light(),
-      darkTheme: ThemeData.dark(),
-      themeMode: appCtrl.isDark.value ? ThemeMode.dark : ThemeMode.light,
-    
-      initialRoute: "/welcome",
-      getPages: [
-        GetPage(name: '/home', page: () => const HomePage()),
-        GetPage(name: '/welcome', page: () => const WelcomeScreen()),
-        GetPage(name: '/login', page: () => const LoginPage()),
-        GetPage(name: '/register', page: () => const RegisterPage()),
-        GetPage(name: '/test', page: () => const TestPage()),
-        GetPage(name: '/about', page: () => const AboutPage()),
-        GetPage(name: '/profile', page: () => const ProfilePage()),
-        GetPage(
-          name: '/career_recommendations',
-          page: () => const ResultsPage(),
-        ),
-      ],
+        theme: ThemeData.light(),
+        darkTheme: ThemeData.dark(),
+        themeMode: appCtrl.isDark.value ? ThemeMode.dark : ThemeMode.light,
+
+        initialRoute: "/welcome",
+        getPages: [
+          GetPage(name: '/home', page: () => const HomePage()),
+          GetPage(name: '/welcome', page: () => const WelcomeScreen()),
+          GetPage(name: '/login', page: () => const LoginPage()),
+          GetPage(name: '/register', page: () => const RegisterPage()),
+          GetPage(name: '/test', page: () => const TestPage()),
+          GetPage(name: '/about', page: () => const AboutPage()),
+          GetPage(name: '/profile', page: () => const ProfilePage()),
+          GetPage(
+            name: '/career_recommendations',
+            page: () => const ResultsPage(),
+          ),
+        ],
+      ),
     );
-    )
   }
 }
 
