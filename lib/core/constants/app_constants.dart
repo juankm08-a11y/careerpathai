@@ -10,4 +10,6 @@ class AppConstants {
   static const String routeTest = '/test';
   static const String routeResults = '/results';
   static const String routeRegister = '/register';
+  static const String routeLogin = '/login';
+  static const String routeWelcome = '/welcome';
 }
