@@ -52,22 +52,13 @@ class CareerPathAI extends StatelessWidget {
 
         initialRoute: "/welcome",
         getPages: [
-          GetPage(name: AppConstants.routeHome, page: () => const HomePage()),
-          GetPage(
-            name: AppConstants.routeWelcome,
-            page: () => const WelcomeScreen(),
-          ),
-          GetPage(name: AppConstants.routeLogin, page: () => const LoginPage()),
-          GetPage(
-            name: AppConstants.routeAbout,
-            page: () => const RegisterPage(),
-          ),
-          GetPage(name: AppConstants.routeTest, page: () => const TestPage()),
-          GetPage(name: AppConstants.routeAbout, page: () => const AboutPage()),
-          GetPage(
-            name: AppConstants.routeResults,
-            page: () => const ProfilePage(),
-          ),
+          GetPage(name: AppRoutes.home, page: () => const HomePage()),
+          GetPage(name: AppRoutes.welcome, page: () => const WelcomeScreen()),
+          GetPage(name: AppRoutes.login, page: () => const LoginPage()),
+          GetPage(name: AppRoutes.about, page: () => const RegisterPage()),
+          GetPage(name: AppRoutes.test, page: () => const TestPage()),
+          GetPage(name: AppRoutes.about, page: () => const AboutPage()),
+          GetPage(name: AppRoutes.results, page: () => const ProfilePage()),
           GetPage(
             name: '/career_recommendations',
             page: () => const ResultsPage(),
