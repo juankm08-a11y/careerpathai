@@ -44,6 +44,11 @@ class HomePage extends StatelessWidget {
               );
             },
           ),
+          IconButton(
+            icon: const Icon(Icons.dark_mode_outlined),
+            tooltip: 'toogle Theme',
+            onPressed: controller.toogleTheme,
+          ),
         ],
       ),
       body: Center(
