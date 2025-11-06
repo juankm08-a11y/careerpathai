@@ -1,4 +1,4 @@
-class AppRoutes {
+class AppTexts {
   static const homeTitle = 'home';
   static const profileTitle = 'profile';
   static const aboutTitle = 'about';
@@ -6,9 +6,10 @@ class AppRoutes {
   static const welcome = 'home';
   static const register = 'register';
   static const changeLanguage = 'Change Language';
+  static const results = 'results';
 }
 
-class AppTexts {
+class AppRoutes {
   static const String home = '/home';
   static const String profile = '/profile';
   static const String about = '/about';

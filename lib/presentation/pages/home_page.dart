@@ -20,17 +20,17 @@ class HomePage extends StatelessWidget {
     final AppController controller = Get.find<AppController>();
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppConstants.homeTitle),
+        title: Text(AppTexts.homeTitle),
         actions: [
           IconButton(
             icon: const Icon(Icons.person),
-            onPressed: () => Get.toNamed(AppConstants.routeProfile),
-            tooltip: AppConstants.profileTitle.tr,
+            onPressed: () => Get.toNamed(AppRoutes.profile),
+            tooltip: AppTexts.profileTitle.tr,
           ),
           IconButton(
             icon: const Icon(Icons.info_outline),
-            onPressed: () => Get.toNamed(AppConstants.routeAbout),
-            tooltip: AppConstants.aboutTitle.tr,
+            onPressed: () => Get.toNamed(AppRoutes.about),
+            tooltip: AppTexts.aboutTitle.tr,
           ),
           IconButton(
             icon: const Icon(Icons.language),
@@ -59,7 +59,7 @@ class HomePage extends StatelessWidget {
             onPressed: controller.toogleTheme,
           ),
           IconButton(
-            onPressed: () => Get.toNamed(AppConstants.routeProfile),
+            onPressed: () => Get.toNamed(AppRoutes.profile),
             icon: const Icon(Icons.person_outline),
           ),
         ],
@@ -90,15 +90,15 @@ class HomePage extends StatelessWidget {
                   alignment: WrapAlignment.center,
                   children: [
                     AppButton(
-                      text: AppTexts.test.tr,
-                      onPressed: () => Get.toNamed(AppRoutes.startTest),
+                      text: AppTexts.startTest.tr,
+                      onPressed: () => Get.toNamed(AppRoutes.test),
                     ),
                     AppButton(
-                      text: 'Results'.tr,
+                      text: AppTexts.results,
                       onPressed: () => Get.toNamed(AppRoutes.results),
                     ),
                     AppButton(
-                      text: "register".tr,
+                      text: AppTexts.register,
                       onPressed: () => Get.toNamed(AppRoutes.register),
                     ),
                     const SizedBox(height: 20),
