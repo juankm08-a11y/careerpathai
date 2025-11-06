@@ -1,4 +1,4 @@
-const Map<String, String> es = {
+const Map<String, String> en = {
   'login': "Login",
   'email': "Email",
   'password': 'Password',
