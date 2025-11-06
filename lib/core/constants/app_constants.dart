@@ -1,15 +1,21 @@
-class AppConstants {
-  static const String homeTitle = 'home';
-  static const String profileTitle = 'profile';
-  static const String aboutTitle = 'about';
-  static const String startTest = 'start_test';
+class AppRoutes {
+  static const homeTitle = 'home';
+  static const profileTitle = 'profile';
+  static const aboutTitle = 'about';
+  static const startTest = 'start_test';
+  static const welcome = 'home';
+  static const register = 'register';
+  static const changeLanguage = 'Change Language';
+}
 
-  static const String routeHome = '/home';
-  static const String routeProfile = '/profile';
-  static const String routeAbout = '/about';
-  static const String routeTest = '/test';
-  static const String routeResults = '/results';
-  static const String routeRegister = '/register';
-  static const String routeLogin = '/login';
-  static const String routeWelcome = '/welcome';
+class AppTexts {
+  static const String home = '/home';
+  static const String profile = '/profile';
+  static const String about = '/about';
+  static const String test = '/test';
+  static const String results = '/results';
+  static const String register = '/register';
+  static const String login = '/login';
+  static const String welcome = '/welcome';
+  static const String careerRecommendations = '/career_recommendatios';
 }

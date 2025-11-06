@@ -90,16 +90,16 @@ class HomePage extends StatelessWidget {
                   alignment: WrapAlignment.center,
                   children: [
                     AppButton(
-                      text: AppConstants.startTest.tr,
-                      onPressed: () => Get.toNamed(AppConstants.routeTest),
+                      text: AppTexts.test.tr,
+                      onPressed: () => Get.toNamed(AppRoutes.startTest),
                     ),
                     AppButton(
                       text: 'Results'.tr,
-                      onPressed: () => Get.toNamed(AppConstants.routeResults),
+                      onPressed: () => Get.toNamed(AppRoutes.results),
                     ),
                     AppButton(
                       text: "register".tr,
-                      onPressed: () => Get.toNamed(AppConstants.routeRegister),
+                      onPressed: () => Get.toNamed(AppRoutes.register),
                     ),
                     const SizedBox(height: 20),
                     const SectionTitle(title: "Progress"),
