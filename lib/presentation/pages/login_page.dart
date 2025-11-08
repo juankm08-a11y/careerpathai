@@ -1,6 +1,6 @@
 import 'package:careerpathai/core/constants/app_constants.dart';
 import 'package:careerpathai/presentation/widgets/app_logo.dart';
-import 'package:careerpathai/presentation/widgets/custom_checkbox.dart';
+
 import 'package:careerpathai/presentation/widgets/custom_text_button.dart';
 import 'package:careerpathai/presentation/widgets/gradient_background.dart';
 import 'package:careerpathai/presentation/widgets/loading_button.dart';
@@ -11,8 +11,6 @@ import 'package:get/get.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../widgets/input_field.dart';
-import '../widgets/app_button.dart';
-import '../widgets/loading_overlay.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
