@@ -1,7 +1,9 @@
+import 'package:careerpathai/core/constants/app_constants.dart';
 import 'package:careerpathai/presentation/controllers/app_controller.dart';
 import 'package:careerpathai/presentation/widgets/custom_icon_button.dart';
 import 'package:careerpathai/presentation/widgets/custom_switch.dart';
 import 'package:careerpathai/presentation/widgets/settings_title.dart';
+import 'package:careerpathai/presentation/widgets/stats_box.dart';
 import 'package:careerpathai/presentation/widgets/tag_list.dart';
 import 'package:careerpathai/presentation/widgets/ucc_footer.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +25,7 @@ class ProfilePage extends StatelessWidget {
     final appController = Get.find<AppController>();
 
     return Scaffold(
-      appBar: AppBar(title: Text('profile'.tr)),
+      appBar: AppBar(title: Text(AppTexts.profileTitle.tr)),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Center(
@@ -49,6 +51,17 @@ class ProfilePage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 25),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [
+                  StatsBox(title: 'Projects', value: '12'),
+                  SizedBox(width: 16),
+                  StatsBox(title: 'Skills', value: '8'),
+                  SizedBox(width: 16),
+                  StatsBox(title: 'Badges', value: '5'),
+                ],
+              ),
 
               SettingsTitle(
                 title: 'User Preferences',
@@ -90,7 +103,7 @@ class ProfilePage extends StatelessWidget {
                   snackPosition: SnackPosition.BOTTOM,
                 ),
               ),
-              const SizedBox(height: 30),
+              const SizedBox(height: 12),
 
               ElevatedButton(onPressed: logout, child: Text('logout'.tr)),
               const UccFooter(
