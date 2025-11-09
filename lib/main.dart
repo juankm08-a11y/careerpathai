@@ -4,6 +4,7 @@ import 'dart:ui';
 import 'package:careerpathai/core/constants/app_constants.dart';
 import 'package:careerpathai/core/translations/app_translations.dart';
 import 'package:careerpathai/presentation/controllers/app_controller.dart';
+import 'package:careerpathai/presentation/pages/CareerListPage.dart';
 import 'package:careerpathai/presentation/pages/about_page.dart';
 import 'package:careerpathai/presentation/pages/home_page.dart';
 import 'package:careerpathai/presentation/pages/profile_page.dart';
@@ -60,8 +61,8 @@ class CareerPathAI extends StatelessWidget {
           GetPage(name: AppRoutes.about, page: () => const AboutPage()),
           GetPage(name: AppRoutes.results, page: () => const ProfilePage()),
           GetPage(
-            name: '/career_recommendations',
-            page: () => const ResultsPage(),
+            name: AppRoutes.careerListPage,
+            page: () => const CareerListPage(),
           ),
         ],
       ),
