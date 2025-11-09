@@ -99,10 +99,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   label: "I accept terms and conditions",
                 ),
                 const SizedBox(height: 25),
-                AppButton(
-                  onPressed: _onRegister, // ✅ ya no pasamos context
-                  text: "Register",
-                ),
+                AppButton(onPressed: _onRegister, text: "Register"),
                 const UccBanner(text: 'UCC'),
               ],
             ),
