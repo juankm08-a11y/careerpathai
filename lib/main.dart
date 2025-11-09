@@ -4,6 +4,7 @@ import 'dart:ui';
 import 'package:careerpathai/core/constants/app_constants.dart';
 import 'package:careerpathai/core/translations/app_translations.dart';
 import 'package:careerpathai/presentation/controllers/app_controller.dart';
+import 'package:careerpathai/presentation/controllers/gemini_controller.dart';
 import 'package:careerpathai/presentation/pages/careerlist_page.dart';
 import 'package:careerpathai/presentation/pages/about_page.dart';
 import 'package:careerpathai/presentation/pages/home_page.dart';
@@ -25,6 +26,7 @@ Future<void> main() async {
   await SupabaseConfig.initialize();
 
   Get.put(AppController(), permanent: true);
+  Get.put(GeminiController(), permanent: true);
   Get.put(CareerController());
 
   runApp(const CareerPathAI());
