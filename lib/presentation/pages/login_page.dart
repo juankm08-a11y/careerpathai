@@ -68,7 +68,7 @@ class _LoginPageState extends State<LoginPage> {
                   children: [
                     const AppLogo(size: 100),
                     Text(
-                      'Create Your Account',
+                      'Sign In',
                       style: Theme.of(context).textTheme.headlineSmall,
                     ),
                     InputField(
