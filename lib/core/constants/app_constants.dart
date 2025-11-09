@@ -18,7 +18,7 @@ class AppRoutes {
   static const String register = '/register';
   static const String login = '/login';
   static const String welcome = '/welcome';
-  static const String careerRecommendations = '/career_recommendatios';
+  static const String careerListPage = '/careerlistpage';
 }
 
 class AppDescriptions {
