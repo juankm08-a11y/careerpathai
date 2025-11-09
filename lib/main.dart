@@ -20,13 +20,9 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  print("Cargando variables de entorno");
   await dotenv.load(fileName: ".env");
-  print("Variables cargadas correctamente");
 
-  print("Inicializando supabase");
   await SupabaseConfig.initialize();
-  print("Supabase inicio correctamente");
 
   Get.put(AppController(), permanent: true);
   Get.put(CareerController());
