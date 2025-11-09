@@ -3,14 +3,17 @@ import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class GeminiService {
-  static final model = GenerativeModel(
-    model: GeminiConfig.modelName,
-    apiKey: dotenv.env['GEMINI_API_KEY'] ?? '',
-  );
+  static Future<GenerativeModel> _initModel() async {
+    final modelName = await GeminiConfig.getModelName();
+    final apiKey = dotenv.env['GEMINI_API_KEY'] ?? '';
+    return GenerativeModel(model: modelName, apiKey: apiKey);
+  }
 
   static Future<String> getCareerRecommendations(
     Map<String, dynamic> profile,
   ) async {
+    final model = await _initModel();
+
     final interests = (profile['interests'] as List).join(', ');
     final skills = (profile['skills'] as List).join(', ');
     final personality = profile['personality'];
