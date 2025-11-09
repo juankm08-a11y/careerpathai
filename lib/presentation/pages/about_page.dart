@@ -19,7 +19,10 @@ class AboutPage extends StatelessWidget {
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 10),
-            Text('about_description'.tr, style: const TextStyle(fontSize: 18)),
+            Text(
+              AppDescriptions.aboutDescription.tr,
+              style: const TextStyle(fontSize: 18),
+            ),
           ],
         ),
       ),
