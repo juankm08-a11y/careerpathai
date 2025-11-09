@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'dart:ui';
 
+import 'package:careerpathai/core/constants/app_constants.dart';
 import 'package:careerpathai/core/translations/app_translations.dart';
 import 'package:careerpathai/presentation/controllers/app_controller.dart';
 import 'package:careerpathai/presentation/pages/about_page.dart';
@@ -51,13 +52,13 @@ class CareerPathAI extends StatelessWidget {
 
         initialRoute: "/welcome",
         getPages: [
-          GetPage(name: '/home', page: () => const HomePage()),
-          GetPage(name: '/welcome', page: () => const WelcomeScreen()),
-          GetPage(name: '/login', page: () => const LoginPage()),
-          GetPage(name: '/register', page: () => const RegisterPage()),
-          GetPage(name: '/test', page: () => const TestPage()),
-          GetPage(name: '/about', page: () => const AboutPage()),
-          GetPage(name: '/profile', page: () => const ProfilePage()),
+          GetPage(name: AppRoutes.home, page: () => const HomePage()),
+          GetPage(name: AppRoutes.welcome, page: () => const WelcomeScreen()),
+          GetPage(name: AppRoutes.login, page: () => const LoginPage()),
+          GetPage(name: AppRoutes.about, page: () => const RegisterPage()),
+          GetPage(name: AppRoutes.test, page: () => const TestPage()),
+          GetPage(name: AppRoutes.about, page: () => const AboutPage()),
+          GetPage(name: AppRoutes.results, page: () => const ProfilePage()),
           GetPage(
             name: '/career_recommendations',
             page: () => const ResultsPage(),

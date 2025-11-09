@@ -1,10 +1,16 @@
+import 'package:careerpathai/core/constants/app_constants.dart';
+import 'package:careerpathai/presentation/widgets/app_logo.dart';
+
+import 'package:careerpathai/presentation/widgets/custom_text_button.dart';
+import 'package:careerpathai/presentation/widgets/gradient_background.dart';
+import 'package:careerpathai/presentation/widgets/loading_button.dart';
+import 'package:careerpathai/presentation/widgets/spaced_column.dart';
+import 'package:careerpathai/presentation/widgets/ucc_banner.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../widgets/input_field.dart';
-import '../widgets/app_button.dart';
-import '../widgets/loading_overlay.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -16,6 +22,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final TextEditingController emailCtrl = TextEditingController();
   final TextEditingController passCtrl = TextEditingController();
+  final TextEditingController confirmCtrl = TextEditingController();
 
   bool loading = false;
 
@@ -47,39 +54,54 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    return LoadingOverlay(
-      isLoading: loading,
+    return GradientBackground(
       child: Scaffold(
-        appBar: AppBar(title: Text("Login")),
-        body: Padding(
-          padding: const EdgeInsets.all(20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              InputField(
-                label: "Email",
-                controller: emailCtrl,
-                keyboardType: TextInputType.emailAddress,
+        backgroundColor: Colors.transparent,
+        body: SafeArea(
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.all(24),
+            child: Center(
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 400),
+                child: SpacedColumn(
+                  gap: 20,
+                  children: [
+                    const AppLogo(size: 100),
+                    Text(
+                      'Create Your Account',
+                      style: Theme.of(context).textTheme.headlineSmall,
+                    ),
+                    InputField(
+                      controller: emailCtrl,
+                      label: 'Email',
+                      keyboardType: TextInputType.emailAddress,
+                    ),
+                    InputField(
+                      label: 'Password',
+                      controller: passCtrl,
+                      obscure: true,
+                    ),
+                    InputField(
+                      controller: confirmCtrl,
+                      obscure: true,
+                      label: 'Confirm Password',
+                    ),
+                    Align(alignment: Alignment.centerRight),
+                    LoadingButton(
+                      loading: loading,
+                      onPressed: login,
+                      label: "Sign In",
+                    ),
+                    CustomTextButton(
+                      label: "Create an account",
+                      onPressed: () => Get.toNamed(AppRoutes.register),
+                    ),
+                    const SizedBox(height: 20),
+                    const UccBanner(text: 'UCC'),
+                  ],
+                ),
               ),
-              const SizedBox(height: 15),
-
-              InputField(
-                label: "Password",
-                controller: passCtrl,
-                obscure: true,
-              ),
-              const SizedBox(height: 25),
-
-              AppButton(text: "Sign In", onPressed: login, isLoading: loading),
-
-              const SizedBox(height: 10),
-
-              AppButton(
-                text: "Create Account",
-                outlined: true,
-                onPressed: () => Get.toNamed('/register'),
-              ),
-            ],
+            ),
           ),
         ),
       ),
