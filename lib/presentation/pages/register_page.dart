@@ -2,6 +2,7 @@ import 'package:careerpathai/presentation/widgets/app_button.dart';
 import 'package:careerpathai/presentation/widgets/custom_checkbox.dart';
 import 'package:careerpathai/presentation/widgets/input_field.dart';
 import 'package:careerpathai/presentation/widgets/loading_overlay.dart';
+import 'package:careerpathai/presentation/widgets/ucc_banner.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:get/get.dart';
@@ -102,6 +103,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   onPressed: _onRegister, // ✅ ya no pasamos context
                   text: "Register",
                 ),
+                const UccBanner(text: 'UCC'),
               ],
             ),
           ),
