@@ -5,7 +5,6 @@ import 'package:careerpathai/presentation/widgets/empty_state.dart';
 import 'package:careerpathai/presentation/widgets/filter_chip_group.dart';
 import 'package:careerpathai/presentation/widgets/info_title.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class CareerListPage extends StatefulWidget {
   const CareerListPage({super.key});
