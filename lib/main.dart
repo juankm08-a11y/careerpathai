@@ -59,7 +59,9 @@ class CareerPathAI extends StatelessWidget {
           GetPage(name: AppRoutes.about, page: () => const RegisterPage()),
           GetPage(name: AppRoutes.test, page: () => const TestPage()),
           GetPage(name: AppRoutes.about, page: () => const AboutPage()),
-          GetPage(name: AppRoutes.results, page: () => const ProfilePage()),
+          GetPage(name: AppRoutes.profile, page: () => const ProfilePage()),
+          GetPage(name: AppRoutes.results, page: () => const ResultsPage()),
+
           GetPage(
             name: AppRoutes.careerListPage,
             page: () => const CareerListPage(),
