@@ -20,3 +20,8 @@ class AppRoutes {
   static const String welcome = '/welcome';
   static const String careerRecommendations = '/career_recommendatios';
 }
+
+class AppDescriptions {
+  static const String aboutDescription =
+      'Find more about University Cooperativa de Colombia';
+}
