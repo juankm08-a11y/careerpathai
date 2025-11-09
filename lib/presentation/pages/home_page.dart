@@ -30,6 +30,7 @@ class HomePage extends StatelessWidget {
         isLoading: isLoading.value,
         child: Scaffold(
           appBar: AppBar(
+            backgroundColor: AppColors.primary.withValues(alpha: 0.8),
             title: Text(AppTexts.homeTitle),
             actions: [
               IconButton(
