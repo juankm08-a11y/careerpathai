@@ -38,7 +38,6 @@ class _RegisterPageState extends State<RegisterPage> {
     setState(() => _loading = true);
 
     try {
-      // ✅ Crear usuario en Supabase
       await Supabase.instance.client.auth.signUp(
         email: _emailCtrl.text.trim(),
         password: _passwordCtrl.text.trim(),
@@ -54,7 +53,6 @@ class _RegisterPageState extends State<RegisterPage> {
         ),
       );
 
-      // ✅ Navegar al login después del registro
       Get.offAllNamed("/login");
     } catch (e) {
       if (!mounted) return;
