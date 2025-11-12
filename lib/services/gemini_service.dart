@@ -1,4 +1,5 @@
 import 'package:careerpathai/core/config/gemini_config.dart';
+import 'package:careerpathai/core/config/prompt_config.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
@@ -14,26 +15,15 @@ class GeminiService {
   ) async {
     final model = await _initModel();
 
-    final interests = (profile['interests'] as List).join(', ');
-    final skills = (profile['skills'] as List).join(', ');
-    final personality = profile['personality'];
-    final subjects = profile['favoriteSubjects'];
+    final promptTemplate = await PromptConfig.getPromptText();
 
-    final prompt =
-        '''
-  Eres un orientador vocacional experto. Analiza el siguiente perfil y sugiere 3 a 5 carreras universitarias posibles,
-  explicando brevemente por qué encajan con la persona.
+    final promt = promptTemplate
+        .replaceAll('{interests}', (profile['interests'] as List).join(', '))
+        .replaceAll('{skills}', (profile['skills'] as List).join(', '))
+        .replaceAll('{personality}', profile['personality'])
+        .replaceAll('{subjects}', profile['favoriteSubjects']);
 
-  Perfil del estudiante:
-  - Intereses: $interests
-  - Habilidades: $skills 
-  - Personalidad: $personality
-  - Materias favoritas: $subjects
-   
-   Responde en formato de lista, con el nombre de la carrera y una breve descripción (sin emojis).
- ''';
-
-    final response = await model.generateContent([Content.text(prompt)]);
-    return response.text ?? 'No se pudieron generar recomendaciones';
+    final response = await model.generateContent([Content.text(promt)]);
+    return response.text ?? 'No se puedieron generar recomendaciones';
   }
 }
