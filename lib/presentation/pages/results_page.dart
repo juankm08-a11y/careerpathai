@@ -74,9 +74,7 @@ class _ResultsPageState extends State<ResultsPage> {
           ),
           IconButton(
             icon: const Icon(Icons.language),
-            onPressed: () => appCtrl.changeLanguage(
-              Get.locale!.languageCode == 'es' ? 'en' : 'es',
-            ),
+            onPressed: () => appCtrl.showLanguageDialog(context),
           ),
         ],
       ),
