@@ -27,6 +27,7 @@ class _LoginPageState extends State<LoginPage> {
   bool loading = false;
 
   final appController = Get.find<AppController>();
+  final appCtrl = Get.find<AppController>();
 
   Future<void> login() async {
     if (emailCtrl.text.isEmpty || passCtrl.text.isEmpty) {
@@ -84,6 +85,11 @@ class _LoginPageState extends State<LoginPage> {
                   gap: 20,
                   children: [
                     const AppLogo(size: 100),
+                    IconButton(
+                      icon: const Icon(Icons.brightness_6),
+                      onPressed: () => appCtrl.toogleTheme(),
+                      tooltip: 'toogle_theme'.tr,
+                    ),
                     Text(
                       'Sign In',
                       style: Theme.of(context).textTheme.headlineSmall
