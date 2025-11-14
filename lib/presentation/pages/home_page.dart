@@ -50,14 +50,10 @@ class HomePage extends StatelessWidget {
                     title: 'Selected Language',
                     content: Column(
                       children: [
-                        ElevatedButton(
-                          onPressed: () => controller.changeLanguage("en"),
-                          child: const Text('English'),
-                        ),
-                        ElevatedButton(
+                        IconButton(
                           onPressed: () =>
                               controller.showLanguageDialog(context),
-                          child: const Text("Español"),
+                          icon: const Icon(Icons.language),
                         ),
                       ],
                     ),
