@@ -1,4 +1,5 @@
 import 'package:careerpathai/core/constants/app_constants.dart';
+import 'package:careerpathai/presentation/controllers/app_controller.dart';
 import 'package:careerpathai/presentation/widgets/app_button.dart';
 import 'package:careerpathai/presentation/widgets/custom_checkbox.dart';
 import 'package:careerpathai/presentation/widgets/input_field.dart';
@@ -22,6 +23,8 @@ class _RegisterPageState extends State<RegisterPage> {
 
   bool _acceptTerms = false;
   bool _loading = false;
+
+  final appController = Get.find<AppController>();
 
   Future<void> _onRegister() async {
     // Validaciones
