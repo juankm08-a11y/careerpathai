@@ -88,7 +88,7 @@ class _LoginPageState extends State<LoginPage> {
                     IconButton(
                       icon: const Icon(Icons.brightness_6),
                       onPressed: () => appCtrl.toogleTheme(),
-                      tooltip: 'toogle_theme'.tr,
+                      tooltip: AppTexts.theme.tr,
                     ),
                     Text(
                       'Sign In',
