@@ -1,10 +1,12 @@
 import 'package:careerpathai/core/constants/app_colors.dart';
 import 'package:careerpathai/domain/entities/career_entity.dart';
+import 'package:careerpathai/presentation/controllers/app_controller.dart';
 import 'package:careerpathai/presentation/widgets/career_card.dart';
 import 'package:careerpathai/presentation/widgets/empty_state.dart';
 import 'package:careerpathai/presentation/widgets/filter_chip_group.dart';
 import 'package:careerpathai/presentation/widgets/info_title.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CareerListPage extends StatefulWidget {
   const CareerListPage({super.key});
@@ -25,6 +27,8 @@ class _CareerListPageState extends State<CareerListPage> {
 
   final List<String> filters = ['Technology', 'Design', 'Health', 'Science'];
   final Set<String> selectedFilters = {};
+
+  final appController = Get.find<AppController>();
 
   void toogleFilter(String item) {
     setState(() {
