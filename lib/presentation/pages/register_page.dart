@@ -107,7 +107,9 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
                 const SizedBox(height: 25),
                 AppButton(onPressed: _onRegister, text: "Register"),
-                const UccBanner(text: 'UCC'),
+                const UccBanner(
+                  text: '© 2025 Universidad Cooperativa de Colombia',
+                ),
               ],
             ),
           ),
