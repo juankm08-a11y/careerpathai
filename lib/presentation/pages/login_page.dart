@@ -23,12 +23,15 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController emailCtrl = TextEditingController();
   final TextEditingController passCtrl = TextEditingController();
   final TextEditingController confirmCtrl = TextEditingController();
-
   bool loading = false;
 
   Future<void> login() async {
     if (emailCtrl.text.isEmpty || passCtrl.text.isEmpty) {
-      Get.snackbar("Error", "Please fill all fields");
+      Get.snackbar(
+        "Error",
+        "Please fill all fields",
+        backgroundColor: Colors.red.shade100,
+      );
       return;
     }
 
@@ -43,10 +46,14 @@ class _LoginPageState extends State<LoginPage> {
       if (res.session != null) {
         Get.offAllNamed('/home');
       } else {
-        Get.snackbar("Error", "Invalid credentials");
+        Get.snackbar(
+          "Error",
+          "Invalid credentials",
+          backgroundColor: Colors.red.shade100,
+        );
       }
     } catch (e) {
-      Get.snackbar("Error", e.toString());
+      Get.snackbar("Error", e.toString(), backgroundColor: Colors.red.shade100);
     }
 
     setState(() => loading = false);
@@ -54,6 +61,7 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return GradientBackground(
       child: Scaffold(
         backgroundColor: Colors.transparent,
@@ -69,7 +77,11 @@ class _LoginPageState extends State<LoginPage> {
                     const AppLogo(size: 100),
                     Text(
                       'Sign In',
-                      style: Theme.of(context).textTheme.headlineSmall,
+                      style: Theme.of(context).textTheme.headlineSmall
+                          ?.copyWith(
+                            color: theme.colorScheme.primary,
+                            fontWeight: FontWeight.bold,
+                          ),
                     ),
                     InputField(
                       controller: emailCtrl,
@@ -95,6 +107,7 @@ class _LoginPageState extends State<LoginPage> {
                     CustomTextButton(
                       label: "Create an account",
                       onPressed: () => Get.toNamed(AppRoutes.register),
+                      textColor: theme.colorScheme.primary,
                     ),
                     const SizedBox(height: 20),
                     const UccBanner(text: 'UCC'),
