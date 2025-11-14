@@ -87,7 +87,25 @@ class _RegisterPageState extends State<RegisterPage> {
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
+
               children: [
+                IconButton(
+                  onPressed: () {
+                    Get.defaultDialog(
+                      title: 'Selected Language',
+                      content: Column(
+                        children: [
+                          IconButton(
+                            onPressed: () =>
+                                appController.showLanguageDialog(context),
+                            icon: const Icon(Icons.language),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                  icon: const Icon(Icons.language),
+                ),
                 InputField(label: 'Full Name', controller: _nameCtrl),
                 const SizedBox(height: 15),
                 InputField(
