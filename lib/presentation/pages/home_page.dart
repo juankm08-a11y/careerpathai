@@ -55,7 +55,8 @@ class HomePage extends StatelessWidget {
                           child: const Text('English'),
                         ),
                         ElevatedButton(
-                          onPressed: () => controller.changeLanguage("es"),
+                          onPressed: () =>
+                              controller.showLanguageDialog(context),
                           child: const Text("Español"),
                         ),
                       ],
