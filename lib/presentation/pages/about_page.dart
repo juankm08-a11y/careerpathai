@@ -9,6 +9,7 @@ class AboutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appController = Get.find<AppController>();
+    final appCtrl = Get.find<AppController>();
 
     return Scaffold(
       appBar: AppBar(title: Text(AppTexts.aboutTitle.tr)),
@@ -33,6 +34,11 @@ class AboutPage extends StatelessWidget {
                 );
               },
               icon: const Icon(Icons.language),
+            ),
+            IconButton(
+              icon: const Icon(Icons.brightness_6),
+              onPressed: () => appCtrl.toogleTheme(),
+              tooltip: AppTexts.theme.tr,
             ),
             Text(
               AppTexts.aboutTitle.tr,
