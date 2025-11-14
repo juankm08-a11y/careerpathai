@@ -17,12 +17,33 @@ class PromptConfig {
   }
 
   static const String _defaultPrompt = '''
-  You are an expert career counselor. Analyze the following student profile and suggest 3 to 5 possible university careers, briefly explaining why each one fits this person.
-  Student profile:
+  You are an expert career counselor and adaptive-question generator.
+
+  Your tasks are:
+  1. Analyze the student's profile.
+  2. Suggets 3 to 5 university careers with short explanations.
+  3. Generate one adaptive follow-up question based on the studen'ts previous answers.
+
+  Student profile data:
   - Interests: {interests}
   - Skills: {skills}
   - Personality: {personality}
   - Favorite subjects: {subjects}
-  Respond in list format, including the career name and a short explanation (no emojis).
+  - Preferences: {preferences}
+
+  Rules for adaptive questions:
+  - The question must be personalized to what the student wrote.
+  - Do NOT repeat a question the student already answered.
+  - Focus on clarifying motivations, strengths, or preferences.
+  - Only generate **one** adaptive question.
+
+  Final output format: 
+  ### Career Recommendations
+  1. Career Name - short explanation why it fits.
+  2. Career Name - explanation.
+  3. Career Name - explanation.
+
+  ### Adaptive Question
+  Your adaptive question here.
   ''';
 }
