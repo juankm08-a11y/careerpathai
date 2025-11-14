@@ -53,7 +53,13 @@ class _LoginPageState extends State<LoginPage> {
         );
       }
     } catch (e) {
-      Get.snackbar("Error", e.toString(), backgroundColor: Colors.red.shade100);
+      Get.showSnackbar(
+        GetSnackBar(
+          message: e.toString(),
+          backgroundColor: Colors.red.shade100,
+          duration: const Duration(seconds: 2),
+        ),
+      );
     }
 
     setState(() => loading = false);
