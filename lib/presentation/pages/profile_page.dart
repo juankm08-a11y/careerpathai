@@ -23,6 +23,7 @@ class ProfilePage extends StatelessWidget {
     final user = Supabase.instance.client.auth.currentUser;
 
     final appController = Get.find<AppController>();
+    final appCtrl = Get.find<AppController>();
 
     return Scaffold(
       appBar: AppBar(title: Text(AppTexts.profileTitle.tr)),
@@ -33,6 +34,11 @@ class ProfilePage extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            IconButton(
+              icon: const Icon(Icons.brightness_6),
+              onPressed: () => appCtrl.toogleTheme(),
+              tooltip: AppTexts.theme.tr,
+            ),
             Obx(
               () => CustomSwitch(
                 value: appController.isDark.value,
