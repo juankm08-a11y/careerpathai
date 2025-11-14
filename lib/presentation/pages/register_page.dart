@@ -25,6 +25,7 @@ class _RegisterPageState extends State<RegisterPage> {
   bool _loading = false;
 
   final appController = Get.find<AppController>();
+  final appCtrl = Get.find<AppController>();
 
   Future<void> _onRegister() async {
     // Validaciones
@@ -105,6 +106,11 @@ class _RegisterPageState extends State<RegisterPage> {
                     );
                   },
                   icon: const Icon(Icons.language),
+                ),
+                IconButton(
+                  icon: const Icon(Icons.brightness_6),
+                  onPressed: () => appCtrl.toogleTheme(),
+                  tooltip: 'toogle_theme'.tr,
                 ),
                 InputField(label: 'Full Name', controller: _nameCtrl),
                 const SizedBox(height: 15),
