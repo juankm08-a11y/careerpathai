@@ -1,4 +1,5 @@
 import 'package:careerpathai/core/constants/app_constants.dart';
+import 'package:careerpathai/presentation/controllers/app_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -7,6 +8,8 @@ class AboutPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appController = Get.find<AppController>();
+
     return Scaffold(
       appBar: AppBar(title: Text(AppTexts.aboutTitle.tr)),
       body: Padding(
@@ -14,6 +17,23 @@ class AboutPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            IconButton(
+              onPressed: () {
+                Get.defaultDialog(
+                  title: 'Selected Language',
+                  content: Column(
+                    children: [
+                      IconButton(
+                        onPressed: () =>
+                            appController.showLanguageDialog(context),
+                        icon: const Icon(Icons.language),
+                      ),
+                    ],
+                  ),
+                );
+              },
+              icon: const Icon(Icons.language),
+            ),
             Text(
               AppTexts.aboutTitle.tr,
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
