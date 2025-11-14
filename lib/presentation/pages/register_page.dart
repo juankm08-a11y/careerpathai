@@ -1,3 +1,4 @@
+import 'package:careerpathai/core/constants/app_constants.dart';
 import 'package:careerpathai/presentation/widgets/app_button.dart';
 import 'package:careerpathai/presentation/widgets/custom_checkbox.dart';
 import 'package:careerpathai/presentation/widgets/input_field.dart';
@@ -48,8 +49,11 @@ class _RegisterPageState extends State<RegisterPage> {
       setState(() => _loading = false);
 
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+        SnackBar(
           content: Text("✅ Account created! Please check your email."),
+          backgroundColor: Theme.of(
+            context,
+          ).colorScheme.primary.withValues(alpha: 0.8),
         ),
       );
 
@@ -67,10 +71,14 @@ class _RegisterPageState extends State<RegisterPage> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return LoadingOverlay(
       isLoading: _loading,
       child: Scaffold(
-        appBar: AppBar(title: Text('register'.tr)),
+        appBar: AppBar(
+          title: Text(AppTexts.register.tr),
+          backgroundColor: theme.colorScheme.onPrimary,
+        ),
         body: Padding(
           padding: const EdgeInsets.all(16),
           child: SingleChildScrollView(
