@@ -109,9 +109,7 @@ class _TestPageState extends State<TestPage> {
           ),
           IconButton(
             icon: const Icon(Icons.language),
-            onPressed: () => appCtrl.changeLanguage(
-              Get.locale!.languageCode == 'es' ? 'en' : 'es',
-            ),
+            onPressed: () => appCtrl.showLanguageDialog(context),
           ),
         ],
       ),
