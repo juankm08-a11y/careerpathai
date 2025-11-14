@@ -7,6 +7,7 @@ class AppTexts {
   static const register = 'register';
   static const changeLanguage = 'Change Language';
   static const results = 'results';
+  static const logout = 'logout';
 }
 
 class AppRoutes {
