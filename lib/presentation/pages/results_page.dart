@@ -1,3 +1,4 @@
+import 'package:careerpathai/core/constants/app_constants.dart';
 import 'package:careerpathai/presentation/controllers/app_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -71,6 +72,7 @@ class _ResultsPageState extends State<ResultsPage> {
           IconButton(
             icon: const Icon(Icons.brightness_6),
             onPressed: () => appCtrl.toogleTheme(),
+            tooltip: AppTexts.theme.tr,
           ),
           IconButton(
             icon: const Icon(Icons.language),

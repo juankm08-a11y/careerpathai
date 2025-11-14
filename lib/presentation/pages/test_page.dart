@@ -1,3 +1,4 @@
+import 'package:careerpathai/core/constants/app_constants.dart';
 import 'package:careerpathai/presentation/controllers/app_controller.dart';
 import 'package:careerpathai/services/gemini_service.dart';
 import 'package:flutter/material.dart';
@@ -105,7 +106,7 @@ class _TestPageState extends State<TestPage> {
           IconButton(
             icon: const Icon(Icons.brightness_6),
             onPressed: () => appCtrl.toogleTheme(),
-            tooltip: 'toogle_theme'.tr,
+            tooltip: AppTexts.theme.tr,
           ),
           IconButton(
             icon: const Icon(Icons.language),
