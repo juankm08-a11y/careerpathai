@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'dart:ui';
 
+import 'package:careerpathai/core/constants/app_colors.dart';
 import 'package:careerpathai/core/constants/app_constants.dart';
 import 'package:careerpathai/core/translations/app_translations.dart';
 import 'package:careerpathai/presentation/controllers/app_controller.dart';
@@ -45,8 +46,9 @@ class CareerPathAI extends StatelessWidget {
         translations: AppTranslations(),
         locale: const Locale('en', 'US'),
 
-        theme: ThemeData.light(),
-        darkTheme: ThemeData.dark(),
+        theme: AppColors.lightTheme,
+        darkTheme: AppColors.darkTheme,
+
         themeMode: appCtrl.isDark.value ? ThemeMode.dark : ThemeMode.light,
 
         initialRoute: "/welcome",
