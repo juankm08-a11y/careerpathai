@@ -103,6 +103,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   value: _acceptTerms,
                   onChanged: (v) => setState(() => _acceptTerms = v ?? false),
                   label: "I accept terms and conditions",
+                  activeColor: theme.colorScheme.primary,
                 ),
                 const SizedBox(height: 25),
                 AppButton(onPressed: _onRegister, text: "Register"),
