@@ -8,6 +8,7 @@ class AppTexts {
   static const changeLanguage = 'Change Language';
   static const results = 'results';
   static const logout = 'logout';
+  static const theme = 'Change Mode';
 }
 
 class AppRoutes {
