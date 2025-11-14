@@ -1,5 +1,4 @@
 import 'package:careerpathai/core/constants/app_constants.dart';
-import 'package:careerpathai/presentation/controllers/app_controller.dart';
 import 'package:careerpathai/presentation/widgets/app_logo.dart';
 
 import 'package:careerpathai/presentation/widgets/custom_text_button.dart';
@@ -25,9 +24,6 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController passCtrl = TextEditingController();
   final TextEditingController confirmCtrl = TextEditingController();
   bool loading = false;
-
-  final appController = Get.find<AppController>();
-  final appCtrl = Get.find<AppController>();
 
   Future<void> login() async {
     if (emailCtrl.text.isEmpty || passCtrl.text.isEmpty) {
@@ -85,11 +81,6 @@ class _LoginPageState extends State<LoginPage> {
                   gap: 20,
                   children: [
                     const AppLogo(size: 100),
-                    IconButton(
-                      icon: const Icon(Icons.brightness_6),
-                      onPressed: () => appCtrl.toogleTheme(),
-                      tooltip: AppTexts.theme.tr,
-                    ),
                     Text(
                       'Sign In',
                       style: Theme.of(context).textTheme.headlineSmall

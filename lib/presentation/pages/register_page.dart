@@ -24,9 +24,6 @@ class _RegisterPageState extends State<RegisterPage> {
   bool _acceptTerms = false;
   bool _loading = false;
 
-  final appController = Get.find<AppController>();
-  final appCtrl = Get.find<AppController>();
-
   Future<void> _onRegister() async {
     // Validaciones
     if (_nameCtrl.text.isEmpty ||
@@ -90,28 +87,6 @@ class _RegisterPageState extends State<RegisterPage> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
 
               children: [
-                IconButton(
-                  onPressed: () {
-                    Get.defaultDialog(
-                      title: 'Selected Language',
-                      content: Column(
-                        children: [
-                          IconButton(
-                            onPressed: () =>
-                                appController.showLanguageDialog(context),
-                            icon: const Icon(Icons.language),
-                          ),
-                        ],
-                      ),
-                    );
-                  },
-                  icon: const Icon(Icons.language),
-                ),
-                IconButton(
-                  icon: const Icon(Icons.brightness_6),
-                  onPressed: () => appCtrl.toogleTheme(),
-                  tooltip: 'toogle_theme'.tr,
-                ),
                 InputField(label: 'Full Name', controller: _nameCtrl),
                 const SizedBox(height: 15),
                 InputField(
