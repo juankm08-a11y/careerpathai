@@ -244,33 +244,73 @@ class _TestPageState extends State<TestPage> {
     List<String> options,
     Set<String> selected,
   ) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          title,
-          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-        ),
-        const SizedBox(height: 10),
-        Expanded(
-          child: ListView(
-            children: options.map((option) {
-              final isSelected = selected.contains(option);
-              return CheckboxListTile(
-                title: Text(option),
-                value: isSelected,
-                onChanged: (value) {
-                  setState(() {
-                    value == true
-                        ? selected.add(option)
-                        : selected.remove(option);
-                  });
-                },
-              );
-            }).toList(),
+    return Container(
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: Theme.of(context).cardColor,
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.07),
+            blurRadius: 10,
+            offset: const Offset(0, 4),
           ),
-        ),
-      ],
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            title,
+            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 12),
+
+          Expanded(
+            child: ListView(
+              children: options.map((option) {
+                final isSelected = selected.contains(option);
+
+                return Container(
+                  margin: const EdgeInsets.only(bottom: 12),
+                  decoration: BoxDecoration(
+                    color: isSelected
+                        ? Theme.of(
+                            context,
+                          ).colorScheme.primary.withValues(alpha: 0.1)
+                        : Theme.of(context).scaffoldBackgroundColor,
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(
+                      color: isSelected
+                          ? Theme.of(context).colorScheme.primary
+                          : Colors.grey.shade400,
+                    ),
+                  ),
+                  child: CheckboxListTile(
+                    activeColor: Theme.of(context).colorScheme.primary,
+                    title: Text(
+                      option,
+                      style: TextStyle(
+                        fontWeight: isSelected
+                            ? FontWeight.bold
+                            : FontWeight.normal,
+                      ),
+                    ),
+                    value: isSelected,
+                    onChanged: (value) {
+                      setState(() {
+                        value == true
+                            ? selected.add(option)
+                            : selected.remove(option);
+                      });
+                    },
+                  ),
+                );
+              }).toList(),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
