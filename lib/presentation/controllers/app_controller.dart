@@ -9,7 +9,7 @@ class AppController extends GetxController {
     Get.changeThemeMode(isDark.value ? ThemeMode.dark : ThemeMode.light);
   }
 
-  void navigateByLanguage() {
+  void changeLanguage() {
     final systemLocale = Get.deviceLocale?.languageCode ?? 'en';
 
     if (systemLocale == 'es') {
