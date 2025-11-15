@@ -16,6 +16,7 @@ class _TestPageState extends State<TestPage> {
   final _formKey = GlobalKey<FormState>();
   final PageController _pageController = PageController();
   int _currentPage = 0;
+  final int _pagesCount = 5;
 
   final Map<String, dynamic> profile = {
     'interests': <String>[],
@@ -32,7 +33,7 @@ class _TestPageState extends State<TestPage> {
   final List<String> preferenceOptions = [
     'Team work'.tr,
     'Logical thinking'.tr,
-    'Helping othters'.tr,
+    'Helping others'.tr,
     'Love for tecnology'.tr,
     'Creativity'.tr,
     'Entreprenurial spirit'.tr,
@@ -50,7 +51,7 @@ class _TestPageState extends State<TestPage> {
   }
 
   void _nextPage() {
-    if (_currentPage < 3) {
+    if (_currentPage < _pagesCount - 1) {
       setState(() => _currentPage++);
       _pageController.nextPage(
         duration: const Duration(milliseconds: 300),
