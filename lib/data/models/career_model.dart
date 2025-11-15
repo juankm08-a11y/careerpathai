@@ -52,7 +52,7 @@ class CareerModel extends CareerEntity {
           : null,
       trend: map['trend']?.toString(),
       purpose: map['purpose'] is Map
-          ? Map<String, dynamic>.from(map['meta'])
+          ? Map<String, dynamic>.from(map['purpose'])
           : null,
     );
   }
