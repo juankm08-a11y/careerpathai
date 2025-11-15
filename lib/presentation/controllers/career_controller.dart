@@ -37,12 +37,12 @@ class CareerController extends GetxController {
       final entityList = rawList.map((item) {
         return CareerEntity(
           id: item['id'] ?? '',
-
           title: item['title'] ?? '',
-
           description: item['description'] ?? '',
 
-          score: item['score'] ?? 0.0,
+          score: (item['score'] != null)
+              ? (item['score'] as num).toDouble()
+              : 0.0,
 
           skills: (item['skills'] is List)
               ? List<String>.from(item['skills'])
@@ -53,8 +53,12 @@ class CareerController extends GetxController {
               : null,
 
           marketDemand: item['market_demand'] ?? 'Unknown',
-          route: List<String>.from(item['route'] ?? []),
-          tags: List<String>.from(item['tags'] ?? []),
+
+          route: (item['route'] is List)
+              ? List<String>.from(item['route'])
+              : null,
+
+          tags: (item['tags'] is List) ? List<String>.from(item['tags']) : null,
 
           workEnvironment: item['work_environment']?.toString(),
 
@@ -74,8 +78,9 @@ class CareerController extends GetxController {
         );
       }).toList();
       careers.value = entityList;
+      print("Loaded ${entityList.length} AI recommendations");
     } catch (e) {
-      print("Errors recommendations: $e");
+      print("Error loading recommendations: $e");
     } finally {
       loading.value = false;
     }
