@@ -14,7 +14,7 @@ class GeminiController {
       if (parsed is List) {
         return List<Map<String, dynamic>>.from(parsed);
       } else {
-        throw 'Invalid format: wait to a JSON';
+        throw Exception('Invalid JSON format: Expected a List');
       }
     } catch (e) {
       throw 'Error to generate recommendations: $e';
