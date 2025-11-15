@@ -110,7 +110,7 @@ class _TestPageState extends State<TestPage> {
           ),
           IconButton(
             icon: const Icon(Icons.language),
-            onPressed: () => appCtrl.showLanguageDialog(context),
+            onPressed: () => appCtrl.changeLanguage(),
           ),
         ],
       ),
