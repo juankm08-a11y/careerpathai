@@ -47,7 +47,6 @@ class HomePage extends StatelessWidget {
               IconButton(
                 onPressed: () {
                   Get.defaultDialog(
-                    title: 'Selected Language',
                     content: Column(
                       children: [
                         IconButton(
