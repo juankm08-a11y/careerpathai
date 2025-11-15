@@ -30,12 +30,12 @@ class _TestPageState extends State<TestPage> {
   final TextEditingController subjectsCtrl = TextEditingController();
 
   final List<String> preferenceOptions = [
-    'team_work'.tr,
-    'logical_thinking'.tr,
-    'helping_others'.tr,
-    'technology_love'.tr,
-    'creativity'.tr,
-    'entrepreneur'.tr,
+    'Team work'.tr,
+    'Logical thinking'.tr,
+    'Helping othters'.tr,
+    'Love for tecnology'.tr,
+    'Creativity'.tr,
+    'Entreprenurial spirit'.tr,
   ];
 
   final Set<String> selectedPreferences = {};
@@ -89,6 +89,7 @@ class _TestPageState extends State<TestPage> {
     profile['preferences'] = selectedPreferences.toList();
 
     final aiResponse = await GeminiService.getCareerRecommendations(profile);
+
     ctrl.setAIRecommendations(aiResponse);
 
     Get.toNamed('/career_recommendations');
