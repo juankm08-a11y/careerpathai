@@ -51,8 +51,7 @@ class HomePage extends StatelessWidget {
                     content: Column(
                       children: [
                         IconButton(
-                          onPressed: () =>
-                              controller.showLanguageDialog(context),
+                          onPressed: () => controller.changeLanguage(),
                           icon: const Icon(Icons.language),
                         ),
                       ],
