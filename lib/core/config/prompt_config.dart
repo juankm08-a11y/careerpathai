@@ -11,9 +11,11 @@ class PromptConfig {
     return _cachedPrompt!;
   }
 
-  static Future<void> setPromptText(String promptText) async {
-    await _repo.setActivePrompt(promptText);
-    _cachedPrompt = promptText;
+  static Future<void> setPromptText(int promptId) async {
+    await _repo.setActivePrompt(promptId);
+    final all = await _repo.getAllPrompts();
+    final match = all.firstWhere((p) => p['id'] == promptId);
+    _cachedPrompt = match['prompt_text'];
   }
 
   static const String _defaultPrompt = '''
