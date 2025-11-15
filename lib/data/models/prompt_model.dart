@@ -18,7 +18,7 @@ class PromptModel {
       id: map['id'] as int,
       title: map['title'] ?? '',
       description: map['description'] ?? '',
-      content: map['prompt_text'],
+      content: map['prompt_text'] ?? '',
       isActive: map['is_active'] == true || map['is_active'] == 1,
     );
   }
