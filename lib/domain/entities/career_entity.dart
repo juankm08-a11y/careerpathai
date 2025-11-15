@@ -13,7 +13,7 @@ class CareerEntity {
   final double? employability;
   final double? avgSalary;
   final String? trend;
-  final Map<String, dynamic>? met;
+  final Map<String, dynamic>? purpose;
 
   CareerEntity({
     required this.id,
@@ -29,6 +29,6 @@ class CareerEntity {
     this.employability,
     this.avgSalary,
     this.trend,
-    this.met,
+    this.purpose,
   });
 }
