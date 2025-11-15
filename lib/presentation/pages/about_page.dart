@@ -25,8 +25,7 @@ class AboutPage extends StatelessWidget {
                   content: Column(
                     children: [
                       IconButton(
-                        onPressed: () =>
-                            appController.showLanguageDialog(context),
+                        onPressed: () => appController.changeLanguage(),
                         icon: const Icon(Icons.language),
                       ),
                     ],
