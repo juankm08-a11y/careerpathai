@@ -1,4 +1,4 @@
-import 'package:careerpathai/core/constants/app_constants.dart';
+import 'package:careerpathai/core/constants/app_texts.dart';
 import 'package:careerpathai/presentation/controllers/app_controller.dart';
 import 'package:careerpathai/services/gemini_service.dart';
 import 'package:flutter/material.dart';
