@@ -1,3 +1,4 @@
+import 'package:careerpathai/core/constants/app_routes.dart';
 import 'package:careerpathai/core/constants/app_texts.dart';
 import 'package:careerpathai/presentation/controllers/app_controller.dart';
 import 'package:careerpathai/services/gemini_service.dart';
@@ -92,6 +93,8 @@ class _TestPageState extends State<TestPage> {
     final aiResponse = await GeminiService.getCareerRecommendations(profile);
 
     ctrl.setAIRecommendations(aiResponse);
+
+    Get.toNamed(AppRoutes.results);
   }
 
   @override
@@ -167,7 +170,7 @@ class _TestPageState extends State<TestPage> {
                   else
                     const SizedBox(width: 80),
 
-                  if (_currentPage < 3)
+                  if (_currentPage < _pagesCount - 1)
                     ElevatedButton(onPressed: _nextPage, child: Text('next'.tr))
                   else
                     ElevatedButton(
