@@ -7,9 +7,9 @@ class GeminiController {
     Map<String, dynamic> profile,
   ) async {
     try {
-      final rawResponse = await GeminiService.getCareerRecommendations(profile);
+      final raw = await GeminiService.getCareerRecommendations(profile);
 
-      final parsed = jsonDecode(rawResponse);
+      final parsed = jsonDecode(raw);
 
       if (parsed is List) {
         return List<Map<String, dynamic>>.from(parsed);
