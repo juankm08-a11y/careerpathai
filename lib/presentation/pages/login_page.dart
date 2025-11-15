@@ -1,4 +1,4 @@
-import 'package:careerpathai/core/constants/app_constants.dart';
+import 'package:careerpathai/core/constants/app_routes.dart';
 import 'package:careerpathai/presentation/widgets/app_logo.dart';
 
 import 'package:careerpathai/presentation/widgets/custom_text_button.dart';
