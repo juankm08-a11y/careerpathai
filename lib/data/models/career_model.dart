@@ -16,17 +16,7 @@ class CareerModel extends CareerEntity {
     double? avgSalary,
     String? trend,
     Map<String, dynamic>? purpose,
-  }) : super(
-         skillsMatch: skillsMatch,
-         marketDemand: marketDemand,
-         route: route,
-         tags: tags,
-         workEnvironment: workEnvironment,
-         employability: employability,
-         avgSalary: avgSalary,
-         trend: trend,
-         purpose: purpose,
-       );
+  });
 
   factory CareerModel.fromMap(Map<String, dynamic> map) {
     return CareerModel(
