@@ -21,14 +21,16 @@ const Map<String, String> es = {
   'favorite_added': 'Agregado a favoritos',
   'favorite_removed': 'Eliminado de favoritos',
 
-  'test_skills': 'What skills do you feel confident about?',
-  'test_skills_hint': 'Write your skills, separated by commas',
+  'test_skills': '¿Cúales son tus intereses?',
+  'test_skills_hint': 'Escribe tus intereses, separados por coma',
 
-  'test_personality': 'How would you describe your personality?',
-  'test_personality_hint': 'Describe your personality in a few words',
+  'test_personality': '¿En qué habilidades te sientes seguro?',
+  'test_personality_hint':
+      'Escribe tus habilidades principales, separadas por comas',
 
-  'test_preferences': 'Which preferences best represent you?',
+  'test_preferences': '¿Qué preferencias te representan mejor?',
 
-  'test_subjects': 'What are your favorite school subjects?',
-  'test_subjects_hint': 'Write your favorite subjects or areas of study',
+  'test_subjects': '¿Cúales son tus materias favoritas?',
+  'test_subjects_hint':
+      'Escribe las materias o áreas de estudio que más te gustan',
 };
