@@ -12,7 +12,7 @@ class CareerEntity {
   final String? workEnvironment;
   final double? employability;
   final double? avgSalary;
-  final double? trend;
+  final String? trend;
   final Map<String, dynamic>? met;
 
   CareerEntity({
