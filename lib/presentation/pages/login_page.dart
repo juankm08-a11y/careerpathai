@@ -116,7 +116,9 @@ class _LoginPageState extends State<LoginPage> {
                       textColor: theme.colorScheme.primary,
                     ),
                     const SizedBox(height: 20),
-                    const UccBanner(text: 'UCC'),
+                    const UccBanner(
+                      text: '© 2025 Universidad Cooperativa de Colombia',
+                    ),
                   ],
                 ),
               ),
