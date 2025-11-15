@@ -17,13 +17,17 @@ class GeminiService {
 
     final promptTemplate = await PromptConfig.getPromptText();
 
-    final promt = promptTemplate
+    final prompt = promptTemplate
         .replaceAll('{interests}', (profile['interests'] as List).join(', '))
         .replaceAll('{skills}', (profile['skills'] as List).join(', '))
         .replaceAll('{personality}', profile['personality'])
-        .replaceAll('{subjects}', profile['favoriteSubjects']);
+        .replaceAll('{subjects}', profile['favoriteSubjects'])
+        .replaceAll(
+          '{preferences}',
+          (profile['preferences'] as List).join(', '),
+        );
 
-    final response = await model.generateContent([Content.text(promt)]);
+    final response = await model.generateContent([Content.text(prompt)]);
     return response.text ?? 'No se puedieron generar recomendaciones';
   }
 }
