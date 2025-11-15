@@ -1,3 +1,4 @@
+import 'package:careerpathai/core/constants/app_constants.dart';
 import 'package:careerpathai/presentation/controllers/app_controller.dart';
 import 'package:careerpathai/services/gemini_service.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +16,7 @@ class _TestPageState extends State<TestPage> {
   final _formKey = GlobalKey<FormState>();
   final PageController _pageController = PageController();
   int _currentPage = 0;
+  final int _pagesCount = 5;
 
   final Map<String, dynamic> profile = {
     'interests': <String>[],
@@ -29,12 +31,12 @@ class _TestPageState extends State<TestPage> {
   final TextEditingController subjectsCtrl = TextEditingController();
 
   final List<String> preferenceOptions = [
-    'team_work'.tr,
-    'logical_thinking'.tr,
-    'helping_others'.tr,
-    'technology_love'.tr,
-    'creativity'.tr,
-    'entrepreneur'.tr,
+    'Team work'.tr,
+    'Logical thinking'.tr,
+    'Helping others'.tr,
+    'Love for tecnology'.tr,
+    'Creativity'.tr,
+    'Entreprenurial spirit'.tr,
   ];
 
   final Set<String> selectedPreferences = {};
@@ -49,7 +51,7 @@ class _TestPageState extends State<TestPage> {
   }
 
   void _nextPage() {
-    if (_currentPage < 3) {
+    if (_currentPage < _pagesCount - 1) {
       setState(() => _currentPage++);
       _pageController.nextPage(
         duration: const Duration(milliseconds: 300),
@@ -88,9 +90,8 @@ class _TestPageState extends State<TestPage> {
     profile['preferences'] = selectedPreferences.toList();
 
     final aiResponse = await GeminiService.getCareerRecommendations(profile);
-    ctrl.setAIRecommendations(aiResponse);
 
-    Get.toNamed('/career_recommendations');
+    ctrl.setAIRecommendations(aiResponse);
   }
 
   @override
@@ -105,13 +106,11 @@ class _TestPageState extends State<TestPage> {
           IconButton(
             icon: const Icon(Icons.brightness_6),
             onPressed: () => appCtrl.toogleTheme(),
-            tooltip: 'toogle_theme'.tr,
+            tooltip: AppTexts.theme.tr,
           ),
           IconButton(
             icon: const Icon(Icons.language),
-            onPressed: () => appCtrl.changeLanguage(
-              Get.locale!.languageCode == 'es' ? 'en' : 'es',
-            ),
+            onPressed: () => appCtrl.showLanguageDialog(context),
           ),
         ],
       ),
@@ -189,22 +188,53 @@ class _TestPageState extends State<TestPage> {
     String hint,
     TextEditingController controller,
   ) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          title,
-          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-        ),
-        const SizedBox(height: 10),
-        TextFormField(
-          controller: controller,
-          decoration: InputDecoration(
-            hintText: hint,
-            border: const OutlineInputBorder(),
+    return Container(
+      padding: const EdgeInsets.all(20),
+      margin: const EdgeInsets.only(bottom: 20),
+      decoration: BoxDecoration(
+        color: Theme.of(context).cardColor,
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.08),
+            blurRadius: 10,
+            offset: const Offset(0, 4),
           ),
-        ),
-      ],
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            title,
+            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 12),
+
+          TextFormField(
+            controller: controller,
+            maxLines: 3,
+            decoration: InputDecoration(
+              hintText: hint,
+              filled: true,
+              fillColor: Theme.of(context).inputDecorationTheme.fillColor,
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(12),
+                borderSide: BorderSide(color: Colors.grey.shade400),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(12),
+                borderSide: BorderSide(
+                  color: Theme.of(context).colorScheme.primary,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 
@@ -213,33 +243,73 @@ class _TestPageState extends State<TestPage> {
     List<String> options,
     Set<String> selected,
   ) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          title,
-          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-        ),
-        const SizedBox(height: 10),
-        Expanded(
-          child: ListView(
-            children: options.map((option) {
-              final isSelected = selected.contains(option);
-              return CheckboxListTile(
-                title: Text(option),
-                value: isSelected,
-                onChanged: (value) {
-                  setState(() {
-                    value == true
-                        ? selected.add(option)
-                        : selected.remove(option);
-                  });
-                },
-              );
-            }).toList(),
+    return Container(
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: Theme.of(context).cardColor,
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.07),
+            blurRadius: 10,
+            offset: const Offset(0, 4),
           ),
-        ),
-      ],
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            title,
+            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 12),
+
+          Expanded(
+            child: ListView(
+              children: options.map((option) {
+                final isSelected = selected.contains(option);
+
+                return Container(
+                  margin: const EdgeInsets.only(bottom: 12),
+                  decoration: BoxDecoration(
+                    color: isSelected
+                        ? Theme.of(
+                            context,
+                          ).colorScheme.primary.withValues(alpha: 0.1)
+                        : Theme.of(context).scaffoldBackgroundColor,
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(
+                      color: isSelected
+                          ? Theme.of(context).colorScheme.primary
+                          : Colors.grey.shade400,
+                    ),
+                  ),
+                  child: CheckboxListTile(
+                    activeColor: Theme.of(context).colorScheme.primary,
+                    title: Text(
+                      option,
+                      style: TextStyle(
+                        fontWeight: isSelected
+                            ? FontWeight.bold
+                            : FontWeight.normal,
+                      ),
+                    ),
+                    value: isSelected,
+                    onChanged: (value) {
+                      setState(() {
+                        value == true
+                            ? selected.add(option)
+                            : selected.remove(option);
+                      });
+                    },
+                  ),
+                );
+              }).toList(),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

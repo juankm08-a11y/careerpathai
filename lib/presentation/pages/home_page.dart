@@ -2,6 +2,7 @@ import 'package:careerpathai/core/constants/app_colors.dart';
 import 'package:careerpathai/core/constants/app_constants.dart';
 import 'package:careerpathai/presentation/controllers/app_controller.dart';
 import 'package:careerpathai/presentation/widgets/app_button.dart';
+import 'package:careerpathai/presentation/widgets/app_header.dart';
 import 'package:careerpathai/presentation/widgets/custom_card.dart';
 import 'package:careerpathai/presentation/widgets/empty_state.dart';
 import 'package:careerpathai/presentation/widgets/gradient_background.dart';
@@ -49,13 +50,10 @@ class HomePage extends StatelessWidget {
                     title: 'Selected Language',
                     content: Column(
                       children: [
-                        ElevatedButton(
-                          onPressed: () => controller.changeLanguage("en"),
-                          child: const Text('English'),
-                        ),
-                        ElevatedButton(
-                          onPressed: () => controller.changeLanguage("es"),
-                          child: const Text("Español"),
+                        IconButton(
+                          onPressed: () =>
+                              controller.showLanguageDialog(context),
+                          icon: const Icon(Icons.language),
                         ),
                       ],
                     ),
@@ -78,6 +76,7 @@ class HomePage extends StatelessWidget {
 
                 return Column(
                   children: [
+                    const AppHeader(title: 'Home', icon: Icons.home_outlined),
                     const ProfileAvatar(initials: 'J'),
                     const SizedBox(height: 16),
                     InfoTitle(title: 'Welcome Back', subtitle: 'Juan'),

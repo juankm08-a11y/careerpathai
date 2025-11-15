@@ -7,6 +7,8 @@ class AppTexts {
   static const register = 'register';
   static const changeLanguage = 'Change Language';
   static const results = 'results';
+  static const logout = 'logout';
+  static const theme = 'Change Mode';
 }
 
 class AppRoutes {
@@ -18,5 +20,10 @@ class AppRoutes {
   static const String register = '/register';
   static const String login = '/login';
   static const String welcome = '/welcome';
-  static const String careerRecommendations = '/career_recommendatios';
+  static const String careerListPage = '/careerlistpage';
+}
+
+class AppDescriptions {
+  static const String aboutDescription =
+      'Find more about University Cooperativa de Colombia';
 }

@@ -20,4 +20,17 @@ const Map<String, String> es = {
   'no_recommendations': 'No hay recomendaciones disponibles en este momento.',
   'favorite_added': 'Agregado a favoritos',
   'favorite_removed': 'Eliminado de favoritos',
+
+  'test_skills': '¿Cúales son tus intereses?',
+  'test_skills_hint': 'Escribe tus intereses, separados por coma',
+
+  'test_personality': '¿En qué habilidades te sientes seguro?',
+  'test_personality_hint':
+      'Escribe tus habilidades principales, separadas por comas',
+
+  'test_preferences': '¿Qué preferencias te representan mejor?',
+
+  'test_subjects': '¿Cúales son tus materias favoritas?',
+  'test_subjects_hint':
+      'Escribe las materias o áreas de estudio que más te gustan',
 };

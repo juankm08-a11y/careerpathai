@@ -1,9 +1,12 @@
 import 'dart:math';
 import 'dart:ui';
 
+import 'package:careerpathai/core/constants/app_colors.dart';
 import 'package:careerpathai/core/constants/app_constants.dart';
 import 'package:careerpathai/core/translations/app_translations.dart';
 import 'package:careerpathai/presentation/controllers/app_controller.dart';
+import 'package:careerpathai/presentation/controllers/gemini_controller.dart';
+import 'package:careerpathai/presentation/pages/careerlist_page.dart';
 import 'package:careerpathai/presentation/pages/about_page.dart';
 import 'package:careerpathai/presentation/pages/home_page.dart';
 import 'package:careerpathai/presentation/pages/profile_page.dart';
@@ -19,15 +22,12 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  print("Cargando variables de entorno");
   await dotenv.load(fileName: ".env");
-  print("Variables cargadas correctamente");
 
-  print("Inicializando supabase");
   await SupabaseConfig.initialize();
-  print("Supabase inicio correctamente");
 
   Get.put(AppController(), permanent: true);
+  Get.put(GeminiController(), permanent: true);
   Get.put(CareerController());
 
   runApp(const CareerPathAI());
@@ -46,8 +46,9 @@ class CareerPathAI extends StatelessWidget {
         translations: AppTranslations(),
         locale: const Locale('en', 'US'),
 
-        theme: ThemeData.light(),
-        darkTheme: ThemeData.dark(),
+        theme: AppColors.lightTheme,
+        darkTheme: AppColors.darkTheme,
+
         themeMode: appCtrl.isDark.value ? ThemeMode.dark : ThemeMode.light,
 
         initialRoute: "/welcome",
@@ -55,13 +56,15 @@ class CareerPathAI extends StatelessWidget {
           GetPage(name: AppRoutes.home, page: () => const HomePage()),
           GetPage(name: AppRoutes.welcome, page: () => const WelcomeScreen()),
           GetPage(name: AppRoutes.login, page: () => const LoginPage()),
-          GetPage(name: AppRoutes.about, page: () => const RegisterPage()),
+          GetPage(name: AppRoutes.register, page: () => const RegisterPage()),
           GetPage(name: AppRoutes.test, page: () => const TestPage()),
           GetPage(name: AppRoutes.about, page: () => const AboutPage()),
-          GetPage(name: AppRoutes.results, page: () => const ProfilePage()),
+          GetPage(name: AppRoutes.profile, page: () => const ProfilePage()),
+          GetPage(name: AppRoutes.results, page: () => const ResultsPage()),
+
           GetPage(
-            name: '/career_recommendations',
-            page: () => const ResultsPage(),
+            name: AppRoutes.careerListPage,
+            page: () => const CareerListPage(),
           ),
         ],
       ),

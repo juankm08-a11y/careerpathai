@@ -1,7 +1,9 @@
+import 'package:careerpathai/core/constants/app_constants.dart';
 import 'package:careerpathai/presentation/widgets/app_button.dart';
 import 'package:careerpathai/presentation/widgets/custom_checkbox.dart';
 import 'package:careerpathai/presentation/widgets/input_field.dart';
 import 'package:careerpathai/presentation/widgets/loading_overlay.dart';
+import 'package:careerpathai/presentation/widgets/ucc_banner.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:get/get.dart';
@@ -37,7 +39,6 @@ class _RegisterPageState extends State<RegisterPage> {
     setState(() => _loading = true);
 
     try {
-      // ✅ Crear usuario en Supabase
       await Supabase.instance.client.auth.signUp(
         email: _emailCtrl.text.trim(),
         password: _passwordCtrl.text.trim(),
@@ -48,12 +49,14 @@ class _RegisterPageState extends State<RegisterPage> {
       setState(() => _loading = false);
 
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+        SnackBar(
           content: Text("✅ Account created! Please check your email."),
+          backgroundColor: Theme.of(
+            context,
+          ).colorScheme.primary.withValues(alpha: 0.8),
         ),
       );
 
-      // ✅ Navegar al login después del registro
       Get.offAllNamed("/login");
     } catch (e) {
       if (!mounted) return;
@@ -68,15 +71,20 @@ class _RegisterPageState extends State<RegisterPage> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return LoadingOverlay(
       isLoading: _loading,
       child: Scaffold(
-        appBar: AppBar(title: Text('register'.tr)),
+        appBar: AppBar(
+          title: Text(AppTexts.register.tr),
+          backgroundColor: theme.colorScheme.onPrimary,
+        ),
         body: Padding(
           padding: const EdgeInsets.all(16),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
+
               children: [
                 InputField(label: 'Full Name', controller: _nameCtrl),
                 const SizedBox(height: 15),
@@ -96,11 +104,12 @@ class _RegisterPageState extends State<RegisterPage> {
                   value: _acceptTerms,
                   onChanged: (v) => setState(() => _acceptTerms = v ?? false),
                   label: "I accept terms and conditions",
+                  activeColor: theme.colorScheme.primary,
                 ),
                 const SizedBox(height: 25),
-                AppButton(
-                  onPressed: _onRegister, // ✅ ya no pasamos context
-                  text: "Register",
+                AppButton(onPressed: _onRegister, text: "Register"),
+                const UccBanner(
+                  text: '© 2025 Universidad Cooperativa de Colombia',
                 ),
               ],
             ),
