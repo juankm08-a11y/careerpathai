@@ -92,8 +92,6 @@ class _TestPageState extends State<TestPage> {
     final aiResponse = await GeminiService.getCareerRecommendations(profile);
 
     ctrl.setAIRecommendations(aiResponse);
-
-    Get.toNamed('/career_recommendations');
   }
 
   @override
