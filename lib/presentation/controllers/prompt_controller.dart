@@ -1,3 +1,4 @@
+import 'package:careerpathai/data/models/prompt_model.dart';
 import 'package:careerpathai/data/repositories/prompt_repository_impl.dart';
 import 'package:careerpathai/services/prompt_service.dart';
 import 'package:flutter/foundation.dart';
@@ -7,7 +8,7 @@ class PromptController with ChangeNotifier {
     repository: PromptRepositoryImpl(),
   );
 
-  List<Map<String, dynamic>> prompts = [];
+  List<PromptModel> prompts = [];
   int? activePromptId;
   bool loading = false;
 
@@ -18,11 +19,17 @@ class PromptController with ChangeNotifier {
     prompts = await _service.getAllPrompts();
 
     final active = prompts.firstWhere(
-      (p) => p['is_active'] == true,
-      orElse: () => {},
+      (p) => p.isActive,
+      orElse: () => PromptModel(
+        id: 0,
+        title: '',
+        description: '',
+        content: '',
+        isActive: false,
+      ),
     );
 
-    if (active.isNotEmpty) activePromptId = active["id"];
+    if (active.id != 0) activePromptId = active.id;
 
     loading = false;
     notifyListeners();
