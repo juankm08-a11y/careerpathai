@@ -3,8 +3,13 @@ import 'package:flutter/material.dart';
 
 class CareerCardHorizontal extends StatelessWidget {
   final CareerEntity careerEntity;
+  final double width;
 
-  const CareerCardHorizontal({super.key, required this.careerEntity});
+  const CareerCardHorizontal({
+    super.key,
+    required this.careerEntity,
+    this.width = 180,
+  });
 
   @override
   Widget build(BuildContext context) {
