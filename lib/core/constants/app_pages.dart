@@ -1,6 +1,7 @@
 import 'package:careerpathai/core/constants/app_routes.dart';
 import 'package:careerpathai/main.dart';
 import 'package:careerpathai/presentation/pages/about_page.dart';
+import 'package:careerpathai/presentation/pages/career_compare_page.dart';
 import 'package:careerpathai/presentation/pages/career_detail_page.dart';
 import 'package:careerpathai/presentation/pages/careerlist_page.dart';
 import 'package:careerpathai/presentation/pages/home_page.dart';
@@ -24,6 +25,9 @@ class AppPages {
 
     GetPage(name: AppRoutes.careerListPage, page: () => CareerListPage()),
     GetPage(name: AppRoutes.careerDetailPage, page: () => CareerDetailPage()),
-    GetPage(name: AppRoutes.careerComparePage, page: () =>)
+    GetPage(
+      name: AppRoutes.careerComparePage,
+      page: () => CareerComparePage(careersToCompare: Get.arguments),
+    ),
   ];
 }
