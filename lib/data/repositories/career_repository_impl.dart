@@ -104,6 +104,15 @@ class CareerRepositoryImpl implements CareerRepository {
           skills: c.skills,
           jobOpportunities: c.jobOpportunities,
           score: double.parse(score.toStringAsFixed(3)),
+          skillsMatch: (c is CareerModel) ? c.skillsMatch : null,
+          marketDemand: (c is CareerModel) ? c.marketDemand : null,
+          route: (c is CareerModel) ? c.route : null,
+          tags: (c is CareerModel) ? c.tags : null,
+          workEnvironment: (c is CareerModel) ? c.workEnvironment : null,
+          employability: (c is CareerModel) ? c.employability : null,
+          avgSalary: (c is CareerModel) ? c.avgSalary : null,
+          trend: (c is CareerModel) ? c.trend : null,
+          purpose: (c is CareerModel) ? c.purpose : null,
         );
       }).toList();
 
