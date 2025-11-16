@@ -93,7 +93,7 @@ class CareerRepositoryImpl implements CareerRepository {
 
         final score =
             (0.4 * matchInterests) +
-            (0.3 * (skillMatch / (c.skills.isEmpty ? 1 : c.skills.length))) +
+            (0.3 * normalizedSkillMatch) +
             (0.15 * personalityMatch) +
             (0.15 * subjectMatch);
 
