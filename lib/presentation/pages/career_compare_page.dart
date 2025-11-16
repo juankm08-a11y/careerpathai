@@ -73,10 +73,16 @@ class CareerComparePage extends StatelessWidget {
         return const Text('Key Skills');
       case 'jobOpportunities':
         return const Text('Job Opportunities');
-      case 'averageSalary':
+      case 'avgSalary':
         return const Text('Average Salary');
+      case 'marketDemand':
+        return const Text('Market Demand');
+      case 'employability':
+        return const Text('Employability');
+      case 'trend':
+        return const Text('Trend');
       default:
-        return const Text('Unknow');
+        return const Text('Unknown');
     }
   }
 
