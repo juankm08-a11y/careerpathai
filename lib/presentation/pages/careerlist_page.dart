@@ -15,7 +15,7 @@ class CareerListPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        title: Text("recommended careers".tr),
+        title: Text(AppTexts.recommendcareers.tr),
         actions: [
           IconButton(
             onPressed: () => Get.toNamed(AppRoutes.careerComparePage),
@@ -26,7 +26,11 @@ class CareerListPage extends StatelessWidget {
       ),
       body: Obx(() {
         if (_ctrl.loading.value) {
-          return const Center(child: CircularProgressIndicator());
+          final list = _ctrl.careers;
+
+          if (list.isEmpty) return Center(child: Text('no found recommendations'.tr),)
+
+         
         }
 
         if (_ctrl.careers.isEmpty) {
