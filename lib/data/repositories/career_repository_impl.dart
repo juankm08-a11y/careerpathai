@@ -95,6 +95,7 @@ class CareerRepositoryImpl implements CareerRepository {
           title: c.title,
           description: c.description,
           skills: c.skills,
+          jobOpportunities: c.jobOpportunities,
           score: double.parse(score.toStringAsFixed(3)),
         );
       }).toList();

@@ -12,7 +12,11 @@ class CareerComparePage extends StatelessWidget {
       'description',
       'skills',
       'jobOpportunities',
-      'averageSalary',
+      'avgSalary',
+      'marketDemand',
+      'workEnvironment',
+      'employability',
+      'trend',
     ];
     return Scaffold(
       appBar: AppBar(
