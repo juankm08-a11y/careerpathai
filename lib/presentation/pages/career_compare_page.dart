@@ -94,11 +94,23 @@ class CareerComparePage extends StatelessWidget {
         return Text(career.skills.join(", "));
       case 'jobOpportunities':
         return Text(career.jobOpportunities);
-      case 'averageSalary':
+      case 'avgSalary':
         final salary = career.avgSalary ?? 0;
         return Text("\$${salary.toStringAsFixed(0)} USD");
+      case 'marketDemand':
+        return Text(career.marketDemand ?? 'Unknown');
+      case 'workEnvironment':
+        return Text(career.workEnvironment ?? 'Unknown');
+      case 'employability':
+        return Text(
+          career.employability != null
+              ? "${career.employability!.toStringAsFixed(1)}%"
+              : "Unknown",
+        );
+      case 'trend':
+        return Text(career.trend ?? 'Unknown');
       default:
-        return const Text('Unknow');
+        return const Text('Unknown');
     }
   }
 }
