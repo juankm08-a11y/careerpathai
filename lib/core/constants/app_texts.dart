@@ -9,4 +9,5 @@ class AppTexts {
   static const results = 'results';
   static const logout = 'logout';
   static const theme = 'Change Mode';
+  static const compare = 'compare';
 }
