@@ -1,3 +1,5 @@
+import 'package:careerpathai/core/constants/app_routes.dart';
+import 'package:careerpathai/core/constants/app_texts.dart';
 import 'package:careerpathai/presentation/controllers/career_controller.dart';
 import 'package:careerpathai/presentation/widgets/career_card_horizontal.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +16,13 @@ class CareerListPage extends StatelessWidget {
       backgroundColor: Colors.black,
       appBar: AppBar(
         title: Text("recommended careers".tr),
-        backgroundColor: Colors.black,
+        actions: [
+          IconButton(
+            onPressed: () => Get.toNamed(AppRoutes.careerComparePage),
+            icon: const Icon(Icons.compare),
+            tooltip: AppTexts.compare.tr,
+          ),
+        ],
       ),
       body: Obx(() {
         if (_ctrl.loading.value) {

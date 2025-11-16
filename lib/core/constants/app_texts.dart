@@ -9,5 +9,6 @@ class AppTexts {
   static const results = 'results';
   static const logout = 'logout';
   static const theme = 'Change Mode';
+  static const recommendcareers = 'recommended careers';
   static const compare = 'compare';
 }
