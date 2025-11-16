@@ -21,6 +21,6 @@ class AppPages {
     GetPage(name: AppRoutes.profile, page: () => const ProfilePage()),
     GetPage(name: AppRoutes.results, page: () => const ResultsPage()),
 
-    GetPage(name: AppRoutes.careerListPage, page: () => const CareerListPage()),
+    GetPage(name: AppRoutes.careerListPage, page: () => CareerListPage()),
   ];
 }
