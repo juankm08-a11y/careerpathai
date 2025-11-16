@@ -4,6 +4,7 @@ class CareerEntity {
   final String description;
   final List<String> skills;
   final double score;
+  final String jobOpportunities;
 
   final double? skillsMatch;
   final String? marketDemand;
@@ -19,6 +20,7 @@ class CareerEntity {
     required this.id,
     required this.title,
     required this.description,
+    required this.jobOpportunities,
     this.skills = const [],
     this.score = 0.0,
     this.skillsMatch,
