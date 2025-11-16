@@ -127,21 +127,16 @@ class CareerRepositoryImpl implements CareerRepository {
     return [
       CareerModel(
         id: '1',
-        title: 'Ingeniería de Software',
+        title: 'Software Engineering',
         description:
-            'Desarrollo de sistemas informáticos a través de diferentes técnicas de análisis, diseño, programación, pruebas y mantenimiento. Uso de lenguajes de programación y herramientas de desarrollo de software, diseño y implementación de sistemas de software, es la carrera del futuro papa!',
+            'Development of software system throught techniques such as analysis, design, programming, testing, and maintenance using multiple programming language and development tools.',
         skills: [
-          'Solución de Problemas Tecnológicos',
-          'Programación y Desarrollo Web',
-          'Bases de datos',
-          'Análisis de sistemas',
-          'Mantenimiento y actualización de software',
-          'Inteligencia artificial',
-          'La nube',
-          'Análisis de Datos',
-          'Desarrollo Móvil',
-          'Ciberseguridad y Hacking ético',
-          'Programación Orientada a Objetos',
+          'Tecnological problem solving',
+          'Web and software development',
+          'Database',
+          'Systems analysis',
+          'Artificial inteligenc'
+              'Cloud Computing',
         ],
         score: 1.25,
       ),
