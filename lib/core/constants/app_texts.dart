@@ -10,5 +10,5 @@ class AppTexts {
   static const theme = 'Change Mode';
   static const recommendcareers = 'recommended careers';
   static const compare = 'compare';
-  static const notrecommendedcareers = 'not found recommendations';
+  static const notfoundrecommendations = 'not found recommendations';
 }

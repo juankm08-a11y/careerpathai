@@ -28,9 +28,19 @@ class CareerListPage extends StatelessWidget {
         if (_ctrl.loading.value) {
           final list = _ctrl.careers;
 
-          if (list.isEmpty) return Center(child: Text('no found recommendations'.tr),)
+          if (list.isEmpty) {
+            return Center(child: Text(AppTexts.notfoundrecommendations.tr));
+          }
 
-         
+          return ListView(
+            padding: const EdgeInsets.symmetric(vertical: 12),
+            children: [
+              _categorySection('Top Matches', list),
+              const SizedBox(height: 18),
+              _categorySection('Other options', list.reversed.toList()),
+              const SizedBox(height: 24),
+            ],
+          );
         }
 
         if (_ctrl.careers.isEmpty) {
@@ -44,14 +54,14 @@ class CareerListPage extends StatelessWidget {
         return Padding(
           padding: const EdgeInsets.only(top: 10),
           child: ListView(
-            children: [_buildCategorySection("Top Matches", _ctrl.careers)],
+            children: [_categorySection("Top Matches", _ctrl.careers)],
           ),
         );
       }),
     );
   }
 
-  Widget _buildCategorySection(String title, List careers) {
+  Widget _categorySection(String title, List careers) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
