@@ -5,6 +5,7 @@ class CareerModel extends CareerEntity {
     required super.id,
     required super.title,
     required super.description,
+    required super.jobOpportunities,
     super.skills = const [],
     super.score = 0.0,
     double? skillsMatch,
@@ -23,6 +24,7 @@ class CareerModel extends CareerEntity {
       id: map['id']?.toString() ?? '',
       title: map['title'] ?? '',
       description: map['description'] ?? '',
+      jobOpportunities: map['jobOpportunities'] ?? '',
       skills: (map['skills'] is List)
           ? List<String>.from(map['skills'])
           : <String>[],
