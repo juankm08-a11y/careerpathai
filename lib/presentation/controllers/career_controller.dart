@@ -70,6 +70,8 @@ class CareerController extends GetxController {
               ? (item['avg_salary'] as num).toDouble()
               : null,
 
+          jobOpportunities: item['job_opportunities'] ?? 'Unknown',
+
           trend: item['trend']?.toString(),
 
           purpose: (item['purpose'] is Map)

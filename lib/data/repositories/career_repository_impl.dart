@@ -46,7 +46,6 @@ class CareerRepositoryImpl implements CareerRepository {
     Map<String, dynamic> profile,
   ) async {
     try {
-      // final res = await _client.rpc('recommend_careers', params: profile);
       final all = await getAllCareers();
       final interests = (profile['interests'] as List? ?? []).cast<String>();
       final skills = (profile['skills'] as List? ?? []).cast<String>();
