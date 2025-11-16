@@ -13,7 +13,7 @@ class CareerListPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        title: const Text("Recommended Careers"),
+        title: Text("recommended careers".tr),
         backgroundColor: Colors.black,
       ),
       body: Obx(() {
