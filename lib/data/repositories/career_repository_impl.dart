@@ -55,6 +55,7 @@ class CareerRepositoryImpl implements CareerRepository {
       final favoriteSubjects = (profile['favoriteSubjects'] ?? '')
           .toString()
           .toLowerCase();
+
       List<CareerEntity> scored = all.map((c) {
         final title = c.title.toLowerCase();
         final description = c.description.toLowerCase();
@@ -66,7 +67,8 @@ class CareerRepositoryImpl implements CareerRepository {
                   description.contains(i.toLowerCase()),
             )
             .length;
-        final skillMatch = c.skills
+
+        final skillMatchCount = c.skills
             .where(
               (s) =>
                   skills.map((e) => e.toLowerCase()).contains(s.toLowerCase()),
@@ -78,11 +80,17 @@ class CareerRepositoryImpl implements CareerRepository {
             personality.isNotEmpty && description.contains(personality)
             ? 1.0
             : 0.0;
+
         final subjectMatch =
             favoriteSubjects.isNotEmpty &&
                 description.contains(favoriteSubjects)
             ? 1.0
             : 0.0;
+
+        final double normalizedSkillMatch = c.skills.isEmpty
+            ? 0.0
+            : (skillMatchCount / c.skills.length);
+
         final score =
             (0.4 * matchInterests) +
             (0.3 * (skillMatch / (c.skills.isEmpty ? 1 : c.skills.length))) +
