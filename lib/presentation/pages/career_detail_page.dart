@@ -1,6 +1,7 @@
 import 'package:careerpathai/core/constants/app_routes.dart';
 import 'package:careerpathai/core/constants/app_texts.dart';
 import 'package:careerpathai/domain/entities/career_entity.dart';
+import 'package:careerpathai/services/favorites_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -16,7 +17,7 @@ class CareerDetailPage extends StatelessWidget {
         title: Text(career.title),
         actions: [
           Obx(() {
-            final favs = FavoritesService.instante.favoritesIds;
+            final favs = FavoritesService.instance.favoritesIds;
             final isFav = favs.contains(career.id);
             return IconButton(
               onPressed: () async {
