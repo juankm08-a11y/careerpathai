@@ -46,7 +46,6 @@ class CareerRepositoryImpl implements CareerRepository {
     Map<String, dynamic> profile,
   ) async {
     try {
-      // final res = await _client.rpc('recommend_careers', params: profile);
       final all = await getAllCareers();
       final interests = (profile['interests'] as List? ?? []).cast<String>();
       final skills = (profile['skills'] as List? ?? []).cast<String>();
@@ -56,6 +55,7 @@ class CareerRepositoryImpl implements CareerRepository {
       final favoriteSubjects = (profile['favoriteSubjects'] ?? '')
           .toString()
           .toLowerCase();
+
       List<CareerEntity> scored = all.map((c) {
         final title = c.title.toLowerCase();
         final description = c.description.toLowerCase();
@@ -67,7 +67,8 @@ class CareerRepositoryImpl implements CareerRepository {
                   description.contains(i.toLowerCase()),
             )
             .length;
-        final skillMatch = c.skills
+
+        final skillMatchCount = c.skills
             .where(
               (s) =>
                   skills.map((e) => e.toLowerCase()).contains(s.toLowerCase()),
@@ -79,14 +80,20 @@ class CareerRepositoryImpl implements CareerRepository {
             personality.isNotEmpty && description.contains(personality)
             ? 1.0
             : 0.0;
+
         final subjectMatch =
             favoriteSubjects.isNotEmpty &&
                 description.contains(favoriteSubjects)
             ? 1.0
             : 0.0;
+
+        final double normalizedSkillMatch = c.skills.isEmpty
+            ? 0.0
+            : (skillMatchCount / c.skills.length);
+
         final score =
             (0.4 * matchInterests) +
-            (0.3 * (skillMatch / (c.skills.isEmpty ? 1 : c.skills.length))) +
+            (0.3 * normalizedSkillMatch) +
             (0.15 * personalityMatch) +
             (0.15 * subjectMatch);
 
@@ -95,7 +102,17 @@ class CareerRepositoryImpl implements CareerRepository {
           title: c.title,
           description: c.description,
           skills: c.skills,
+          jobOpportunities: c.jobOpportunities,
           score: double.parse(score.toStringAsFixed(3)),
+          skillsMatch: (c is CareerModel) ? c.skillsMatch : null,
+          marketDemand: (c is CareerModel) ? c.marketDemand : null,
+          route: (c is CareerModel) ? c.route : null,
+          tags: (c is CareerModel) ? c.tags : null,
+          workEnvironment: (c is CareerModel) ? c.workEnvironment : null,
+          employability: (c is CareerModel) ? c.employability : null,
+          avgSalary: (c is CareerModel) ? c.avgSalary : null,
+          trend: (c is CareerModel) ? c.trend : null,
+          purpose: (c is CareerModel) ? c.purpose : null,
         );
       }).toList();
 
@@ -110,88 +127,103 @@ class CareerRepositoryImpl implements CareerRepository {
     return [
       CareerModel(
         id: '1',
-        title: 'Ingeniería de Software',
+        title: 'Software Engineering',
         description:
-            'Desarrollo de sistemas informáticos a través de diferentes técnicas de análisis, diseño, programación, pruebas y mantenimiento. Uso de lenguajes de programación y herramientas de desarrollo de software, diseño y implementación de sistemas de software, es la carrera del futuro papa!',
+            'Development of software system throught techniques such as analysis, design, programming, testing, and maintenance using multiple programming language and development tools.',
+        jobOpportunities:
+            'High demand in software companies, startups, and tech  ecosystems',
         skills: [
-          'Solución de Problemas Tecnológicos',
-          'Programación y Desarrollo Web',
-          'Bases de datos',
-          'Análisis de sistemas',
-          'Mantenimiento y actualización de software',
-          'Inteligencia artificial',
-          'La nube',
-          'Análisis de Datos',
-          'Desarrollo Móvil',
-          'Ciberseguridad y Hacking ético',
-          'Programación Orientada a Objetos',
+          'Tecnological problem solving',
+          'Web and software development',
+          'Database',
+          'Systems analysis',
+          'Artificial inteligenc'
+              'Cloud Computing',
         ],
         score: 1.25,
+        marketDemand: 'High',
+        route: [
+          'Mathematics',
+          'Programming',
+          'Algorithms',
+          'Web',
+          'Mobile',
+          'Cloud',
+        ],
+        tags: ['tech', 'programming', 'ai'],
       ),
       CareerModel(
         id: '2',
-        title: 'Ingeniería Industrial',
+        title: 'Industrial Engineering',
         description:
-            'Diseño, implementación y optimización de procesos productivos, operaciones técnicas y organizaciones que permiten la agregación de valor, calidad y eficiencia a las empresas.',
-        skills: [
-          'gestión de procesos',
-          'logística',
-          'estadística',
-          'producción',
-        ],
+            'Design, implementation and optimization of production processes and technical operational to improve organizational efficiency and quality',
+        jobOpportunities:
+            'Manufacturing, logistics, consulting and operations management',
+        skills: ['process management', 'logistics', 'statistics', 'production'],
         score: 0.95,
+        marketDemand: 'medium',
+        route: ['Mathematics', 'Statics', 'Operations', 'Lean management'],
+        tags: ['management', 'operations'],
       ),
       CareerModel(
         id: '3',
-        title: 'Medicina',
+        title: 'Medicine',
         description:
-            'Disciplina cíentifica y práctica centrada en el estudio, diagnóstico, tratamiento y prevención de enfermedades y lesiones humanas.',
-        skills: [
-          'biología',
-          'anatomía',
-          'ética médica',
-          'investigación científica',
-        ],
+            'Scientific and clinical discipline focused on the study, diagnosis, treatment, and prevention of human diseases.',
+        jobOpportunities:
+            'Hospitals, clinics, research, and public health institutions',
+        skills: ['biology', 'anatomy', 'medical ethics', 'scientific research'],
         score: 0.77,
+        marketDemand: 'High',
+        route: ['Biology', 'Chemistry', 'Clinical training'],
+        tags: ['health', 'science'],
       ),
       CareerModel(
         id: '4',
-        title: 'Enfermería',
+        title: 'Nursing',
         description:
-            'Atención integral al paciente, promoción de la salud y apoyo en procedimientos médicos.',
-        skills: [
-          'cuidado del paciente',
-          'empatía',
-          'primeros auxilios',
-          'trabajo en equipo',
-        ],
+            'Comprehensive patient care, health promotion, and support in medical procedures.',
+        jobOpportunities: 'Hospitals, community health centers, and clinics',
+        skills: ['patient care', 'empathy', 'first aid', 'teamwork'],
         score: 0.74,
+        marketDemand: 'High',
+        route: ['Health sciences', 'Clinical practice'],
+        tags: ['health', 'care'],
       ),
       CareerModel(
         id: '5',
-        title: 'Odontología',
+        title: 'Dentistry',
         description:
-            'Ciencia de la salud, que estudia el diagnóstico, pronostico, tratamiento y prevención de las enfermedades dels sitema estomatognático.',
+            'Health science focused on diagnosis, treatment, and prevention of oral diseases.',
+        jobOpportunities:
+            'Private practices, dental clinics, and public health institutions',
         skills: [
-          'anatomía dental',
-          'salud oral',
-          'habilidad manual',
-          'bioseguridad',
+          'dental anatomy',
+          'oral health',
+          'manual skills',
+          'biosecurity',
         ],
         score: 0.78,
+        marketDemand: 'Medium',
+        route: ['Biology', 'Clinical practice', 'Manual skills'],
+        tags: ['health', 'manual'],
       ),
       CareerModel(
         id: '6',
-        title: 'Derecho',
+        title: 'Law',
         description:
-            'Estudio y aplicación jurídicas para la defensa de la justicia,la equidad y los derechos humanos.',
+            'Study and application of legal systems to defend justice, equity, and human rights.',
+        jobOpportunities: 'Law firms, corporate law, public sector, and NGOs',
         skills: [
-          'argumentación',
-          'redacción jurídica',
-          'análisis crítico',
-          'ética profesional',
+          'argumentation',
+          'legal writing',
+          'critical thinking',
+          'professional ethics',
         ],
         score: 0.8,
+        marketDemand: 'Medium',
+        route: ['Critical thinking', 'Legal studies', 'Internships'],
+        tags: ['law', 'public'],
       ),
     ];
   }

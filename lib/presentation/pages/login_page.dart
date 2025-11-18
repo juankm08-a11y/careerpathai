@@ -1,4 +1,4 @@
-import 'package:careerpathai/core/constants/app_constants.dart';
+import 'package:careerpathai/core/constants/app_routes.dart';
 import 'package:careerpathai/presentation/widgets/app_logo.dart';
 
 import 'package:careerpathai/presentation/widgets/custom_text_button.dart';
@@ -115,7 +115,7 @@ class _LoginPageState extends State<LoginPage> {
                       onPressed: () => Get.toNamed(AppRoutes.register),
                       textColor: theme.colorScheme.primary,
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 25),
                     const UccBanner(
                       text: '© 2025 Universidad Cooperativa de Colombia',
                     ),

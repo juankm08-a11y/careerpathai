@@ -2,17 +2,10 @@ import 'dart:math';
 import 'dart:ui';
 
 import 'package:careerpathai/core/constants/app_colors.dart';
-import 'package:careerpathai/core/constants/app_constants.dart';
+import 'package:careerpathai/core/constants/app_pages.dart';
 import 'package:careerpathai/core/translations/app_translations.dart';
 import 'package:careerpathai/presentation/controllers/app_controller.dart';
 import 'package:careerpathai/presentation/controllers/gemini_controller.dart';
-import 'package:careerpathai/presentation/pages/careerlist_page.dart';
-import 'package:careerpathai/presentation/pages/about_page.dart';
-import 'package:careerpathai/presentation/pages/home_page.dart';
-import 'package:careerpathai/presentation/pages/profile_page.dart';
-import 'package:careerpathai/presentation/pages/register_page.dart';
-import 'package:careerpathai/presentation/pages/results_page.dart';
-import 'package:careerpathai/presentation/pages/test_page.dart';
 import 'package:flutter/material.dart';
 import './core/config/supabase_config.dart';
 import './presentation/pages/login_page.dart';
@@ -52,21 +45,7 @@ class CareerPathAI extends StatelessWidget {
         themeMode: appCtrl.isDark.value ? ThemeMode.dark : ThemeMode.light,
 
         initialRoute: "/welcome",
-        getPages: [
-          GetPage(name: AppRoutes.home, page: () => const HomePage()),
-          GetPage(name: AppRoutes.welcome, page: () => const WelcomeScreen()),
-          GetPage(name: AppRoutes.login, page: () => const LoginPage()),
-          GetPage(name: AppRoutes.register, page: () => const RegisterPage()),
-          GetPage(name: AppRoutes.test, page: () => const TestPage()),
-          GetPage(name: AppRoutes.about, page: () => const AboutPage()),
-          GetPage(name: AppRoutes.profile, page: () => const ProfilePage()),
-          GetPage(name: AppRoutes.results, page: () => const ResultsPage()),
-
-          GetPage(
-            name: AppRoutes.careerListPage,
-            page: () => const CareerListPage(),
-          ),
-        ],
+        getPages: AppPages.pages,
       ),
     );
   }

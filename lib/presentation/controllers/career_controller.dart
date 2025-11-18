@@ -1,3 +1,4 @@
+import 'package:careerpathai/presentation/controllers/gemini_controller.dart';
 import 'package:get/get.dart';
 import '../../domain/entities/career_entity.dart';
 import '../../domain/repositories/career_repository.dart';
@@ -29,9 +30,62 @@ class CareerController extends GetxController {
 
   Future<void> getRecommendations(Map<String, dynamic> profile) async {
     loading.value = true;
-    final recs = await _repo.recommendForProfile(profile);
-    careers.assignAll(recs);
-    loading.value = false;
+
+    try {
+      final rawList = await GeminiController().generateRecommendations(profile);
+
+      final entityList = rawList.map((item) {
+        return CareerEntity(
+          id: item['id'] ?? '',
+          title: item['title'] ?? '',
+          description: item['description'] ?? '',
+
+          score: (item['score'] != null)
+              ? (item['score'] as num).toDouble()
+              : 0.0,
+
+          skills: (item['skills'] is List)
+              ? List<String>.from(item['skills'])
+              : <String>[],
+
+          skillsMatch: (item['skills_match'] != null)
+              ? (item['skills_match'] as num).toDouble()
+              : null,
+
+          marketDemand: item['market_demand'] ?? 'Unknown',
+
+          route: (item['route'] is List)
+              ? List<String>.from(item['route'])
+              : null,
+
+          tags: (item['tags'] is List) ? List<String>.from(item['tags']) : null,
+
+          workEnvironment: item['work_environment']?.toString(),
+
+          employability: (item['employability'] != null)
+              ? (item['employability'] as num).toDouble()
+              : null,
+
+          avgSalary: (item['avg_salary'] != null)
+              ? (item['avg_salary'] as num).toDouble()
+              : null,
+
+          jobOpportunities: item['job_opportunities'] ?? 'Unknown',
+
+          trend: item['trend']?.toString(),
+
+          purpose: (item['purpose'] is Map)
+              ? Map<String, dynamic>.from(item['purpose'])
+              : null,
+        );
+      }).toList();
+      careers.value = entityList;
+      print("Loaded ${entityList.length} AI recommendations");
+    } catch (e) {
+      print("Error loading recommendations: $e");
+    } finally {
+      loading.value = false;
+    }
   }
 
   void setAIRecommendations(String text) {

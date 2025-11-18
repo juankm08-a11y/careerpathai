@@ -1,16 +1,3 @@
-class AppTexts {
-  static const homeTitle = 'home';
-  static const profileTitle = 'profile';
-  static const aboutTitle = 'about';
-  static const startTest = 'start_test';
-  static const welcome = 'home';
-  static const register = 'register';
-  static const changeLanguage = 'Change Language';
-  static const results = 'results';
-  static const logout = 'logout';
-  static const theme = 'Change Mode';
-}
-
 class AppRoutes {
   static const String home = '/home';
   static const String profile = '/profile';
@@ -21,6 +8,8 @@ class AppRoutes {
   static const String login = '/login';
   static const String welcome = '/welcome';
   static const String careerListPage = '/careerlistpage';
+  static const String careerDetailPage = 'careerDetail';
+  static const String careerComparePage = 'careerCompare';
 }
 
 class AppDescriptions {

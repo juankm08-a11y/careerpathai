@@ -1,12 +1,23 @@
+import 'dart:convert';
+
 import 'package:careerpathai/services/gemini_service.dart';
 
 class GeminiController {
-  Future<String> generateRecommendations(Map<String, dynamic> profile) async {
+  Future<List<Map<String, dynamic>>> generateRecommendations(
+    Map<String, dynamic> profile,
+  ) async {
     try {
-      final result = await GeminiService.getCareerRecommendations(profile);
-      return result;
+      final raw = await GeminiService.getCareerRecommendations(profile);
+
+      final parsed = jsonDecode(raw);
+
+      if (parsed is List) {
+        return List<Map<String, dynamic>>.from(parsed);
+      } else {
+        throw Exception('Invalid JSON format: Expected a List');
+      }
     } catch (e) {
-      return 'Error al generate recommendations: $e';
+      throw 'Error to generate recommendations: $e';
     }
   }
 }

@@ -1,5 +1,6 @@
 import 'package:careerpathai/core/constants/app_colors.dart';
-import 'package:careerpathai/core/constants/app_constants.dart';
+import 'package:careerpathai/core/constants/app_routes.dart';
+import 'package:careerpathai/core/constants/app_texts.dart';
 import 'package:careerpathai/presentation/controllers/app_controller.dart';
 import 'package:careerpathai/presentation/widgets/app_button.dart';
 import 'package:careerpathai/presentation/widgets/app_header.dart';
@@ -47,12 +48,10 @@ class HomePage extends StatelessWidget {
               IconButton(
                 onPressed: () {
                   Get.defaultDialog(
-                    title: 'Selected Language',
                     content: Column(
                       children: [
                         IconButton(
-                          onPressed: () =>
-                              controller.showLanguageDialog(context),
+                          onPressed: () => controller.changeLanguage(),
                           icon: const Icon(Icons.language),
                         ),
                       ],

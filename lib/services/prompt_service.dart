@@ -1,3 +1,4 @@
+import 'package:careerpathai/data/models/prompt_model.dart';
 import 'package:careerpathai/domain/repositories/prompt_repository.dart';
 
 class PromptService {
@@ -13,8 +14,9 @@ class PromptService {
     return repository.setActivePrompt(id);
   }
 
-  Future<List<Map<String, dynamic>>> getAllPrompts() {
-    return repository.getAllPrompts();
+  Future<List<PromptModel>> getAllPrompts() async {
+    final result = await repository.getAllPrompts();
+    return result.map((p) => PromptModel.fromMap(p)).toList();
   }
 
   Future<void> createPrompt({

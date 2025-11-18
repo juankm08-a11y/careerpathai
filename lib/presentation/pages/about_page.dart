@@ -1,4 +1,5 @@
-import 'package:careerpathai/core/constants/app_constants.dart';
+import 'package:careerpathai/core/constants/app_routes.dart';
+import 'package:careerpathai/core/constants/app_texts.dart';
 import 'package:careerpathai/presentation/controllers/app_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -25,8 +26,7 @@ class AboutPage extends StatelessWidget {
                   content: Column(
                     children: [
                       IconButton(
-                        onPressed: () =>
-                            appController.showLanguageDialog(context),
+                        onPressed: () => appController.changeLanguage(),
                         icon: const Icon(Icons.language),
                       ),
                     ],
