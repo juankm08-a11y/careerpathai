@@ -66,7 +66,6 @@ class _CareerListPageState extends State<CareerListPage> {
               onToogle: toogleFilter,
             ),
             const SizedBox(height: 20),
-
             if (filteredCareers.isEmpty)
               const Expanded(
                 child: EmptyState(
@@ -84,7 +83,8 @@ class _CareerListPageState extends State<CareerListPage> {
                       onTap: () => showCareerInfo(career),
                     );
                   },
-                  separatorBuilder: (_, _) => const SizedBox(height: 12),
+                  separatorBuilder: (context, index) =>
+                      const SizedBox(height: 12),
                   itemCount: filteredCareers.length,
                 ),
               ),
