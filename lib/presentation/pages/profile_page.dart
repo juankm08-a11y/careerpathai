@@ -29,7 +29,6 @@ class ProfilePage extends StatelessWidget {
       appBar: AppBar(title: Text(AppTexts.profileTitle.tr)),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
-
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -46,7 +45,6 @@ class ProfilePage extends StatelessWidget {
                 label: 'Dark Mode',
               ),
             ),
-
             CircleAvatar(radius: 45, child: Icon(Icons.person, size: 45)),
             const SizedBox(height: 16),
             Text(
@@ -54,7 +52,6 @@ class ProfilePage extends StatelessWidget {
               style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
             ),
             const SizedBox(height: 25),
-
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: const [
@@ -65,7 +62,6 @@ class ProfilePage extends StatelessWidget {
                 StatsBox(title: 'Badges', value: '5'),
               ],
             ),
-
             SettingsTitle(
               title: 'User Preferences',
               subtitle: 'Manage your profile and notifications',
@@ -76,12 +72,9 @@ class ProfilePage extends StatelessWidget {
                 snackPosition: SnackPosition.BOTTOM,
               ),
             ),
-
             const SizedBox(height: 20),
-
             const TagList(tags: ['Flutter', 'Dart', 'Firebase']),
             const SizedBox(height: 25),
-
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -94,20 +87,19 @@ class ProfilePage extends StatelessWidget {
                     snackPosition: SnackPosition.BOTTOM,
                   ),
                 ),
+                const SizedBox(width: 12),
+                CustomIconButton(
+                  icon: Icons.settings,
+                  tooltip: 'Settings',
+                  onPressed: () => Get.snackbar(
+                    'Settings',
+                    'Open settings clicked',
+                    snackPosition: SnackPosition.BOTTOM,
+                  ),
+                ),
+                const SizedBox(height: 12)
               ],
             ),
-            const SizedBox(width: 12),
-            CustomIconButton(
-              icon: Icons.settings,
-              tooltip: 'Settings',
-              onPressed: () => Get.snackbar(
-                'Settings',
-                'Open settings clicked',
-                snackPosition: SnackPosition.BOTTOM,
-              ),
-            ),
-            const SizedBox(height: 12),
-
             ElevatedButton(onPressed: logout, child: Text(AppTexts.logout)),
             const UccFooter(text: '© 2025 Universidad Cooperativa de Colombia'),
           ],
