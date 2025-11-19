@@ -41,17 +41,17 @@ class HomePage extends StatelessWidget {
         child: Scaffold(
           appBar: AppBar(
             backgroundColor: AppColors.primary.withValues(alpha: 0.8),
-            title: Text(AppTexts.homeTitle),
+            title: Text(HomeTexts.title.tr),
             actions: [
               IconButton(
                 onPressed: () => Get.toNamed(AppRoutes.profile),
                 icon: const Icon(Icons.person),
-                tooltip: AppTexts.profileTitle.tr,
+                tooltip: HomeTexts.profileTitle.tr,
               ),
               IconButton(
                 onPressed: () => Get.toNamed(AppRoutes.about),
                 icon: const Icon(Icons.info_outline),
-                tooltip: AppTexts.aboutTitle.tr,
+                tooltip: HomeTexts.aboutTitle.tr,
               ),
             ],
           ),
@@ -81,21 +81,21 @@ class HomePage extends StatelessWidget {
                       alignment: WrapAlignment.center,
                       children: [
                         AppButton(
-                          text: AppTexts.startTest.tr,
+                          text: HomeTexts.startText.tr,
                           onPressed: () => Get.toNamed(AppRoutes.test),
                         ),
                         AppButton(
-                          text: AppTexts.results,
+                          text: HomeTexts.results.tr,
                           onPressed: () => Get.toNamed(AppRoutes.results),
                         ),
                         AppButton(
-                          text: AppTexts.register,
+                          text: HomeTexts.register.tr,
                           onPressed: () => Get.toNamed(AppRoutes.register),
                         ),
                       ],
                     ),
                     const SizedBox(height: 20),
-                    const SectionTitle(title: "Progress"),
+                    const SectionTitle(title: HomeTexts.progress),
                     const ResultProgress(value: 8, label: "Speed"),
                     const SizedBox(height: 20),
                     const SectionTitle(title: "Your skills"),
