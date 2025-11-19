@@ -1,3 +1,5 @@
+import 'package:careerpathai/core/constants/app_routes.dart';
+import 'package:careerpathai/core/constants/app_texts.dart';
 import 'package:careerpathai/domain/entities/career_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -35,9 +37,9 @@ class _ResultsPageState extends State<ResultsPage> {
   }
 
   String getLevel(double score) {
-    if (score >= 8) return 'high_affinity'.tr;
-    if (score >= 5) return 'medium_affinity'.tr;
-    return 'low_affinity'.tr;
+    if (score >= 8) return ResultsText.highAffinity.tr;
+    if (score >= 5) return ResultsText.mediumAffinity.tr;
+    return ResultsText.lowAffinity.tr;
   }
 
   void _toggleFavorite(String id) {
@@ -45,14 +47,14 @@ class _ResultsPageState extends State<ResultsPage> {
       if (_favorites.contains(id)) {
         _favorites.remove(id);
         Get.snackbar(
-          'favorite_removed'.tr,
+          ResultsText.favoriteRemoved.tr,
           '',
           snackPosition: SnackPosition.BOTTOM,
         );
       } else {
         _favorites.add(id);
         Get.snackbar(
-          'favorite_added'.tr,
+          ResultsText.favoriteAdded.tr,
           '',
           snackPosition: SnackPosition.BOTTOM,
         );
@@ -64,7 +66,7 @@ class _ResultsPageState extends State<ResultsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('results'.tr),
+        title: Text(ResultsText.title.tr),
       ),
       body: Obx(() {
         if (_ctrl.loading.value) {
@@ -73,7 +75,7 @@ class _ResultsPageState extends State<ResultsPage> {
 
         final list = _sortedList;
         if (list.isEmpty) {
-          return Center(child: Text('no_recommendations'.tr));
+          return Center(child: Text(ResultsText.noRecommendations.tr));
         }
 
         return RefreshIndicator(
@@ -82,7 +84,7 @@ class _ResultsPageState extends State<ResultsPage> {
             padding: const EdgeInsets.all(16),
             children: [
               Text(
-                'results_intro'.tr,
+                ResultsText.intro.tr,
                 style: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w500,
@@ -102,7 +104,7 @@ class _ResultsPageState extends State<ResultsPage> {
                         Text(c.description),
                         const SizedBox(height: 6),
                         Text(
-                          '${'affinity_level'.tr}: ${getLevel(c.score)}',
+                          '${ResultsText.affinityLevel.tr}: ${getLevel(c.score)}',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: c.score >= 8
@@ -130,9 +132,9 @@ class _ResultsPageState extends State<ResultsPage> {
 
               Center(
                 child: ElevatedButton.icon(
-                  onPressed: () => Get.offAllNamed('/test'),
+                  onPressed: () => Get.offAllNamed(AppRoutes.test),
                   icon: const Icon(Icons.restart_alt),
-                  label: Text('start_test'.tr),
+                  label: Text(ResultsText.startTest.tr),
                 ),
               ),
             ],

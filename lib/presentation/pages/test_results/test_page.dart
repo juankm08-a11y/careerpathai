@@ -100,7 +100,7 @@ class _TestPageState extends State<TestPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppTexts.startTest.tr),
+        title: Text(TextTests.startTest.tr),
         centerTitle: true,
         actions: [
           IconButton(
@@ -125,28 +125,28 @@ class _TestPageState extends State<TestPage> {
                   physics: const NeverScrollableScrollPhysics(),
                   children: [
                     _buildQuestion(
-                      'test_interests'.tr,
-                      'test_interests_hint'.tr,
+                      TextTests.interests.tr,
+                      TextTests.interestHint.tr,
                       interestsCtrl,
                     ),
                     _buildQuestion(
-                      'test_skills'.tr,
-                      'test_skills_hint'.tr,
+                      TextTests.skills.tr,
+                      TextTests.skillsHint.tr,
                       skillsCtrl,
                     ),
                     _buildQuestion(
-                      'test_personality'.tr,
-                      'test_personality_hint'.tr,
+                      TextTests.personality.tr,
+                      TextTests.personalityHint.tr,
                       personalityCtrl,
                     ),
                     _buildMultipleChoice(
-                      'test_preferences'.tr,
+                      TextTests.preferences.tr,
                       preferenceOptions,
                       selectedPreferences,
                     ),
                     _buildQuestion(
-                      'test_subjects'.tr,
-                      'test_subjects_hint'.tr,
+                      TextTests.subjects.tr,
+                      TextTests.subjectsHint.tr,
                       subjectsCtrl,
                     ),
                   ],
@@ -159,16 +159,17 @@ class _TestPageState extends State<TestPage> {
                   if (_currentPage > 0)
                     ElevatedButton(
                       onPressed: _previousPage,
-                      child: Text('back'.tr),
+                      child: Text(TextTests.back.tr),
                     )
                   else
                     const SizedBox(width: 80),
                   if (_currentPage < _pagesCount - 1)
-                    ElevatedButton(onPressed: _nextPage, child: Text('next'.tr))
+                    ElevatedButton(
+                        onPressed: _nextPage, child: Text(TextTests.next.tr))
                   else
                     ElevatedButton(
                       onPressed: _submit,
-                      child: Text('finish'.tr),
+                      child: Text(TextTests.finish.tr),
                     ),
                 ],
               ),

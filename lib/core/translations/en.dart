@@ -104,3 +104,27 @@ class TestEn {
     TextTests.finish: "Finish",
   };
 }
+
+class CareersEn {
+  static const map = {
+    CareerTexts.compare: "Compare",
+    CareerTexts.noRecommendations: "No recommendations available",
+    CareerTexts.resultsIntro: "Here are your career recommendations",
+    CareerTexts.affinityLevel: "Affinity Level",
+    CareerTexts.favoriteAdded: "Added to favorites",
+    CareerTexts.favoriteRemoved: "Removed from favorites",
+    CareerTexts.recommendedCareers: "Recommended Careers",
+    CareerTexts.notFoundRecommendations: "No recommendations found",
+    CareerTexts.knowYourSkills: "Know your skills",
+    CareerTexts.marketDemand: "Market demand",
+    CareerTexts.route: "Career Path",
+    CareerTexts.comparisonOfCareers: "Comparison of careers",
+    CareerTexts.profile: "Profile",
+    CareerTexts.keySkills: "Key Skills",
+    CareerTexts.jobOpportunities: "Job Oportunities",
+    CareerTexts.workEnvironment: "Work Environment",
+    CareerTexts.employability: "Employability",
+    CareerTexts.trend: "Trend",
+    CareerTexts.noCareersSelected: "You din't select any careers to compare",
+  };
+}

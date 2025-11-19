@@ -87,3 +87,27 @@ class TextTests {
   static const next = "test_next";
   static const finish = "test_finish";
 }
+
+class CareerTexts {
+  static const compare = "career_compare";
+  static const noRecommendations = "career_no_recommendations";
+  static const resultsIntro = "career_results_intro";
+  static const affinityLevel = "career_afinity_level";
+  static const favoriteAdded = "career_favorite_added";
+  static const favoriteRemoved = "career_favorite_removed";
+  static const recommendedCareers = "career_list_recommendations";
+  static const notFoundRecommendations = "career_list_not_found";
+  static const knowYourSkills = "career_detail_skills";
+  static const marketDemand = "career_detail_market_demand";
+  static const route = "career_detail_route";
+  static const comparisonOfCareers = "career_compare_title";
+  static const profile = "career_compare_profile";
+  static const keySkills = "career_compare_key_skills";
+  static const jobOpportunities = "career_compare_job_opportunities";
+  static const avgSalary = "career_compare_avg_salary";
+  static const marketDemandCompare = "career_compare_market_demand";
+  static const workEnvironment = "career_compare_work_environment";
+  static const employability = "career_compare_employability";
+  static const trend = "career_compare_trend";
+  static const noCareersSelected = "career_compare_none_selected";
+}

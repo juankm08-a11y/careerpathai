@@ -12,6 +12,7 @@ class AppTranslations extends Translations {
           ...ProfileEn.map,
           ...ResultsEn.map,
           ...TestEn.map,
+          ...CareersEn.map
         },
         'es': {
           ...RegisterEs.map,
@@ -21,6 +22,7 @@ class AppTranslations extends Translations {
           ...ProfileEs.map,
           ...ResultsEs.map,
           ...TestEs.map,
+          ...CareersEs.map
         }
       };
 }
