@@ -83,11 +83,11 @@ class _LoginPageState extends State<LoginPage> {
                     const AppLogo(size: 100),
                     Text(
                       'Sign In',
-                      style: Theme.of(context).textTheme.headlineSmall
-                          ?.copyWith(
-                            color: theme.colorScheme.primary,
-                            fontWeight: FontWeight.bold,
-                          ),
+                      style:
+                          Theme.of(context).textTheme.headlineSmall?.copyWith(
+                                color: theme.colorScheme.primary,
+                                fontWeight: FontWeight.bold,
+                              ),
                     ),
                     InputField(
                       controller: emailCtrl,

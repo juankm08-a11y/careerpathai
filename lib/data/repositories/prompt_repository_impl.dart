@@ -2,10 +2,10 @@ import 'package:careerpathai/domain/repositories/prompt_repository.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class PromptRepositoryImpl implements PromptRepository {
-  final SupabaseClient _supabase;
+  final SupabaseClient _supabase
 
   PromptRepositoryImpl({SupabaseClient? supabase})
-    : _supabase = supabase ?? Supabase.instance.client;
+      : _supabase = supabase ?? Supabase.instance.client;
 
   @override
   Future<String?> getActivePrompt() async {
@@ -33,8 +33,7 @@ class PromptRepositoryImpl implements PromptRepository {
 
       await _supabase
           .from('ai_prompts')
-          .update({'is_active': true})
-          .eq('id', promptId);
+          .update({'is_active': true}).eq('id', promptId);
     } catch (e) {
       return;
     }
@@ -74,14 +73,11 @@ class PromptRepositoryImpl implements PromptRepository {
     String content,
   ) async {
     try {
-      await _supabase
-          .from('ai_prompts')
-          .update({
-            'title': title,
-            'description': description,
-            'prompt_text': content,
-          })
-          .eq('id', id);
+      await _supabase.from('ai_prompts').update({
+        'title': title,
+        'description': description,
+        'prompt_text': content,
+      }).eq('id', id);
     } catch (_) {}
   }
 }

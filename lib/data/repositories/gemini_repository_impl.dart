@@ -5,7 +5,7 @@ class GeminiRepositoryImpl implements GeminiRepository {
   final SupabaseClient _supabase;
 
   GeminiRepositoryImpl({SupabaseClient? supabase})
-    : _supabase = supabase ?? Supabase.instance.client;
+      : _supabase = supabase ?? Supabase.instance.client;
 
   @override
   Future<String?> getActiveModel() async {
@@ -26,12 +26,10 @@ class GeminiRepositoryImpl implements GeminiRepository {
   Future<void> setActiveModel(String modelName) async {
     await _supabase
         .from('ai_models')
-        .update({'is_active': false})
-        .neq('model_name', modelName);
+        .update({'is_active': false}).neq('model_name', modelName);
 
     await _supabase
         .from('ai_models')
-        .update({'active': true})
-        .eq('model_name', modelName);
+        .update({'active': true}).eq('model_name', modelName);
   }
 }

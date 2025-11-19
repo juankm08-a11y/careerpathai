@@ -7,7 +7,7 @@ class CareerRepositoryImpl implements CareerRepository {
   final SupabaseClient _client;
 
   CareerRepositoryImpl({SupabaseClient? client})
-    : _client = client ?? Supabase.instance.client;
+      : _client = client ?? Supabase.instance.client;
 
   @override
   Future<List<CareerEntity>> getAllCareers() async {
@@ -29,11 +29,8 @@ class CareerRepositoryImpl implements CareerRepository {
   @override
   Future<CareerEntity?> findById(String id) async {
     try {
-      final res = await _client
-          .from('career')
-          .select()
-          .eq('id', id)
-          .maybeSingle();
+      final res =
+          await _client.from('career').select().eq('id', id).maybeSingle();
       if (res == null) return null;
       return CareerModel.fromMap(res);
     } catch (e) {
@@ -49,12 +46,10 @@ class CareerRepositoryImpl implements CareerRepository {
       final all = await getAllCareers();
       final interests = (profile['interests'] as List? ?? []).cast<String>();
       final skills = (profile['skills'] as List? ?? []).cast<String>();
-      final personality = (profile['personality'] ?? '')
-          .toString()
-          .toLowerCase();
-      final favoriteSubjects = (profile['favoriteSubjects'] ?? '')
-          .toString()
-          .toLowerCase();
+      final personality =
+          (profile['personality'] ?? '').toString().toLowerCase();
+      final favoriteSubjects =
+          (profile['favoriteSubjects'] ?? '').toString().toLowerCase();
 
       List<CareerEntity> scored = all.map((c) {
         final title = c.title.toLowerCase();
@@ -78,21 +73,18 @@ class CareerRepositoryImpl implements CareerRepository {
 
         final personalityMatch =
             personality.isNotEmpty && description.contains(personality)
-            ? 1.0
-            : 0.0;
+                ? 1.0
+                : 0.0;
 
-        final subjectMatch =
-            favoriteSubjects.isNotEmpty &&
+        final subjectMatch = favoriteSubjects.isNotEmpty &&
                 description.contains(favoriteSubjects)
             ? 1.0
             : 0.0;
 
-        final double normalizedSkillMatch = c.skills.isEmpty
-            ? 0.0
-            : (skillMatchCount / c.skills.length);
+        final double normalizedSkillMatch =
+            c.skills.isEmpty ? 0.0 : (skillMatchCount / c.skills.length);
 
-        final score =
-            (0.4 * matchInterests) +
+        final score = (0.4 * matchInterests) +
             (0.3 * normalizedSkillMatch) +
             (0.15 * personalityMatch) +
             (0.15 * subjectMatch);
