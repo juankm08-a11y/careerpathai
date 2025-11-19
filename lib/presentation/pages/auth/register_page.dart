@@ -76,7 +76,7 @@ class _RegisterPageState extends State<RegisterPage> {
       isLoading: _loading,
       child: Scaffold(
         appBar: AppBar(
-          title: Text(AppTexts.register.tr),
+          title: Text(RegisterTexts.title.tr),
           backgroundColor: theme.colorScheme.onPrimary,
         ),
         body: Padding(
@@ -85,16 +85,17 @@ class _RegisterPageState extends State<RegisterPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                InputField(label: 'Full Name', controller: _nameCtrl),
+                InputField(
+                    label: RegisterTexts.fullName.tr, controller: _nameCtrl),
                 const SizedBox(height: 15),
                 InputField(
-                  label: "Email",
+                  label: RegisterTexts.email.tr,
                   controller: _emailCtrl,
                   keyboardType: TextInputType.emailAddress,
                 ),
                 const SizedBox(height: 15),
                 InputField(
-                  label: "Password",
+                  label: RegisterTexts.password.tr,
                   controller: _passwordCtrl,
                   obscure: true,
                 ),
@@ -102,11 +103,13 @@ class _RegisterPageState extends State<RegisterPage> {
                 CustomCheckbox(
                   value: _acceptTerms,
                   onChanged: (v) => setState(() => _acceptTerms = v ?? false),
-                  label: "I accept terms and conditions",
+                  label: RegisterTexts.acceptTerms.tr,
                   activeColor: theme.colorScheme.primary,
                 ),
                 const SizedBox(height: 25),
-                AppButton(onPressed: _onRegister, text: "Register"),
+                AppButton(
+                    onPressed: _onRegister,
+                    text: RegisterTexts.completeFields.tr),
                 const UccBanner(
                   text: '© 2025 Universidad Cooperativa de Colombia',
                 ),
