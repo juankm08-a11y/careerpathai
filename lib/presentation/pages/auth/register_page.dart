@@ -31,7 +31,7 @@ class _RegisterPageState extends State<RegisterPage> {
         !_acceptTerms) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("Please complete all fields")),
+        const SnackBar(content: Text(RegisterTexts.completeFields)),
       );
       return;
     }
@@ -50,7 +50,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text("✅ Account created! Please check your email."),
+          content: Text(RegisterTexts.accountCreated),
           backgroundColor: Theme.of(
             context,
           ).colorScheme.primary.withValues(alpha: 0.8),
@@ -108,8 +108,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
                 const SizedBox(height: 25),
                 AppButton(
-                    onPressed: _onRegister,
-                    text: RegisterTexts.completeFields.tr),
+                    onPressed: _onRegister, text: RegisterTexts.button.tr),
                 const UccBanner(
                   text: '© 2025 Universidad Cooperativa de Colombia',
                 ),
