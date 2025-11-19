@@ -6,7 +6,7 @@ import 'package:careerpathai/core/constants/app_pages.dart';
 import 'package:careerpathai/core/translations/app_translations.dart';
 import 'package:careerpathai/presentation/controllers/app_controller.dart';
 import 'package:careerpathai/presentation/controllers/gemini_controller.dart';
-import 'package:careerpathai/presentation/widgets/change_language_button.dart';
+import 'package:careerpathai/presentation/widgets/buttons/change_language_button.dart';
 import 'package:flutter/material.dart';
 import './core/config/supabase_config.dart';
 import './presentation/pages/login_page.dart';

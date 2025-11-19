@@ -1,10 +1,10 @@
 import 'package:careerpathai/core/constants/app_texts.dart';
 import 'package:careerpathai/presentation/controllers/app_controller.dart';
-import 'package:careerpathai/presentation/widgets/custom_icon_button.dart';
-import 'package:careerpathai/presentation/widgets/settings_title.dart';
-import 'package:careerpathai/presentation/widgets/stats_box.dart';
-import 'package:careerpathai/presentation/widgets/tag_list.dart';
-import 'package:careerpathai/presentation/widgets/ucc_footer.dart';
+import 'package:careerpathai/presentation/widgets/buttons/custom_icon_button.dart';
+import 'package:careerpathai/presentation/widgets/title/settings_title.dart';
+import 'package:careerpathai/presentation/widgets/stats_boc/stats_box.dart';
+import 'package:careerpathai/presentation/widgets/tag/tag_list.dart';
+import 'package:careerpathai/presentation/widgets/footer/ucc_footer.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
