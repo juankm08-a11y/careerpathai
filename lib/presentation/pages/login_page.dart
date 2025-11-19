@@ -1,16 +1,16 @@
 import 'package:careerpathai/core/constants/app_routes.dart';
-import 'package:careerpathai/presentation/widgets/app_logo.dart';
+import 'package:careerpathai/presentation/widgets/logo/app_logo.dart';
 
-import 'package:careerpathai/presentation/widgets/custom_text_button.dart';
-import 'package:careerpathai/presentation/widgets/gradient_background.dart';
-import 'package:careerpathai/presentation/widgets/loading_button.dart';
-import 'package:careerpathai/presentation/widgets/spaced_column.dart';
-import 'package:careerpathai/presentation/widgets/ucc_banner.dart';
+import 'package:careerpathai/presentation/widgets/buttons/custom_text_button.dart';
+import 'package:careerpathai/presentation/widgets/gradient_background/gradient_background.dart';
+import 'package:careerpathai/presentation/widgets/buttons/loading_button.dart';
+import 'package:careerpathai/presentation/widgets/spaced_column/spaced_column.dart';
+import 'package:careerpathai/presentation/widgets/banner/ucc_banner.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-import '../widgets/input_field.dart';
+import '../widgets/field/input_field.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});

@@ -1,6 +1,6 @@
 import 'package:careerpathai/domain/entities/career_entity.dart';
 import 'package:flutter/material.dart';
-import '../../core/constants/app_colors.dart';
+import '../../../core/constants/app_colors.dart';
 
 class CareerCard extends StatelessWidget {
   final CareerEntity career;

@@ -7,6 +7,7 @@ import 'package:careerpathai/core/translations/app_translations.dart';
 import 'package:careerpathai/presentation/controllers/app_controller.dart';
 import 'package:careerpathai/presentation/controllers/gemini_controller.dart';
 import 'package:careerpathai/presentation/widgets/buttons/change_language_button.dart';
+import 'package:careerpathai/presentation/widgets/buttons/change_theme_button.dart';
 import 'package:flutter/material.dart';
 import './core/config/supabase_config.dart';
 import './presentation/pages/login_page.dart';
@@ -51,7 +52,8 @@ class CareerPathAI extends StatelessWidget {
                 top: 40,
                 right: 16,
                 child: ChangeLanguageButton(),
-              )
+              ),
+              Positioned(top: 40, right: 10, child: ChangeThemeButton())
             ],
           );
         },
