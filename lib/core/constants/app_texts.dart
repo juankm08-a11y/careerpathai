@@ -52,7 +52,7 @@ class ProfileTexts {
   static const userPreferences = "profile_user_preferences";
   static const projects = "profile_projects";
   static const skills = "profile_skills";
-  static const bages = "profile_badges";
+  static const badges = "profile_badges";
   static const editProfile = "profile_edit_profile";
   static const settings = "profile_settings";
   static const logout = "profile_logout";
