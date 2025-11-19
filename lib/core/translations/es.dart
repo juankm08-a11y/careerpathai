@@ -1,12 +1,5 @@
 import 'package:careerpathai/core/constants/app_texts.dart';
 
-final Map<String, String> es = {
-  ...RegisterEs.map,
-  ...LoginEs.map,
-  ...HomeEs.map,
-  ...AboutEs.map
-};
-
 class RegisterEs {
   static const map = {
     RegisterTexts.title: "Registrarse",
