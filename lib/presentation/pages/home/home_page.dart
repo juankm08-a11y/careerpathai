@@ -57,22 +57,22 @@ class HomePage extends StatelessWidget {
             child: SingleChildScrollView(
               child: Obx(() {
                 if (!hasProgress.value) {
-                  return const EmptyState(
+                  return EmptyState(
                       title: HomeTexts.emptyTitle,
-                      subtitle: HomeTexts.emptySubtitle);
+                      subtitle: HomeTexts.emptySubtitle.tr);
                 }
 
                 return Column(
                   children: [
-                    const AppHeader(
-                        title: HomeTexts.title, icon: Icons.home_outlined),
+                    AppHeader(
+                        title: HomeTexts.title.tr, icon: Icons.home_outlined),
                     const ProfileAvatar(initials: 'J'),
                     const SizedBox(height: 16),
                     InfoTitle(
                         title: HomeTexts.welcomeBack.tr,
-                        subtitle: HomeTexts.nameSubtitle),
+                        subtitle: HomeTexts.nameSubtitle.tr),
                     const SizedBox(height: 12),
-                    SectionTitle(title: HomeTexts.quickActions),
+                    SectionTitle(title: HomeTexts.quickActions.tr),
                     const SizedBox(height: 10),
                     Wrap(
                       spacing: 16,
