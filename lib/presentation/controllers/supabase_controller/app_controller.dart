@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -20,12 +21,15 @@ class AppController extends GetxController {
   void changeLanguage() {
     if (currentLocale.value.languageCode == 'es') {
       currentLocale.value = const Locale('es', 'CO');
+      Get.updateLocale(const Locale('es', 'CO'));
     } else {
       currentLocale.value = const Locale('en', 'US');
+      Get.updateLocale(const Locale('en', 'US'));
     }
   }
 
   void showConfigurations(BuildContext context) {
+    if (kIsWeb) return;
     showModalBottomSheet(
         context: context,
         builder: (context) => Padding(
@@ -49,6 +53,7 @@ class AppController extends GetxController {
   }
 
   void pickProfilePhoto() {
+    if (kIsWeb) return;
     Get.snackbar("Photo", "Open image picker here",
         snackPosition: SnackPosition.BOTTOM);
   }
