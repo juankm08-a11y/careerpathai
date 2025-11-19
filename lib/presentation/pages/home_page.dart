@@ -49,6 +49,11 @@ class HomePage extends StatelessWidget {
                 icon: const Icon(Icons.language),
                 onPressed: () => controller.changeLanguage(),
               ),
+              IconButton(
+                icon: const Icon(Icons.brightness_6),
+                onPressed: () => controller.toogleTheme(),
+                tooltip: AppTexts.theme.tr,
+              ),
             ],
           ),
           body: GradientBackground(
