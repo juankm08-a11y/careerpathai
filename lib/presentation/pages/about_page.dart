@@ -17,24 +17,11 @@ class _AboutPageState extends State<AboutPage> {
   final appCtrl = Get.find<AppController>();
   @override
   Widget build(BuildContext context) {
-    final appCtrl = Get.find<AppController>();
-
     String selectedOption = "Info";
 
     return Scaffold(
       appBar: CustomAppbar(
         title: AppTexts.aboutTitle.tr,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.language),
-            onPressed: () => appCtrl.changeLanguage(),
-          ),
-          IconButton(
-            icon: const Icon(Icons.brightness_6),
-            onPressed: () => appCtrl.toogleTheme(),
-            tooltip: AppTexts.theme.tr,
-          ),
-        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
