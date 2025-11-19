@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:path/path.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class AppController extends GetxController {
@@ -18,12 +19,10 @@ class AppController extends GetxController {
   }
 
   void changeLanguage() {
-    final systemLocale = Get.deviceLocale?.languageCode ?? 'en';
-
-    if (systemLocale == 'es') {
-      Get.updateLocale(const Locale('es', 'CO'));
+    if (currentLocale.value.languageCode == 'es') {
+      currentLocale.value = const Locale('es', 'CO');
     } else {
-      Get.updateLocale(const Locale('en', 'US'));
+      currentLocale.value = const Locale('en', 'US');
     }
   }
 
