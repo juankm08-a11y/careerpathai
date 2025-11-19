@@ -1,6 +1,6 @@
 import 'package:careerpathai/core/constants/app_routes.dart';
 import 'package:careerpathai/core/constants/app_texts.dart';
-import 'package:careerpathai/presentation/controllers/career_controller.dart';
+import 'package:careerpathai/presentation/controllers/supabase_controller/career_controller.dart';
 import 'package:careerpathai/presentation/widgets/cards/career_card_horizontal.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

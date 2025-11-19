@@ -3,7 +3,7 @@ import 'package:careerpathai/core/constants/app_texts.dart';
 import 'package:careerpathai/services/gemini_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../presentation/controllers/career_controller.dart';
+import '../../controllers/supabase_controller/career_controller.dart';
 
 class TestPage extends StatefulWidget {
   const TestPage({super.key});

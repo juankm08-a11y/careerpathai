@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-import '../widgets/field/input_field.dart';
+import '../../widgets/field/input_field.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});

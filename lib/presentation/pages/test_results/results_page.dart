@@ -1,7 +1,7 @@
 import 'package:careerpathai/domain/entities/career_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../presentation/controllers/career_controller.dart';
+import '../../controllers/supabase_controller/career_controller.dart';
 
 class ResultsPage extends StatefulWidget {
   const ResultsPage({super.key});

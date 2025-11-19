@@ -4,15 +4,15 @@ import 'dart:ui';
 import 'package:careerpathai/core/constants/app_colors.dart';
 import 'package:careerpathai/core/constants/app_pages.dart';
 import 'package:careerpathai/core/translations/app_translations.dart';
-import 'package:careerpathai/presentation/controllers/app_controller.dart';
-import 'package:careerpathai/presentation/controllers/gemini_controller.dart';
+import 'package:careerpathai/presentation/controllers/supabase_controller/app_controller.dart';
+import 'package:careerpathai/presentation/controllers/ia_controller/gemini_controller.dart';
 import 'package:careerpathai/presentation/widgets/buttons/change_language_button.dart';
 import 'package:careerpathai/presentation/widgets/buttons/change_theme_button.dart';
 import 'package:flutter/material.dart';
 import './core/config/supabase_config.dart';
-import './presentation/pages/login_page.dart';
+import 'presentation/pages/auth/login_page.dart';
 import 'package:get/get.dart';
-import './presentation/controllers/career_controller.dart';
+import 'presentation/controllers/supabase_controller/career_controller.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 Future<void> main() async {
@@ -45,21 +45,23 @@ class CareerPathAI extends StatelessWidget {
         themeMode: appCtrl.isDark.value ? ThemeMode.dark : ThemeMode.light,
         initialRoute: "/welcome",
         builder: (context, child) {
-          return Stack(
-            children: [
-              child!,
-              Positioned(
-                top: 40,
-                right: 16,
-                child: Row(
-                  children: const [
-                    ChangeLanguageButton(),
-                    SizedBox(width: 8),
-                    ChangeThemeButton(),
-                  ],
+          return Scaffold(
+            body: Stack(
+              children: [
+                child!,
+                Positioned(
+                  top: 40,
+                  right: 16,
+                  child: Row(
+                    children: const [
+                      ChangeLanguageButton(),
+                      SizedBox(width: 8),
+                      ChangeThemeButton(),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           );
         },
         getPages: AppPages.pages,

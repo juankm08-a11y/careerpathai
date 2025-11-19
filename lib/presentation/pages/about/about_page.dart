@@ -1,5 +1,5 @@
 import 'package:careerpathai/core/constants/app_texts.dart';
-import 'package:careerpathai/presentation/controllers/app_controller.dart';
+import 'package:careerpathai/presentation/controllers/supabase_controller/app_controller.dart';
 import 'package:careerpathai/presentation/widgets/buttons/custom_appbar.dart';
 import 'package:careerpathai/presentation/widgets/buttons/custom_radio_button.dart';
 import 'package:careerpathai/presentation/widgets/custom_dialog.dart';

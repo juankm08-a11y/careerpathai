@@ -1,7 +1,7 @@
 import 'package:careerpathai/data/repositories/career_repository_impl.dart';
 import 'package:careerpathai/domain/entities/career_entity.dart';
 import 'package:careerpathai/domain/repositories/career_repository.dart';
-import 'package:careerpathai/presentation/controllers/gemini_controller.dart';
+import 'package:careerpathai/presentation/controllers/ia_controller/gemini_controller.dart';
 import 'package:get/get.dart';
 
 class CareerController extends GetxController {

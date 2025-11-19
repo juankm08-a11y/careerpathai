@@ -1,15 +1,15 @@
 import 'package:careerpathai/core/constants/app_routes.dart';
 import 'package:careerpathai/main.dart';
-import 'package:careerpathai/presentation/pages/about_page.dart';
-import 'package:careerpathai/presentation/pages/career_compare_page.dart';
-import 'package:careerpathai/presentation/pages/career_detail_page.dart';
-import 'package:careerpathai/presentation/pages/careerlist_page.dart';
-import 'package:careerpathai/presentation/pages/home_page.dart';
-import 'package:careerpathai/presentation/pages/login_page.dart';
-import 'package:careerpathai/presentation/pages/profile_page.dart';
-import 'package:careerpathai/presentation/pages/register_page.dart';
-import 'package:careerpathai/presentation/pages/results_page.dart';
-import 'package:careerpathai/presentation/pages/test_page.dart';
+import 'package:careerpathai/presentation/pages/about/about_page.dart';
+import 'package:careerpathai/presentation/pages/career/career_compare_page.dart';
+import 'package:careerpathai/presentation/pages/career/career_detail_page.dart';
+import 'package:careerpathai/presentation/pages/career/careerlist_page.dart';
+import 'package:careerpathai/presentation/pages/home/home_page.dart';
+import 'package:careerpathai/presentation/pages/auth/login_page.dart';
+import 'package:careerpathai/presentation/pages/profile/profile_page.dart';
+import 'package:careerpathai/presentation/pages/auth/register_page.dart';
+import 'package:careerpathai/presentation/pages/test_results/results_page.dart';
+import 'package:careerpathai/presentation/pages/test_results/test_page.dart';
 import 'package:get/get.dart';
 
 class AppPages {
@@ -22,7 +22,6 @@ class AppPages {
     GetPage(name: AppRoutes.about, page: () => const AboutPage()),
     GetPage(name: AppRoutes.profile, page: () => const ProfilePage()),
     GetPage(name: AppRoutes.results, page: () => const ResultsPage()),
-
     GetPage(name: AppRoutes.careerListPage, page: () => CareerListPage()),
     GetPage(name: AppRoutes.careerDetailPage, page: () => CareerDetailPage()),
     GetPage(
