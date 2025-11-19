@@ -23,7 +23,8 @@ class LoginEn {
     LoginTexts.createAccount: "Create an Account",
     LoginTexts.fillFields: "Please fill all fields",
     LoginTexts.invalidCredentials: "Invalid Credentials",
-    LoginTexts.error: "Error"
+    LoginTexts.error: "Error",
+    LoginTexts.footer: "© 2025 Univerisity Cooperativa of Colombia"
   };
 }
 

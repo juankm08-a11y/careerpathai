@@ -19,6 +19,7 @@ class LoginTexts {
   static const fillFields = "login_fill_fields";
   static const invalidCredentials = "login_invalid_credentials";
   static const error = "login_error";
+  static const footer = "login_footer";
 }
 
 class HomeTexts {
@@ -36,6 +37,7 @@ class HomeTexts {
   static const profileTitle = "home_profile_title";
   static const aboutTitle = "home_about_title";
   static const nameSubtitle = "home_name_subtitle";
+  static const footer = "login_footer";
 }
 
 class AboutTexts {

@@ -23,7 +23,8 @@ class LoginEs {
     LoginTexts.createAccount: "Crear una cuenta",
     LoginTexts.fillFields: "Por favor completa todos los campos",
     LoginTexts.invalidCredentials: "Credenciales inválidas",
-    LoginTexts.error: "Error"
+    LoginTexts.error: "Error",
+    LoginTexts.footer: "2025 Universidad Cooperativa de Colombia"
   };
 }
 

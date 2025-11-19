@@ -86,8 +86,8 @@ class ProfilePage extends StatelessWidget {
               child: Text(ProfileTexts.logout.tr),
             ),
             const SizedBox(height: 20),
-            const UccFooter(
-              text: '© 2025 Universidad Cooperativa de Colombia',
+            UccFooter(
+              text: LoginTexts.footer.tr,
             ),
           ],
         ),

@@ -1,4 +1,5 @@
 import 'package:careerpathai/core/constants/app_routes.dart';
+import 'package:careerpathai/core/constants/app_texts.dart';
 import 'package:careerpathai/presentation/widgets/logo/app_logo.dart';
 
 import 'package:careerpathai/presentation/widgets/buttons/custom_text_button.dart';
@@ -82,7 +83,7 @@ class _LoginPageState extends State<LoginPage> {
                   children: [
                     const AppLogo(size: 100),
                     Text(
-                      'Sign In',
+                      LoginTexts.title,
                       style:
                           Theme.of(context).textTheme.headlineSmall?.copyWith(
                                 color: theme.colorScheme.primary,
@@ -91,19 +92,18 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     InputField(
                       controller: emailCtrl,
-                      label: 'Email',
+                      label: LoginTexts.email,
                       keyboardType: TextInputType.emailAddress,
                     ),
                     InputField(
-                      label: 'Password',
+                      label: LoginTexts.password,
                       controller: passCtrl,
                       obscure: true,
                     ),
                     InputField(
-                      controller: confirmCtrl,
-                      obscure: true,
-                      label: 'Confirm Password',
-                    ),
+                        controller: confirmCtrl,
+                        obscure: true,
+                        label: LoginTexts.confirmPassword),
                     Align(alignment: Alignment.centerRight),
                     LoadingButton(
                       loading: loading,
@@ -111,13 +111,13 @@ class _LoginPageState extends State<LoginPage> {
                       label: "Sign In",
                     ),
                     CustomTextButton(
-                      label: "Create an account",
+                      label: LoginTexts.createAccount,
                       onPressed: () => Get.toNamed(AppRoutes.register),
                       textColor: theme.colorScheme.primary,
                     ),
                     const SizedBox(height: 25),
-                    const UccBanner(
-                      text: '© 2025 Universidad Cooperativa de Colombia',
+                    UccBanner(
+                      text: LoginTexts.footer.tr,
                     ),
                   ],
                 ),

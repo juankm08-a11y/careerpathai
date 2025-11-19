@@ -1,5 +1,6 @@
 import 'package:careerpathai/core/constants/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class UccBanner extends StatelessWidget {
   final String text;
@@ -17,7 +18,7 @@ class UccBanner extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
       ),
       child: Text(
-        text,
+        text.tr,
         style: const TextStyle(
           color: Colors.white,
           fontWeight: FontWeight.bold,
