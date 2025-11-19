@@ -20,20 +20,8 @@ class AboutPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             IconButton(
-              onPressed: () {
-                Get.defaultDialog(
-                  title: 'Selected Language',
-                  content: Column(
-                    children: [
-                      IconButton(
-                        onPressed: () => appController.changeLanguage(),
-                        icon: const Icon(Icons.language),
-                      ),
-                    ],
-                  ),
-                );
-              },
               icon: const Icon(Icons.language),
+              onPressed: () => appController.changeLanguage(),
             ),
             IconButton(
               icon: const Icon(Icons.brightness_6),
