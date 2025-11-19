@@ -4,7 +4,9 @@ final Map<String, String> en = {
   ...RegisterEn.map,
   ...LoginEn.map,
   ...HomeEn.map,
-  ...AboutEn.map
+  ...AboutEn.map,
+  ...ProfileEn.map,
+
 };
 
 class RegisterEn {
@@ -62,4 +64,16 @@ class AboutEn {
     AboutTexts.showInformation: "Show Information",
     AboutTexts.selected: "Selected:",
   };
+}
+
+class ProfileEn {
+  static const map = {}
+}
+
+class ResultsEn {
+
+}
+
+class TestEn {
+  
 }

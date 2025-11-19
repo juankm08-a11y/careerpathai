@@ -64,3 +64,15 @@ class AboutEs {
     AboutTexts.selected: "Seleccionado:",
   };
 }
+
+class ProfileEs {
+  static const map = {}
+}
+
+class ResultsEs {
+
+}
+
+class TestEs {
+  
+}
