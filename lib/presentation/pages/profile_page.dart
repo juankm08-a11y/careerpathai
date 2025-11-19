@@ -1,7 +1,6 @@
 import 'package:careerpathai/core/constants/app_texts.dart';
 import 'package:careerpathai/presentation/controllers/app_controller.dart';
 import 'package:careerpathai/presentation/widgets/custom_icon_button.dart';
-import 'package:careerpathai/presentation/widgets/custom_switch.dart';
 import 'package:careerpathai/presentation/widgets/settings_title.dart';
 import 'package:careerpathai/presentation/widgets/stats_box.dart';
 import 'package:careerpathai/presentation/widgets/tag_list.dart';
