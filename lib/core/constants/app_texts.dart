@@ -1,14 +1,9 @@
-class AppTexts {
-  static const homeTitle = 'home';
-  static const profileTitle = 'profile';
-  static const aboutTitle = 'about';
-  static const startTest = 'start_test';
-  static const welcome = 'home';
-  static const register = 'register';
-  static const results = 'results';
-  static const logout = 'logout';
-  static const theme = 'Change Mode';
-  static const recommendcareers = 'recommended careers';
-  static const compare = 'compare';
-  static const notfoundrecommendations = 'not found recommendations';
+class RegisterTexts {
+  static const title = "register_title";
+  static const fullName = "register_fullname";
+  static const email = "register_email";
+  static const password = "register_password";
+  static const acceptTerms = "register_accept_terms";
+  static const button = "register_button";
+  static const completeFields = "register_complete_fields";
 }

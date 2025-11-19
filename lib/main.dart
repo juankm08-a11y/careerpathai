@@ -249,17 +249,15 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                                         borderRadius: BorderRadius.circular(12),
                                       ),
                                       elevation: 10,
-                                      shadowColor: Colors.black.withValues(
-                                        alpha: 0.32,
-                                      ),
-                                    ),
-                                    child: const Text(
-                                      'Start',
-                                      style: TextStyle(
+                                      shadowColor: Colors.black54,
+                                      textStyle: const TextStyle(
                                         fontSize: 16,
+                                        color: Colors.white,
+                                        inherit: true,
                                         fontWeight: FontWeight.w600,
                                       ),
                                     ),
+                                    child: Text("Start"),
                                   ),
                                   const SizedBox(width: 14),
                                   OutlinedButton(

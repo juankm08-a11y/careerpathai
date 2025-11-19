@@ -50,7 +50,6 @@ class AppColors {
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
       ),
     ),
-
     cardTheme: CardThemeData(
       color: Colors.white,
       elevation: 3,

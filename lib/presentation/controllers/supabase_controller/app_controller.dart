@@ -20,11 +20,11 @@ class AppController extends GetxController {
 
   void changeLanguage() {
     if (currentLocale.value.languageCode == 'es') {
-      currentLocale.value = const Locale('es', 'CO');
-      Get.updateLocale(const Locale('es', 'CO'));
-    } else {
       currentLocale.value = const Locale('en', 'US');
       Get.updateLocale(const Locale('en', 'US'));
+    } else {
+      currentLocale.value = const Locale('es', 'CO');
+      Get.updateLocale(const Locale('es', 'CO'));
     }
   }
 

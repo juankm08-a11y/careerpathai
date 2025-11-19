@@ -16,18 +16,38 @@ class LoadingButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: loading ? () {} : onPressed,
-      style: ElevatedButton.styleFrom(backgroundColor: AppColors.primary),
-      child: loading
-          ? const SizedBox(
-              width: 18,
-              height: 18,
-              child: CircularProgressIndicator(
+        onPressed: loading ? null : onPressed,
+        style: ElevatedButton.styleFrom(
+          backgroundColor: AppColors.primary,
+          textStyle: const TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+            inherit: false,
+          ),
+        ),
+        child: DefaultTextStyle(
+            style: const TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
                 color: Colors.white,
-                strokeWidth: 2,
-              ),
-            )
-          : Text(label),
-    );
+                inherit: false),
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Opacity(
+                  opacity: loading ? 0 : 1,
+                  child: Text(label),
+                ),
+                if (loading)
+                  const SizedBox(
+                    width: 18,
+                    height: 18,
+                    child: CircularProgressIndicator(
+                      color: Colors.white,
+                    ),
+                  )
+              ],
+            )));
   }
 }
