@@ -15,6 +15,7 @@ class LoginTexts {
   static const password = "login_password";
   static const confirmPassword = "login_confirm_password";
   static const button = "login_sign_in_button";
+  static const createAccount = "login_create_account";
   static const fillFields = "login_fill_fields";
   static const invalidCredentials = "login_invalid_credentials";
   static const error = "login_error";
