@@ -67,17 +67,46 @@ class AboutEs {
 
 class ProfileEs {
   static const map = {
-    ProfileTexts.title: "Profile",
-    ProfileTexts.userPreferences: "User Preferences",
-    ProfileTexts.projects: "Projects",
-    ProfileTexts.skills: "Skills",
-    ProfileTexts.badges: "Badges",
-    ProfileTexts.editProfile: "Edit Profile",
-    ProfileTexts.settings: "Settings",
-    ProfileTexts.logout: "Logout"
+    ProfileTexts.title: "Perfil",
+    ProfileTexts.userPreferences: "Preferencias del usuario",
+    ProfileTexts.projects: "Proyectos",
+    ProfileTexts.skills: "Habilidades",
+    ProfileTexts.badges: "Insignias",
+    ProfileTexts.editProfile: "Editar Perfil",
+    ProfileTexts.settings: "Configuración",
+    ProfileTexts.logout: "Cerrar sesión"
   };
 }
 
-class ResultsEs {}
+class ResultsEs {
+  static const map = {
+    ResultsText.title: "Resultados",
+    ResultsText.intro: "Aquí están tus carreras recomendades según tu perfil:",
+    ResultsText.noRecommendations: "No hay recomendaciones disponibles",
+    ResultsText.affinityLevel: "Nivel de afinidad",
+    ResultsText.favoriteAdded: "Agregado a favoritos",
+    ResultsText.favoriteRemoved: "Eliminado de favoritos",
+    ResultsText.startTest: "Empezar Test",
+    ResultsText.highAffinity: "Alta",
+    ResultsText.mediumAffinity: "Media",
+    ResultsText.lowAffinity: "Baja",
+  };
+}
 
-class TestEs {}
+class TestEs {
+  static const map = {
+    TextTests.startTest: "Empezar Test",
+    TextTests.interests: "Tus intereses",
+    TextTests.interestHint: "Escribe tus intereses separados por comas",
+    TextTests.skills: "Tus habilidades",
+    TextTests.skillsHint: "Escribe tus habilidades separados por comas",
+    TextTests.personality: "Tipo de Personalidad",
+    TextTests.personalityHint: "Describa tu personalidad",
+    TextTests.preferences: "Selecciona tus preferencias",
+    TextTests.subjects: "Asignaturas favoritas",
+    TextTests.subjectsHint: "Escribe tus asignaturas favoritas",
+    TextTests.back: "Atrás",
+    TextTests.next: "Siguiente",
+    TextTests.finish: "Finalizar",
+  };
+}

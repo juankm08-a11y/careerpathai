@@ -82,7 +82,7 @@ class ResultsEn {
   static const map = {
     ResultsText.title: "Results",
     ResultsText.intro:
-        "Heere are your recommended careers based on your profile:",
+        "Here are your recommended careers based on your profile:",
     ResultsText.noRecommendations: "No recommendations available",
     ResultsText.affinityLevel: "Affinity Level",
     ResultsText.favoriteAdded: "Added to favorites",
@@ -94,4 +94,20 @@ class ResultsEn {
   };
 }
 
-class TestEn {}
+class TestEn {
+  static const map = {
+    TextTests.startTest: "Start test",
+    TextTests.interests: "Your Interests",
+    TextTests.interestHint: "List your interests, separated by commas",
+    TextTests.skills: "Your skills",
+    TextTests.skillsHint: "List your skills, separated by comas",
+    TextTests.personality: "Personality Type",
+    TextTests.personalityHint: "Describe your personality",
+    TextTests.preferences: "Select Your Preferences",
+    TextTests.subjects: "Favorite Subjects",
+    TextTests.subjectsHint: "List your favorite subjects",
+    TextTests.back: "Back",
+    TextTests.next: "Next",
+    TextTests.finish: "Finish",
+  };
+}
