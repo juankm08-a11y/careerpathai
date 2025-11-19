@@ -1,0 +1,20 @@
+import 'package:careerpathai/presentation/controllers/app_controller.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
+
+class ChangeLanguageButton extends StatelessWidget {
+  const ChangeLanguageButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final appCtrl = Get.find<AppController>();
+
+    return Row(
+      children: [
+        IconButton(
+            onPressed: appCtrl.changeLanguage, icon: const Icon(Icons.language))
+      ],
+    );
+  }
+}

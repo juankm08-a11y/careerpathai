@@ -33,13 +33,6 @@ class ProfilePage extends StatelessWidget {
               onPressed: () => appCtrl.toogleTheme(),
               tooltip: AppTexts.theme.tr,
             ),
-            Obx(
-              () => CustomSwitch(
-                value: appController.isDark.value,
-                onChanged: (val) => appController.toogleTheme(),
-                label: 'Dark Mode',
-              ),
-            ),
             CircleAvatar(radius: 45, child: Icon(Icons.person, size: 45)),
             const SizedBox(height: 16),
             Text(
