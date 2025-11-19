@@ -46,3 +46,40 @@ class AboutTexts {
   static const showInformation = "about_show_information";
   static const selected = "about_selected";
 }
+
+class ProfileTexts {
+  static const title = "profile_title";
+  static const userPreferences = "profile_user_preferences";
+  static const projects = "profile_projects";
+  static const skills = "profile_skills";
+  static const bages = "profile_badges";
+  static const editProfile = "profile_edit_profile";
+  static const settings = "profile_settings";
+  static const logout = "profile_logout";
+}
+
+class ResultsText {
+  static const title = "results_title";
+  static const intro = "results_intro";
+  static const noRecommendations = "results_on_recommendations";
+  static const affinityLevel = "results_affinity_level";
+  static const favoriteAdded = "results_favorite_added";
+  static const startTest = "results_start_test";
+  static const highAffinity = "high_affinity";
+  static const lowAffinity = "low_affinity";
+}
+
+class TextTests {
+  static const startTest = "test_start_test";
+  static const interests = "test_interests";
+  static const interestHint = "test_interest_hint";
+  static const skills = "test_skills";
+  static const personality = "test_personality";
+  static const personalityHint = "test_personality_hint";
+  static const preferences = "test_preferences";
+  static const subjects = "test_subjects";
+  static const subjectsHint = "test_subjects_hint";
+  static const back = "test_back";
+  static const next = "test_next";
+  static const finish = "test_finish";
+}
