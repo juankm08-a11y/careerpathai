@@ -24,7 +24,6 @@ class ProfilePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            CircleAvatar(radius: 45, child: Icon(Icons.person, size: 45)),
             const SizedBox(height: 16),
             Text(
               user?.email ?? '---',
