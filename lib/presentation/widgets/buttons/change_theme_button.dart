@@ -12,9 +12,9 @@ class ChangeThemeButton extends StatelessWidget {
     return Row(
       children: [
         IconButton(
-            onPressed: appCtrl.toggleTheme,
-            icon: const Icon(Icons.brightness_6),
-            tooltip: 'Theme'),
+          onPressed: appCtrl.toggleTheme,
+          icon: const Icon(Icons.brightness_6),
+        ),
       ],
     );
   }
