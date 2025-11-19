@@ -77,7 +77,7 @@ class _RegisterPageState extends State<RegisterPage> {
       child: Scaffold(
         appBar: AppBar(
           title: Text(RegisterTexts.title.tr),
-          backgroundColor: theme.colorScheme.onPrimary,
+          backgroundColor: Colors.transparent,
         ),
         body: Padding(
           padding: const EdgeInsets.all(16),
