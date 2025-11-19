@@ -6,7 +6,6 @@ final Map<String, String> en = {
   ...HomeEn.map,
   ...AboutEn.map,
   ...ProfileEn.map,
-
 };
 
 class RegisterEn {
@@ -67,13 +66,18 @@ class AboutEn {
 }
 
 class ProfileEn {
-  static const map = {}
+  static const map = {
+    ProfileTexts.title: "Profile",
+    ProfileTexts.userPreferences: "User Preferences",
+    ProfileTexts.projects: "Projects",
+    ProfileTexts.skills: "Skills",
+    ProfileTexts.badges: "Badges",
+    ProfileTexts.editProfile: "Edit Profile",
+    ProfileTexts.settings: "Settings",
+    ProfileTexts.logout: "Logot"
+  };
 }
 
-class ResultsEn {
+class ResultsEn {}
 
-}
-
-class TestEn {
-  
-}
+class TestEn {}
