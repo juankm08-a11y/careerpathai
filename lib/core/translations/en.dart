@@ -80,8 +80,18 @@ class ProfileEn {
 
 class ResultsEn {
   static const map = {
-    ResultsText.title: "Results", 
-  }
+    ResultsText.title: "Results",
+    ResultsText.intro:
+        "Heere are your recommended careers based on your profile:",
+    ResultsText.noRecommendations: "No recommendations available",
+    ResultsText.affinityLevel: "Affinity Level",
+    ResultsText.favoriteAdded: "Added to favorites",
+    ResultsText.favoriteRemoved: "Removed from favorites",
+    ResultsText.startTest: "Start Test",
+    ResultsText.highAffinity: "High",
+    ResultsText.mediumAffinity: "Medium",
+    ResultsText.lowAffinity: "Low",
+  };
 }
 
 class TestEn {}

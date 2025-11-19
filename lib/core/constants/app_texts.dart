@@ -64,8 +64,10 @@ class ResultsText {
   static const noRecommendations = "results_on_recommendations";
   static const affinityLevel = "results_affinity_level";
   static const favoriteAdded = "results_favorite_added";
+  static const favoriteRemoved = "results_favorite_removed";
   static const startTest = "results_start_test";
   static const highAffinity = "high_affinity";
+  static const mediumAffinity = "medium_affinity";
   static const lowAffinity = "low_affinity";
 }
 
