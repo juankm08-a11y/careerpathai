@@ -31,3 +31,33 @@ class LoginEs {
     LoginTexts.error: "Error"
   };
 }
+
+class HomeEn {
+  static const map = {
+    HomeTexts.title: "Inicio",
+    HomeTexts.welcomeBack: "Bienvenido de nuevo",
+    HomeTexts.quickActions: "Acciones rápidas",
+    HomeTexts.progress: "Progreso",
+    HomeTexts.yourSkills: "Tus habilidades",
+    HomeTexts.bestCareers: "Mejores carreras",
+    HomeTexts.startText: "Empezar test",
+    HomeTexts.results: "Resultados",
+    HomeTexts.register: "Registrarse",
+    HomeTexts.emptyTitle: "No hay datos disponibles",
+    HomeTexts.emptySubtitle:
+        "Comienza tu primer test para ver tu progreso aqui.",
+    HomeTexts.profileTitle: "Perfil",
+    HomeTexts.aboutTitle: "Acerca de",
+  };
+}
+
+class AboutEn {
+  static const map = {
+    AboutTexts.title: "Acerca de",
+    AboutTexts.options: "Opciones de información:",
+    AboutTexts.history: "Historia",
+    AboutTexts.help: "Ayuda",
+    AboutTexts.showInformation: "Mostrar Información",
+    AboutTexts.selected: "Seleccionado:",
+  };
+}
