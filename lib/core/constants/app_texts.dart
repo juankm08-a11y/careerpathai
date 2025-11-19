@@ -20,3 +20,28 @@ class LoginTexts {
   static const invalidCredentials = "login_invalid_credentials";
   static const error = "login_error";
 }
+
+class HomeTexts {
+  static const title = "home_title";
+  static const welcomeBack = "home_welcome_back";
+  static const quickActions = "home_quick_actions";
+  static const progress = "home_progress";
+  static const yourSkills = "home_your_skills";
+  static const bestCareers = "home_best_careers";
+  static const startText = "home_start_test";
+  static const results = "home_results";
+  static const register = "home_register";
+  static const emptyTitle = "home_empty_title";
+  static const emptySubtitle = "home_empty_subtitle";
+  static const profileTitle = "home_profile_title";
+  static const aboutTitle = "home_about_title";
+}
+
+class AboutTexts {
+  static const title = "about_title";
+  static const options = "about_options";
+  static const history = "about_history";
+  static const help = "about_help";
+  static const showInformation = "about_show_information";
+  static const selected = "about_selected";
+}
