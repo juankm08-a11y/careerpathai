@@ -1,5 +1,5 @@
+import 'package:careerpathai/domain/entities/career_entity.dart';
 import 'package:flutter/material.dart';
-import '../../domain/entities/career_entity.dart';
 import '../../core/constants/app_colors.dart';
 
 class CareerCard extends StatelessWidget {

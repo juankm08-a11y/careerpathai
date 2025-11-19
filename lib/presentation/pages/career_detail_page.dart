@@ -71,7 +71,6 @@ class CareerDetailPage extends StatelessWidget {
               const SizedBox(height: 8),
               Text('Market demand: ${career.marketDemand ?? 'Unknown'}'),
               const SizedBox(height: 12),
-
               if (career.route != null && career.route!.isNotEmpty)
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -85,7 +84,6 @@ class CareerDetailPage extends StatelessWidget {
                       .toList(),
                 ),
             ],
-
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {

@@ -26,7 +26,6 @@ class GradientBackground extends StatelessWidget {
             end: Alignment.bottomLeft,
           ),
         ),
-
         padding: padding ?? const EdgeInsets.all(20),
         child: SafeArea(child: child),
       );

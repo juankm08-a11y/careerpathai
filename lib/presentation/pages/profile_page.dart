@@ -111,9 +111,10 @@ class ProfilePage extends StatelessWidget {
                 ),
                 const SizedBox(height: 12),
                 CustomIconButton(
-                    icon: Icons.settings,
-                    tooltip: 'Settings',
-                    onPressed: () => appController.showConfigurations(context))
+                  icon: Icons.settings,
+                  tooltip: 'Settings',
+                  onPressed: () => appController.showConfigurations(context),
+                )
               ],
             ),
             ElevatedButton(

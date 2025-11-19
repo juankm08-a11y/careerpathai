@@ -84,7 +84,6 @@ class _RegisterPageState extends State<RegisterPage> {
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
-
               children: [
                 InputField(label: 'Full Name', controller: _nameCtrl),
                 const SizedBox(height: 15),

@@ -156,9 +156,7 @@ class _TestPageState extends State<TestPage> {
                   ],
                 ),
               ),
-
               const SizedBox(height: 12),
-
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -169,7 +167,6 @@ class _TestPageState extends State<TestPage> {
                     )
                   else
                     const SizedBox(width: 80),
-
                   if (_currentPage < _pagesCount - 1)
                     ElevatedButton(onPressed: _nextPage, child: Text('next'.tr))
                   else
@@ -213,7 +210,6 @@ class _TestPageState extends State<TestPage> {
             style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 12),
-
           TextFormField(
             controller: controller,
             maxLines: 3,
@@ -267,7 +263,6 @@ class _TestPageState extends State<TestPage> {
             style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 12),
-
           Expanded(
             child: ListView(
               children: options.map((option) {
@@ -293,9 +288,8 @@ class _TestPageState extends State<TestPage> {
                     title: Text(
                       option,
                       style: TextStyle(
-                        fontWeight: isSelected
-                            ? FontWeight.bold
-                            : FontWeight.normal,
+                        fontWeight:
+                            isSelected ? FontWeight.bold : FontWeight.normal,
                       ),
                     ),
                     value: isSelected,

@@ -82,7 +82,6 @@ class HomePage extends StatelessWidget {
                     const SizedBox(height: 12),
                     const SectionTitle(title: 'Quick Actions'),
                     const SizedBox(height: 10),
-
                     Wrap(
                       spacing: 16,
                       runSpacing: 16,
@@ -102,11 +101,9 @@ class HomePage extends StatelessWidget {
                         ),
                       ],
                     ),
-
                     const SizedBox(height: 20),
                     const SectionTitle(title: "Progress"),
                     const ResultProgress(value: 8, label: "Speed"),
-
                     const SizedBox(height: 20),
                     const SectionTitle(title: "Your skills"),
                     Wrap(
@@ -117,7 +114,6 @@ class HomePage extends StatelessWidget {
                         SkillTag(text: "Firebase"),
                       ],
                     ),
-
                     const SizedBox(height: 20),
                     const CustomCard(
                       child: Padding(

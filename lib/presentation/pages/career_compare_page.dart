@@ -49,7 +49,6 @@ class CareerComparePage extends StatelessWidget {
                     ),
                   ),
                 ],
-
                 rows: comparisonFields.map((field) {
                   return DataRow(
                     cells: [

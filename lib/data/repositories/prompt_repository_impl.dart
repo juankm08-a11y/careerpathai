@@ -2,7 +2,7 @@ import 'package:careerpathai/domain/repositories/prompt_repository.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class PromptRepositoryImpl implements PromptRepository {
-  final SupabaseClient _supabase
+  final SupabaseClient _supabase;
 
   PromptRepositoryImpl({SupabaseClient? supabase})
       : _supabase = supabase ?? Supabase.instance.client;

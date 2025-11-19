@@ -1,9 +1,9 @@
 import 'package:careerpathai/core/constants/app_texts.dart';
+import 'package:careerpathai/domain/entities/career_entity.dart';
 import 'package:careerpathai/presentation/controllers/app_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../presentation/controllers/career_controller.dart';
-import '../../domain/entities/career_entity.dart';
 
 class ResultsPage extends StatefulWidget {
   const ResultsPage({super.key});
