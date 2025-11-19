@@ -60,20 +60,19 @@ class HomePage extends StatelessWidget {
               child: Obx(() {
                 if (!hasProgress.value) {
                   return const EmptyState(
-                    title: 'No data available',
-                    subtitle:
-                        "Start your first to see your progress and skills here.",
-                  );
+                      title: HomeTexts.emptyTitle,
+                      subtitle: HomeTexts.emptySubtitle);
                 }
 
                 return Column(
                   children: [
-                    const AppHeader(title: 'Home', icon: Icons.home_outlined),
+                    const AppHeader(
+                        title: HomeTexts.title, icon: Icons.home_outlined),
                     const ProfileAvatar(initials: 'J'),
                     const SizedBox(height: 16),
                     InfoTitle(
                         title: HomeTexts.welcomeBack.tr,
-                        subtitle: HomeTexts.emptySubtitle),
+                        subtitle: HomeTexts.nameSubtitle),
                     const SizedBox(height: 12),
                     SectionTitle(title: HomeTexts.quickActions),
                     const SizedBox(height: 10),
