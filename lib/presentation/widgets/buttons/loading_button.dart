@@ -16,7 +16,7 @@ class LoadingButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: loading ? null : onPressed,
+      onPressed: loading ? () {} : onPressed,
       style: ElevatedButton.styleFrom(backgroundColor: AppColors.primary),
       child: loading
           ? const SizedBox(
