@@ -28,3 +28,32 @@ class LoginEn {
     LoginTexts.error: "Error"
   };
 }
+
+class HomeEn {
+  static const map = {
+    HomeTexts.title: "Home",
+    HomeTexts.welcomeBack: "Welcome Back",
+    HomeTexts.quickActions: "Quick Actions",
+    HomeTexts.progress: "Progress",
+    HomeTexts.yourSkills: "Your Skills",
+    HomeTexts.bestCareers: "Best Careers",
+    HomeTexts.startText: "Start Test",
+    HomeTexts.results: "Results",
+    HomeTexts.register: "Register",
+    HomeTexts.emptyTitle: "No data available",
+    HomeTexts.emptySubtitle: "Start your first test to see progress here.",
+    HomeTexts.profileTitle: "Profile",
+    HomeTexts.aboutTitle: "About",
+  };
+}
+
+class AboutEn {
+  static const map = {
+    AboutTexts.title: "About",
+    AboutTexts.options: "Information Options:",
+    AboutTexts.history: "History",
+    AboutTexts.help: "Help",
+    AboutTexts.showInformation: "Show Information",
+    AboutTexts.selected: "Selected:",
+  };
+}
