@@ -76,6 +76,7 @@ class TextTests {
   static const interests = "test_interests";
   static const interestHint = "test_interest_hint";
   static const skills = "test_skills";
+  static const skillsHint = "test_skills_hint";
   static const personality = "test_personality";
   static const personalityHint = "test_personality_hint";
   static const preferences = "test_preferences";
