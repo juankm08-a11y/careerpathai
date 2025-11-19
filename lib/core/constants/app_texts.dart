@@ -35,6 +35,7 @@ class HomeTexts {
   static const emptySubtitle = "home_empty_subtitle";
   static const profileTitle = "home_profile_title";
   static const aboutTitle = "home_about_title";
+  static const nameSubtitle = "home_name_subtitle";
 }
 
 class AboutTexts {

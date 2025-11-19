@@ -50,6 +50,7 @@ class HomeEs {
         "Comienza tu primer test para ver tu progreso aqui.",
     HomeTexts.profileTitle: "Perfil",
     HomeTexts.aboutTitle: "Acerca de",
+    HomeTexts.nameSubtitle: "Juan",
   };
 }
 

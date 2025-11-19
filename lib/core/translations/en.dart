@@ -49,6 +49,7 @@ class HomeEn {
     HomeTexts.emptySubtitle: "Start your first test to see progress here.",
     HomeTexts.profileTitle: "Profile",
     HomeTexts.aboutTitle: "About",
+    HomeTexts.nameSubtitle: "Juan",
   };
 }
 
