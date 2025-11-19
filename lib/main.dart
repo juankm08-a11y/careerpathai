@@ -37,13 +37,10 @@ class CareerPathAI extends StatelessWidget {
       () => GetMaterialApp(
         debugShowCheckedModeBanner: false,
         translations: AppTranslations(),
-        locale: const Locale('en', 'US'),
-
+        locale: appCtrl.currentLocale.value,
         theme: AppColors.lightTheme,
         darkTheme: AppColors.darkTheme,
-
         themeMode: appCtrl.isDark.value ? ThemeMode.dark : ThemeMode.light,
-
         initialRoute: "/welcome",
         getPages: AppPages.pages,
       ),
@@ -191,9 +188,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                                   ),
                                 ),
                               ),
-
                               const SizedBox(height: 16),
-
                               const Text(
                                 'Welcome to CareerPathAI',
                                 textAlign: TextAlign.center,
@@ -203,9 +198,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                                   color: Colors.white,
                                 ),
                               ),
-
                               const SizedBox(height: 10),
-
                               const Text(
                                 'Discover your ideal career with the help of artificial intelligence. Take a short test and receive personalized recommendations.',
                                 textAlign: TextAlign.center,
@@ -214,9 +207,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                                   color: Colors.white70,
                                 ),
                               ),
-
                               const SizedBox(height: 20),
-
                               Row(
                                 children: [
                                   ElevatedButton(
@@ -237,7 +228,6 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                                         alpha: 0.32,
                                       ),
                                     ),
-
                                     child: const Text(
                                       'Start',
                                       style: TextStyle(
@@ -247,7 +237,6 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                                     ),
                                   ),
                                   const SizedBox(width: 14),
-
                                   OutlinedButton(
                                     onPressed: _goToLogin,
                                     style: OutlinedButton.styleFrom(
@@ -269,7 +258,6 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                                 ],
                               ),
                               const SizedBox(height: 12),
-
                               const Text(
                                 'Your privacy is important. Your responses are used only to generate recommendations.',
                                 textAlign: TextAlign.center,
