@@ -7,7 +7,7 @@ final Map<String, String> es = {
 
 class RegisterEs {
   static const map = {
-    RegisterTexts.title: "Registro",
+    RegisterTexts.title: "Registrarse",
     RegisterTexts.fullName: "Nombre Completo",
     RegisterTexts.email: "Correo",
     RegisterTexts.password: "Contraseña",
@@ -20,14 +20,14 @@ class RegisterEs {
 
 class LoginEs {
   static const map = {
-    LoginTexts.title: "Sign In",
-    LoginTexts.email: "Email",
-    LoginTexts.password: "Password",
+    LoginTexts.title: "Inicir Sesión ",
+    LoginTexts.email: "Correo",
+    LoginTexts.password: "Contraseña",
     LoginTexts.confirmPassword: "Confirm Password",
-    LoginTexts.button: "Sign In",
-    LoginTexts.createAccount: "Create an Account",
-    LoginTexts.fillFields: "Please fill all fields",
-    LoginTexts.invalidCredentials: "Invalid Credentials",
+    LoginTexts.button: "Iniciar Sesión",
+    LoginTexts.createAccount: "Crear una cuenta",
+    LoginTexts.fillFields: "Por favor completa todos los campos",
+    LoginTexts.invalidCredentials: "Credenciales inválidas",
     LoginTexts.error: "Error"
   };
 }
