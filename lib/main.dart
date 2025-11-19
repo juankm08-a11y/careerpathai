@@ -6,6 +6,7 @@ import 'package:careerpathai/core/constants/app_pages.dart';
 import 'package:careerpathai/core/translations/app_translations.dart';
 import 'package:careerpathai/presentation/controllers/supabase_controller/app_controller.dart';
 import 'package:careerpathai/presentation/controllers/ia_controller/gemini_controller.dart';
+import 'package:careerpathai/presentation/pages/auth/register_page.dart';
 import 'package:careerpathai/presentation/widgets/buttons/change_language_button.dart';
 import 'package:careerpathai/presentation/widgets/buttons/change_theme_button.dart';
 import 'package:flutter/material.dart';
@@ -118,6 +119,10 @@ class _WelcomeScreenState extends State<WelcomeScreen>
 
   void _goToLogin() {
     Get.to(() => const LoginPage(), transition: Transition.downToUp);
+  }
+
+  void _goToRegister() {
+    Get.to(() => const RegisterPage(), transition: Transition.downToUp);
   }
 
   @override
