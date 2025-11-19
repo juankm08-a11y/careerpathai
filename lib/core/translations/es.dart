@@ -66,13 +66,18 @@ class AboutEs {
 }
 
 class ProfileEs {
-  static const map = {}
+  static const map = {
+    ProfileTexts.title: "Profile",
+    ProfileTexts.userPreferences: "User Preferences",
+    ProfileTexts.projects: "Projects",
+    ProfileTexts.skills: "Skills",
+    ProfileTexts.badges: "Badges",
+    ProfileTexts.editProfile: "Edit Profile",
+    ProfileTexts.settings: "Settings",
+    ProfileTexts.logout: "Logout"
+  };
 }
 
-class ResultsEs {
+class ResultsEs {}
 
-}
-
-class TestEs {
-  
-}
+class TestEs {}

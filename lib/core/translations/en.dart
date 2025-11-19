@@ -74,10 +74,14 @@ class ProfileEn {
     ProfileTexts.badges: "Badges",
     ProfileTexts.editProfile: "Edit Profile",
     ProfileTexts.settings: "Settings",
-    ProfileTexts.logout: "Logot"
+    ProfileTexts.logout: "Logout"
   };
 }
 
-class ResultsEn {}
+class ResultsEn {
+  static const map = {
+    ResultsText.title: "Results", 
+  }
+}
 
 class TestEn {}
