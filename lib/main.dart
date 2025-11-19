@@ -46,23 +46,21 @@ class CareerPathAI extends StatelessWidget {
         themeMode: appCtrl.isDark.value ? ThemeMode.dark : ThemeMode.light,
         initialRoute: "/welcome",
         builder: (context, child) {
-          return Scaffold(
-            body: Stack(
-              children: [
-                child!,
-                Positioned(
-                  top: 40,
-                  right: 16,
-                  child: Row(
-                    children: const [
-                      ChangeLanguageButton(),
-                      SizedBox(width: 8),
-                      ChangeThemeButton(),
-                    ],
-                  ),
+          return Stack(
+            children: [
+              child ?? const SizedBox(),
+              Positioned(
+                top: 40,
+                right: 16,
+                child: Row(
+                  children: const [
+                    ChangeLanguageButton(),
+                    SizedBox(width: 8),
+                    ChangeThemeButton(),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           );
         },
         getPages: AppPages.pages,
