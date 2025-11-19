@@ -2,18 +2,19 @@ import 'package:careerpathai/core/constants/app_colors.dart';
 import 'package:careerpathai/core/constants/app_routes.dart';
 import 'package:careerpathai/core/constants/app_texts.dart';
 import 'package:careerpathai/presentation/controllers/app_controller.dart';
-import 'package:careerpathai/presentation/widgets/app_button.dart';
-import 'package:careerpathai/presentation/widgets/app_header.dart';
-import 'package:careerpathai/presentation/widgets/custom_card.dart';
-import 'package:careerpathai/presentation/widgets/empty_state.dart';
-import 'package:careerpathai/presentation/widgets/gradient_background.dart';
-import 'package:careerpathai/presentation/widgets/info_title.dart';
-import 'package:careerpathai/presentation/widgets/loading_overlay.dart';
-import 'package:careerpathai/presentation/widgets/profile_avatar.dart';
-import 'package:careerpathai/presentation/widgets/result_progress.dart';
-import 'package:careerpathai/presentation/widgets/section_title.dart';
-import 'package:careerpathai/presentation/widgets/skill_tag.dart';
-import 'package:careerpathai/presentation/widgets/ucc_footer.dart';
+import 'package:careerpathai/presentation/widgets/buttons/app_button.dart';
+import 'package:careerpathai/presentation/widgets/filter_chip_group/filter_chip_group.dart';
+import 'package:careerpathai/presentation/widgets/header/app_header.dart';
+import 'package:careerpathai/presentation/widgets/cards/custom_card.dart';
+import 'package:careerpathai/presentation/widgets/empty_state/empty_state.dart';
+import 'package:careerpathai/presentation/widgets/gradient_background/gradient_background.dart';
+import 'package:careerpathai/presentation/widgets/title/info_title.dart';
+import 'package:careerpathai/presentation/widgets/loading_overlay/loading_overlay.dart';
+import 'package:careerpathai/presentation/widgets/profile_avatar/profile_avatar.dart';
+import 'package:careerpathai/presentation/widgets/progress/result_progress.dart';
+import 'package:careerpathai/presentation/widgets/title/section_title.dart';
+import 'package:careerpathai/presentation/widgets/tag/skill_tag.dart';
+import 'package:careerpathai/presentation/widgets/footer/ucc_footer.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -26,6 +27,16 @@ class HomePage extends StatelessWidget {
 
     final isLoading = false.obs;
     final hasProgress = true.obs;
+
+    final List<String> careers = [
+      "Software Engineering",
+      "Data Science",
+      "Cybersecurity",
+      "Graphic Design",
+      "Marketing",
+    ];
+
+    final RxSet<String> selectedCareers = <String>{}.obs;
 
     return Obx(
       () => LoadingOverlay(
@@ -100,6 +111,18 @@ class HomePage extends StatelessWidget {
                     const ResultProgress(value: 8, label: "Speed"),
                     const SizedBox(height: 20),
                     const SectionTitle(title: "Your skills"),
+                    const SizedBox(height: 20),
+                    const SectionTitle(title: 'Best Careers'),
+                    Obx(() => FilterChipGroup(
+                        items: careers,
+                        selected: selectedCareers,
+                        onToogle: (item) {
+                          if (selectedCareers.contains(item)) {
+                            selectedCareers.remove(item);
+                          } else {
+                            selectedCareers.add(item);
+                          }
+                        })),
                     Wrap(
                       spacing: 8,
                       children: const [
