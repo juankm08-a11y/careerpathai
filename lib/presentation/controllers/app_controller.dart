@@ -5,6 +5,8 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 class AppController extends GetxController {
   RxBool isDark = false.obs;
 
+  Rx<Locale> currentLocale = const Locale('en', 'US').obs;
+
   Future<void> logout() async {
     await Supabase.instance.client.auth.signOut();
     Get.offAllNamed('/login');
