@@ -21,7 +21,7 @@ class _AboutPageState extends State<AboutPage> {
 
     return Scaffold(
       appBar: CustomAppbar(
-        title: AppTexts.aboutTitle.tr,
+        title: AboutTexts.title.tr,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
@@ -29,23 +29,23 @@ class _AboutPageState extends State<AboutPage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
-              AppTexts.aboutTitle.tr,
+              AboutTexts.title.tr,
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 30),
-            const Text(
-              "Options of information:",
+            Text(
+              AboutTexts.options.tr,
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             CustomRadioButton<String>(
-              label: "Historia",
+              label: AboutTexts.history.tr,
               value: "History",
               groupValue: selectedOption,
               onChanged: (v) => {setState(() => selectedOption = v!)},
             ),
             CustomRadioButton<String>(
-              label: "Ayuda",
-              value: "History",
+              label: AboutTexts.help.tr,
+              value: "Help",
               groupValue: selectedOption,
               onChanged: (v) => {setState(() => selectedOption = v!)},
             ),
@@ -56,9 +56,9 @@ class _AboutPageState extends State<AboutPage> {
                     CustomDialog.show(
                         context: context,
                         title: "Information",
-                        content: "Selected :$selectedOption");
+                        content: AboutTexts.selected.tr);
                   },
-                  child: const Text("Show Information")),
+                  child: Text(AboutTexts.showInformation.tr)),
             )
           ],
         ),
