@@ -6,7 +6,7 @@ class RegisterTexts {
   static const acceptTerms = "register_accept_terms";
   static const button = "register_button";
   static const completeFields = "register_complete_fields";
-  static const accountCreated = "Account created! Please check your email.";
+  static const accountCreated = "account_created.";
 }
 
 class LoginTexts {

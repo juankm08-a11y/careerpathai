@@ -11,6 +11,7 @@ class RegisterEn {
     RegisterTexts.acceptTerms: "I accept terms and conditions",
     RegisterTexts.button: "Register",
     RegisterTexts.completeFields: "Please complete all fields",
+    RegisterTexts.accountCreated: "Account created succesfully!",
   };
 }
 
