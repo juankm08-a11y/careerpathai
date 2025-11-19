@@ -282,6 +282,25 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                                     ),
                                     child: const Text('Login'),
                                   ),
+                                  const SizedBox(width: 14),
+                                  OutlinedButton(
+                                      onPressed: _goToRegister,
+                                      style: OutlinedButton.styleFrom(
+                                          side: BorderSide(
+                                            color: Colors.white.withValues(
+                                              alpha: 0.18,
+                                            ),
+                                          ),
+                                          padding: const EdgeInsets.symmetric(
+                                            horizontal: 22,
+                                            vertical: 12,
+                                          ),
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadiusGeometry.circular(
+                                                    12),
+                                          )),
+                                      child: const Text('Register'))
                                 ],
                               ),
                               const SizedBox(height: 12),
