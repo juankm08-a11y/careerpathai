@@ -49,6 +49,7 @@ class AboutTexts {
 
 class ProfileTexts {
   static const title = "profile_title";
+  static const subtitle = "manage_your_preferences";
   static const userPreferences = "profile_user_preferences";
   static const projects = "profile_projects";
   static const skills = "profile_skills";

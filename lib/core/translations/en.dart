@@ -60,6 +60,7 @@ class AboutEn {
 class ProfileEn {
   static const map = {
     ProfileTexts.title: "Profile",
+    ProfileTexts.subtitle: "Manage your profile and notifications",
     ProfileTexts.userPreferences: "User Preferences",
     ProfileTexts.projects: "Projects",
     ProfileTexts.skills: "Skills",

@@ -19,7 +19,7 @@ class ProfilePage extends StatelessWidget {
     final appController = Get.find<AppController>();
 
     return Scaffold(
-      appBar: AppBar(title: Text(AppTexts.profileTitle.tr)),
+      appBar: AppBar(title: Text(ProfileTexts.title.tr)),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
         child: Column(
@@ -44,8 +44,8 @@ class ProfilePage extends StatelessWidget {
               ],
             ),
             SettingsTitle(
-              title: 'User Preferences',
-              subtitle: 'Manage your profile and notifications',
+              title: ProfileTexts.userPreferences.tr,
+              subtitle: ProfileTexts.subtitle.tr,
               trailing: const Icon(Icons.arrow_forward_ios, size: 18),
               onTap: () => Get.snackbar(
                 'Info',
@@ -90,7 +90,7 @@ class ProfilePage extends StatelessWidget {
                   children: [
                     CustomIconButton(
                         icon: Icons.edit,
-                        tooltip: 'Edit Profile',
+                        tooltip: ProfileTexts.editProfile.tr,
                         onPressed: () =>
                             Get.snackbar('Edit', 'Edit profile clicked'))
                   ],
@@ -98,13 +98,14 @@ class ProfilePage extends StatelessWidget {
                 const SizedBox(height: 12),
                 CustomIconButton(
                   icon: Icons.settings,
-                  tooltip: 'Settings',
+                  tooltip: ProfileTexts.settings.tr,
                   onPressed: () => appController.showConfigurations(context),
                 )
               ],
             ),
             ElevatedButton(
-                onPressed: appController.logout, child: Text(AppTexts.logout)),
+                onPressed: appController.logout,
+                child: Text(ProfileTexts.logout.tr)),
             const UccFooter(text: '© 2025 Universidad Cooperativa de Colombia'),
           ],
         ),
