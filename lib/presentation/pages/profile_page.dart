@@ -13,11 +13,6 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
 
-  Future<void> logout() async {
-    await Supabase.instance.client.auth.signOut();
-    Get.offAllNamed('/login');
-  }
-
   @override
   Widget build(BuildContext context) {
     final user = Supabase.instance.client.auth.currentUser;
@@ -78,29 +73,51 @@ class ProfilePage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                CustomIconButton(
-                  icon: Icons.edit,
-                  tooltip: 'Edit Profile',
-                  onPressed: () => Get.snackbar(
-                    'Edit',
-                    'Edit profile clicked',
-                    snackPosition: SnackPosition.BOTTOM,
+                GestureDetector(
+                  onTap: () => appController.pickProfilePhoto(),
+                  child: const CircleAvatar(
+                    radius: 45,
+                    child: Icon(Icons.person, size: 45),
                   ),
                 ),
                 const SizedBox(width: 12),
-                CustomIconButton(
-                  icon: Icons.settings,
-                  tooltip: 'Settings',
-                  onPressed: () => Get.snackbar(
-                    'Settings',
-                    'Open settings clicked',
-                    snackPosition: SnackPosition.BOTTOM,
-                  ),
+                Text(
+                  user?.email ?? '---',
+                  style:
+                      const TextStyle(fontSize: 8, fontWeight: FontWeight.w500),
                 ),
-                const SizedBox(height: 12)
+                const SizedBox(height: 25),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    StatsBox(title: 'Projects', value: '12'),
+                    SizedBox(width: 16),
+                    StatsBox(title: 'Skills', value: '8'),
+                    SizedBox(width: 16),
+                    StatsBox(title: 'Badges', value: '5'),
+                  ],
+                ),
+                const SizedBox(height: 20),
+                const TagList(tags: ['Flutter', 'Dart', 'Firebase', 'Python']),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    CustomIconButton(
+                        icon: Icons.edit,
+                        tooltip: 'Edit Profile',
+                        onPressed: () =>
+                            Get.snackbar('Edit', 'Edit profile clicked'))
+                  ],
+                ),
+                const SizedBox(height: 12),
+                CustomIconButton(
+                    icon: Icons.settings,
+                    tooltip: 'Settings',
+                    onPressed: () => appController.showConfigurations(context))
               ],
             ),
-            ElevatedButton(onPressed: logout, child: Text(AppTexts.logout)),
+            ElevatedButton(
+                onPressed: appController.logout, child: Text(AppTexts.logout)),
             const UccFooter(text: '© 2025 Universidad Cooperativa de Colombia'),
           ],
         ),
