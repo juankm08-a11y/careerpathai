@@ -120,6 +120,7 @@ class CareersEn {
     CareerTexts.route: "Career Path",
     CareerTexts.comparisonOfCareers: "Comparison of careers",
     CareerTexts.profile: "Profile",
+    CareerTexts.description: "Description",
     CareerTexts.keySkills: "Key Skills",
     CareerTexts.jobOpportunities: "Job Oportunities",
     CareerTexts.workEnvironment: "Work Environment",

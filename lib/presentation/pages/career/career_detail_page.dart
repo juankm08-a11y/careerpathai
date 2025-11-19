@@ -64,12 +64,13 @@ class CareerDetailPage extends StatelessWidget {
             Text(career.description),
             const SizedBox(height: 12),
             if (career.skills.isNotEmpty) ...[
-              const Text(
-                'Know your skills ',
+              Text(
+                CareerTexts.knowYourSkills.tr,
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8),
-              Text('Market demand: ${career.marketDemand ?? 'Unknown'}'),
+              Text(
+                  '${CareerTexts.marketDemand.tr} :${career.marketDemand ?? 'Unknown'}'),
               const SizedBox(height: 12),
               if (career.route != null && career.route!.isNotEmpty)
                 Column(
@@ -89,7 +90,7 @@ class CareerDetailPage extends StatelessWidget {
               onPressed: () {
                 Get.toNamed(AppRoutes.careerComparePage, arguments: [career]);
               },
-              child: Text(AppTexts.compare.tr),
+              child: Text(CareerTexts.compare.tr),
             ),
           ],
         ),

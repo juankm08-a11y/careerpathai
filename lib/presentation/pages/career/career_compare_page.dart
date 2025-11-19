@@ -1,3 +1,4 @@
+import 'package:careerpathai/core/constants/app_texts.dart';
 import 'package:careerpathai/domain/entities/career_entity.dart';
 import 'package:flutter/material.dart';
 
@@ -20,13 +21,13 @@ class CareerComparePage extends StatelessWidget {
     ];
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Comparison of careers'),
+        title: Text(CareerTexts.comparisonOfCareers),
         backgroundColor: Colors.deepPurple,
       ),
       body: careersToCompare.isEmpty
           ? const Center(
               child: Text(
-                "You didn't select any careers to compare",
+                CareerTexts.noCareersSelected,
                 style: TextStyle(fontSize: 18),
               ),
             )
@@ -66,20 +67,20 @@ class CareerComparePage extends StatelessWidget {
 
   Widget _getFieldLabel(String field) {
     switch (field) {
-      case 'description':
-        return const Text('Profile');
-      case 'skills':
-        return const Text('Key Skills');
-      case 'jobOpportunities':
-        return const Text('Job Opportunities');
-      case 'avgSalary':
-        return const Text('Average Salary');
-      case 'marketDemand':
-        return const Text('Market Demand');
-      case 'employability':
-        return const Text('Employability');
-      case 'trend':
-        return const Text('Trend');
+      case CareerTexts.description:
+        return const Text(CareerTexts.description);
+      case CareerTexts.keySkills:
+        return const Text(CareerTexts.keySkills);
+      case CareerTexts.jobOpportunities:
+        return const Text(CareerTexts.jobOpportunities);
+      case CareerTexts.avgSalary:
+        return const Text(CareerTexts.avgSalary);
+      case CareerTexts.marketDemand:
+        return const Text(CareerTexts.marketDemand);
+      case CareerTexts.employability:
+        return const Text(CareerTexts.employability);
+      case CareerTexts.trend:
+        return const Text(CareerTexts.trend);
       default:
         return const Text('Unknown');
     }
@@ -87,26 +88,26 @@ class CareerComparePage extends StatelessWidget {
 
   Widget _getFieldValue(CareerEntity career, String field) {
     switch (field) {
-      case 'description':
+      case CareerTexts.description:
         return Text(career.description);
-      case 'skills':
+      case CareerTexts.keySkills:
         return Text(career.skills.join(", "));
-      case 'jobOpportunities':
+      case CareerTexts.jobOpportunities:
         return Text(career.jobOpportunities);
-      case 'avgSalary':
+      case CareerTexts.avgSalary:
         final salary = career.avgSalary ?? 0;
         return Text("\$${salary.toStringAsFixed(0)} USD");
-      case 'marketDemand':
+      case CareerTexts.marketDemand:
         return Text(career.marketDemand ?? 'Unknown');
-      case 'workEnvironment':
+      case CareerTexts.workEnvironment:
         return Text(career.workEnvironment ?? 'Unknown');
-      case 'employability':
+      case CareerTexts.employability:
         return Text(
           career.employability != null
               ? "${career.employability!.toStringAsFixed(1)}%"
               : "Unknown",
         );
-      case 'trend':
+      case CareerTexts.trend:
         return Text(career.trend ?? 'Unknown');
       default:
         return const Text('Unknown');

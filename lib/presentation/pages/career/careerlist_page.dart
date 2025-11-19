@@ -15,12 +15,12 @@ class CareerListPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        title: Text(AppTexts.recommendcareers.tr),
+        title: Text(CareerTexts.recommendedCareers.tr),
         actions: [
           IconButton(
             onPressed: () => Get.toNamed(AppRoutes.careerComparePage),
             icon: const Icon(Icons.compare),
-            tooltip: AppTexts.compare.tr,
+            tooltip: CareerTexts.compare.tr,
           ),
         ],
       ),
@@ -29,7 +29,7 @@ class CareerListPage extends StatelessWidget {
           final list = _ctrl.careers;
 
           if (list.isEmpty) {
-            return Center(child: Text(AppTexts.notfoundrecommendations.tr));
+            return Center(child: Text(CareerTexts.notFoundRecommendations.tr));
           }
 
           return ListView(
@@ -46,7 +46,7 @@ class CareerListPage extends StatelessWidget {
         if (_ctrl.careers.isEmpty) {
           return const Center(
             child: Text(
-              "No recommendations Available",
+              CareerTexts.noRecommendations,
               style: TextStyle(color: Colors.white),
             ),
           );
@@ -85,7 +85,8 @@ class CareerListPage extends StatelessWidget {
             itemBuilder: (context, i) {
               final c = careers[i];
               return GestureDetector(
-                onTap: () => Get.toNamed('/careerDetail', arguments: c),
+                onTap: () =>
+                    Get.toNamed(AppRoutes.careerDetailPage, arguments: c),
                 child: Hero(
                   tag: c.id,
                   child: CareerCardHorizontal(careerEntity: c),

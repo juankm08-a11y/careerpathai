@@ -110,4 +110,5 @@ class CareerTexts {
   static const employability = "career_compare_employability";
   static const trend = "career_compare_trend";
   static const noCareersSelected = "career_compare_none_selected";
+  static const description = "career_description";
 }
