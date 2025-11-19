@@ -3,6 +3,8 @@ import 'package:careerpathai/core/constants/app_texts.dart';
 final Map<String, String> es = {
   ...RegisterEs.map,
   ...LoginEs.map,
+  ...HomeEs.map,
+  ...AboutEs.map
 };
 
 class RegisterEs {
@@ -32,7 +34,7 @@ class LoginEs {
   };
 }
 
-class HomeEn {
+class HomeEs {
   static const map = {
     HomeTexts.title: "Inicio",
     HomeTexts.welcomeBack: "Bienvenido de nuevo",
@@ -51,7 +53,7 @@ class HomeEn {
   };
 }
 
-class AboutEn {
+class AboutEs {
   static const map = {
     AboutTexts.title: "Acerca de",
     AboutTexts.options: "Opciones de información:",

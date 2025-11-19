@@ -1,6 +1,11 @@
 import 'package:careerpathai/core/constants/app_texts.dart';
 
-final Map<String, String> en = {...RegisterEn.map, ...LoginEn.map};
+final Map<String, String> en = {
+  ...RegisterEn.map,
+  ...LoginEn.map,
+  ...HomeEn.map,
+  ...AboutEn.map
+};
 
 class RegisterEn {
   static const map = {
