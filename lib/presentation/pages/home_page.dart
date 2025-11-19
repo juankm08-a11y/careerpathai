@@ -46,19 +46,8 @@ class HomePage extends StatelessWidget {
                 tooltip: AppTexts.aboutTitle.tr,
               ),
               IconButton(
-                onPressed: () {
-                  Get.defaultDialog(
-                    content: Column(
-                      children: [
-                        IconButton(
-                          onPressed: () => controller.changeLanguage(),
-                          icon: const Icon(Icons.language),
-                        ),
-                      ],
-                    ),
-                  );
-                },
                 icon: const Icon(Icons.language),
+                onPressed: () => controller.changeLanguage(),
               ),
             ],
           ),
