@@ -12,7 +12,7 @@ class AppController extends GetxController {
     Get.offAllNamed('/login');
   }
 
-  void toogleTheme() {
+  void toggleTheme() {
     isDark.value = !isDark.value;
     Get.changeThemeMode(isDark.value ? ThemeMode.dark : ThemeMode.light);
   }

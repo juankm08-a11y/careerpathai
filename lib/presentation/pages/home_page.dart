@@ -1,7 +1,6 @@
 import 'package:careerpathai/core/constants/app_colors.dart';
 import 'package:careerpathai/core/constants/app_routes.dart';
 import 'package:careerpathai/core/constants/app_texts.dart';
-import 'package:careerpathai/presentation/controllers/app_controller.dart';
 import 'package:careerpathai/presentation/widgets/buttons/app_button.dart';
 import 'package:careerpathai/presentation/widgets/filter_chip_group/filter_chip_group.dart';
 import 'package:careerpathai/presentation/widgets/header/app_header.dart';
@@ -23,8 +22,6 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppController controller = Get.find<AppController>();
-
     final isLoading = false.obs;
     final hasProgress = true.obs;
 
@@ -55,15 +52,6 @@ class HomePage extends StatelessWidget {
                 onPressed: () => Get.toNamed(AppRoutes.about),
                 icon: const Icon(Icons.info_outline),
                 tooltip: AppTexts.aboutTitle.tr,
-              ),
-              IconButton(
-                icon: const Icon(Icons.language),
-                onPressed: () => controller.changeLanguage(),
-              ),
-              IconButton(
-                icon: const Icon(Icons.brightness_6),
-                onPressed: () => controller.toogleTheme(),
-                tooltip: AppTexts.theme.tr,
               ),
             ],
           ),

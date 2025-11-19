@@ -1,6 +1,4 @@
-import 'package:careerpathai/core/constants/app_texts.dart';
 import 'package:careerpathai/domain/entities/career_entity.dart';
-import 'package:careerpathai/presentation/controllers/app_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../presentation/controllers/career_controller.dart';
@@ -14,7 +12,6 @@ class ResultsPage extends StatefulWidget {
 
 class _ResultsPageState extends State<ResultsPage> {
   final CareerController _ctrl = Get.find<CareerController>();
-  final appCtrl = Get.find<AppController>();
   final bool _sortByScoreDesc = true;
 
   final Set<String> _favorites = {};
@@ -68,17 +65,6 @@ class _ResultsPageState extends State<ResultsPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('results'.tr),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.brightness_6),
-            onPressed: () => appCtrl.toogleTheme(),
-            tooltip: AppTexts.theme.tr,
-          ),
-          IconButton(
-            icon: const Icon(Icons.language),
-            onPressed: () => appCtrl.changeLanguage(),
-          ),
-        ],
       ),
       body: Obx(() {
         if (_ctrl.loading.value) {

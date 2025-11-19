@@ -51,9 +51,14 @@ class CareerPathAI extends StatelessWidget {
               Positioned(
                 top: 40,
                 right: 16,
-                child: ChangeLanguageButton(),
+                child: Row(
+                  children: const [
+                    ChangeLanguageButton(),
+                    SizedBox(width: 8),
+                    ChangeThemeButton(),
+                  ],
+                ),
               ),
-              Positioned(top: 40, right: 10, child: ChangeThemeButton())
             ],
           );
         },

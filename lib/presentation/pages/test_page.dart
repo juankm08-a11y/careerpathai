@@ -1,6 +1,5 @@
 import 'package:careerpathai/core/constants/app_routes.dart';
 import 'package:careerpathai/core/constants/app_texts.dart';
-import 'package:careerpathai/presentation/controllers/app_controller.dart';
 import 'package:careerpathai/services/gemini_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -99,21 +98,18 @@ class _TestPageState extends State<TestPage> {
 
   @override
   Widget build(BuildContext context) {
-    final appCtrl = Get.find<AppController>();
-
     return Scaffold(
       appBar: AppBar(
-        title: Text('start_test'.tr),
+        title: Text(AppTexts.startTest.tr),
         centerTitle: true,
         actions: [
           IconButton(
-            icon: const Icon(Icons.brightness_6),
-            onPressed: () => appCtrl.toogleTheme(),
-            tooltip: AppTexts.theme.tr,
+            onPressed: () => Get.toNamed(AppRoutes.profile),
+            icon: const Icon(Icons.person),
           ),
           IconButton(
-            icon: const Icon(Icons.language),
-            onPressed: () => appCtrl.changeLanguage(),
+            onPressed: () => Get.toNamed(AppRoutes.about),
+            icon: const Icon(Icons.info_outline),
           ),
         ],
       ),
