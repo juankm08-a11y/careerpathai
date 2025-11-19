@@ -2,7 +2,6 @@ import 'package:careerpathai/core/constants/app_colors.dart';
 import 'package:careerpathai/core/constants/app_routes.dart';
 import 'package:careerpathai/core/constants/app_texts.dart';
 import 'package:careerpathai/presentation/widgets/buttons/app_button.dart';
-import 'package:careerpathai/presentation/widgets/filter_chip_group/filter_chip_group.dart';
 import 'package:careerpathai/presentation/widgets/header/app_header.dart';
 import 'package:careerpathai/presentation/widgets/cards/custom_card.dart';
 import 'package:careerpathai/presentation/widgets/empty_state/empty_state.dart';
@@ -12,7 +11,6 @@ import 'package:careerpathai/presentation/widgets/loading_overlay/loading_overla
 import 'package:careerpathai/presentation/widgets/profile_avatar/profile_avatar.dart';
 import 'package:careerpathai/presentation/widgets/progress/result_progress.dart';
 import 'package:careerpathai/presentation/widgets/title/section_title.dart';
-import 'package:careerpathai/presentation/widgets/tag/skill_tag.dart';
 import 'package:careerpathai/presentation/widgets/footer/ucc_footer.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -102,24 +100,30 @@ class HomePage extends StatelessWidget {
                     SectionTitle(title: HomeTexts.yourSkills.tr),
                     const SizedBox(height: 20),
                     SectionTitle(title: HomeTexts.bestCareers.tr),
-                    Obx(() => FilterChipGroup(
-                        items: careers,
-                        selected: selectedCareers,
-                        onToogle: (item) {
-                          if (selectedCareers.contains(item)) {
-                            selectedCareers.remove(item);
-                          } else {
-                            selectedCareers.add(item);
-                          }
-                        })),
-                    Wrap(
-                      spacing: 8,
-                      children: const [
-                        SkillTag(text: "Flutter"),
-                        SkillTag(text: "Dart"),
-                        SkillTag(text: "Firebase"),
-                      ],
-                    ),
+                    Obx(() {
+                      return Wrap(
+                        spacing: 8, // espacio horizontal entre chips
+                        runSpacing: 8, // espacio vertical entre líneas
+                        children: careers.map((career) {
+                          final isSelected = selectedCareers.contains(career);
+                          return FilterChip(
+                            label: Text(
+                              career,
+                              overflow: TextOverflow
+                                  .ellipsis, // corta con "..." si es muy largo
+                            ),
+                            selected: isSelected,
+                            onSelected: (_) {
+                              if (isSelected) {
+                                selectedCareers.remove(career);
+                              } else {
+                                selectedCareers.add(career);
+                              }
+                            },
+                          );
+                        }).toList(),
+                      );
+                    }),
                     const SizedBox(height: 20),
                     const CustomCard(
                       child: Padding(

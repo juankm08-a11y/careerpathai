@@ -15,7 +15,6 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final user = Supabase.instance.client.auth.currentUser;
-
     final appController = Get.find<AppController>();
 
     return Scaffold(
@@ -23,7 +22,6 @@ class ProfilePage extends StatelessWidget {
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
         child: Column(
-          mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             CircleAvatar(radius: 45, child: Icon(Icons.person, size: 45)),
@@ -43,6 +41,9 @@ class ProfilePage extends StatelessWidget {
                 StatsBox(title: 'Badges', value: '5'),
               ],
             ),
+            const SizedBox(height: 25),
+            const TagList(tags: ['Flutter', 'Dart', 'Firebase']),
+            const SizedBox(height: 25),
             SettingsTitle(
               title: ProfileTexts.userPreferences.tr,
               subtitle: ProfileTexts.subtitle.tr,
@@ -53,60 +54,42 @@ class ProfilePage extends StatelessWidget {
                 snackPosition: SnackPosition.BOTTOM,
               ),
             ),
-            const SizedBox(height: 20),
-            const TagList(tags: ['Flutter', 'Dart', 'Firebase']),
-            const SizedBox(height: 25),
+            const SizedBox(height: 30),
+            GestureDetector(
+              onTap: () => appController.pickProfilePhoto(),
+              child: const CircleAvatar(
+                radius: 45,
+                child: Icon(Icons.person, size: 45),
+              ),
+            ),
+            const SizedBox(height: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                GestureDetector(
-                  onTap: () => appController.pickProfilePhoto(),
-                  child: const CircleAvatar(
-                    radius: 45,
-                    child: Icon(Icons.person, size: 45),
-                  ),
+                CustomIconButton(
+                  icon: Icons.edit,
+                  tooltip: ProfileTexts.editProfile.tr,
+                  onPressed: () => Get.snackbar('Edit', 'Edit profile clicked'),
                 ),
                 const SizedBox(width: 12),
-                Text(
-                  user?.email ?? '---',
-                  style:
-                      const TextStyle(fontSize: 8, fontWeight: FontWeight.w500),
-                ),
-                const SizedBox(height: 25),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    StatsBox(title: 'Projects', value: '12'),
-                    SizedBox(width: 16),
-                    StatsBox(title: 'Skills', value: '8'),
-                    SizedBox(width: 16),
-                    StatsBox(title: 'Badges', value: '5'),
-                  ],
-                ),
-                const SizedBox(height: 20),
-                const TagList(tags: ['Flutter', 'Dart', 'Firebase', 'Python']),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    CustomIconButton(
-                        icon: Icons.edit,
-                        tooltip: ProfileTexts.editProfile.tr,
-                        onPressed: () =>
-                            Get.snackbar('Edit', 'Edit profile clicked'))
-                  ],
-                ),
-                const SizedBox(height: 12),
                 CustomIconButton(
                   icon: Icons.settings,
                   tooltip: ProfileTexts.settings.tr,
                   onPressed: () => appController.showConfigurations(context),
-                )
+                ),
               ],
             ),
+            const SizedBox(height: 25),
+            const TagList(tags: ['Flutter', 'Dart', 'Firebase', 'Python']),
+            const SizedBox(height: 30),
             ElevatedButton(
-                onPressed: appController.logout,
-                child: Text(ProfileTexts.logout.tr)),
-            const UccFooter(text: '© 2025 Universidad Cooperativa de Colombia'),
+              onPressed: appController.logout,
+              child: Text(ProfileTexts.logout.tr),
+            ),
+            const SizedBox(height: 20),
+            const UccFooter(
+              text: '© 2025 Universidad Cooperativa de Colombia',
+            ),
           ],
         ),
       ),

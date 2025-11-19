@@ -17,16 +17,26 @@ class AppButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textStyle = const TextStyle(
+      fontFamily: "Roboto",
+      fontSize: 16,
+      fontWeight: FontWeight.w600,
+      inherit: false,
+    );
+
     final style = outlined
         ? OutlinedButton.styleFrom(
             foregroundColor: AppColors.primary,
             side: BorderSide(color: AppColors.primary),
+            textStyle: textStyle,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadiusGeometry.circular(12),
+              borderRadius: BorderRadius.all(Radius.circular(12)),
             ),
           )
         : ElevatedButton.styleFrom(
             backgroundColor: AppColors.primary,
+            foregroundColor: Colors.white,
+            textStyle: textStyle,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12),
             ),

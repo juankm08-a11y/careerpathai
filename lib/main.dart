@@ -19,7 +19,6 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await dotenv.load(fileName: ".env");
-
   await SupabaseConfig.initialize();
 
   Get.put(AppController(), permanent: true);
@@ -91,10 +90,9 @@ class _WelcomeScreenState extends State<WelcomeScreen>
       duration: const Duration(milliseconds: 1600),
     )..repeat(reverse: true);
 
-    _logoScale = Tween<double>(
-      begin: 0.05,
-      end: 1.02,
-    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOut));
+    _logoScale = Tween<double>(begin: 0.05, end: 1.02).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
+    );
 
     _fadeIn = Tween<double>(begin: 0.0, end: 1.0).animate(
       CurvedAnimation(
@@ -126,6 +124,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+
     return Scaffold(
       body: Stack(
         children: [
@@ -160,7 +159,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(22),
                       child: BackdropFilter(
-                        filter: ImageFilter.blur(sigmaX: 12.0, sigmaY: 12.0),
+                        filter: ImageFilter.blur(sigmaX: 12, sigmaY: 12),
                         child: Container(
                           constraints: const BoxConstraints(maxWidth: 760),
                           padding: const EdgeInsets.symmetric(
@@ -252,8 +251,6 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                                       shadowColor: Colors.black54,
                                       textStyle: const TextStyle(
                                         fontSize: 16,
-                                        color: Colors.white,
-                                        inherit: true,
                                         fontWeight: FontWeight.w600,
                                       ),
                                     ),
@@ -280,23 +277,23 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                                   ),
                                   const SizedBox(width: 14),
                                   OutlinedButton(
-                                      onPressed: _goToRegister,
-                                      style: OutlinedButton.styleFrom(
-                                          side: BorderSide(
-                                            color: Colors.white.withValues(
-                                              alpha: 0.18,
-                                            ),
-                                          ),
-                                          padding: const EdgeInsets.symmetric(
-                                            horizontal: 22,
-                                            vertical: 12,
-                                          ),
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadiusGeometry.circular(
-                                                    12),
-                                          )),
-                                      child: const Text('Register'))
+                                    onPressed: _goToRegister,
+                                    style: OutlinedButton.styleFrom(
+                                      side: BorderSide(
+                                        color: Colors.white.withValues(
+                                          alpha: 0.18,
+                                        ),
+                                      ),
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 22,
+                                        vertical: 12,
+                                      ),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(12),
+                                      ),
+                                    ),
+                                    child: const Text('Register'),
+                                  ),
                                 ],
                               ),
                               const SizedBox(height: 12),
